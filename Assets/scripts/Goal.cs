@@ -12,9 +12,13 @@ public class Goal : MonoBehaviour {
 
     public Text messageText;        // メッセージ用
     public Text scoreText;          // スコア表示用
+    public Text rankText;
     public string message = "Stage Clear";
 
-    void Start () {
+    private int result;
+
+    void Start()
+    {
         var img = GetComponent<Image>();
         red = img.color.r;
         green = img.color.g;
@@ -24,22 +28,53 @@ public class Goal : MonoBehaviour {
             messageText.enabled = false;
         if (scoreText != null)
             scoreText.enabled = false;
+        if (rankText != null)
+            rankText.enabled = false;
     }
 
     void Update () {
         if (player == null) return;
 
-        if (!isFading && Vector3.Distance(player.position, goalPosition) < threshold) {
+        if (!isFading && Vector3.Distance(player.position, goalPosition) < threshold)
+        {
             isFading = true;
-            if (messageText != null) {
+            if (messageText != null)
+            {
                 messageText.enabled = true;
                 messageText.text = message;
             }
-            if (scoreText != null) {
+            if (scoreText != null)
+            {
                 scoreText.enabled = true;
                 // GameManager.Instance.score からスコアを取得
-                int result = ScoreManager.score; // ScoreManagerを使用してスコアを取得
+                result = ScoreManager.score; // ScoreManagerを使用してスコアを取得
                 scoreText.text = "Result : " + result;
+            }
+            if (rankText != null)
+            {
+                rankText.enabled = true;
+                string rank;
+                if (result >= 85)
+                {
+                    rank = "A";
+                }
+                else if (result >= 70)
+                {
+                    rank = "B";
+                }
+                else if (result >= 60)
+                {
+                    rank = "C";
+                }
+                else if (result >= 50)
+                {
+                    rank = "F";
+                }
+                else
+                {
+                    rank = "N";
+                }
+                rankText.text = "Rank : " + rank;
             }
         }
 
