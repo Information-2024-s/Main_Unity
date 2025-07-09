@@ -8,6 +8,8 @@ public class Syouzyun : MonoBehaviour
 
     private float timer = 0f;
 
+    public AudioClip sound1;
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -20,6 +22,7 @@ public class Syouzyun : MonoBehaviour
 
             GameObject bulletObj = Instantiate(bullet, transform.position, Quaternion.identity);
             Rigidbody rb = bulletObj.GetComponent<Rigidbody>();
+            AudioSource.PlayClipAtPoint(sound1, transform.position, 1.0f);
 
             if (rb != null)
             {
