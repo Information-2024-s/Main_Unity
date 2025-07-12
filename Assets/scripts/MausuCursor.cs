@@ -6,7 +6,7 @@ public class MausuCursor : MonoBehaviour
 
     void Start()
     {
-        Vector2 offset = new Vector2(500f, 500f);  // X,Yに500ピクセルずらす
+        Vector2 offset = new Vector2(250f, 250f);  // X,Yに500ピクセルずらす
         Cursor.SetCursor(cursorTexture, offset, CursorMode.Auto);
     }
 }
