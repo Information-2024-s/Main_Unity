@@ -13,8 +13,9 @@ public class Shot : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            Destroy(col.gameObject); // 敵を削除
-            Destroy(this.gameObject); // 弾を削除
+            col.gameObject.GetComponent<Enemy>().DestroyEnemy();
+            Destroy(this.gameObject); // 弾も削除
+
         }
     }
 }
