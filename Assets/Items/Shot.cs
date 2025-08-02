@@ -15,6 +15,7 @@ public class Shot : MonoBehaviour
         {
             col.gameObject.GetComponent<Enemy>().DestroyEnemy();
             Destroy(this.gameObject); // 弾も削除
+
         }
     }
 }
