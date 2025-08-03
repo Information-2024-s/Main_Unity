@@ -11,11 +11,11 @@ public class Goal : MonoBehaviour {
     bool isFading = false;
 
     public Text messageText;        // メッセージ用
-    public Text scoreText;          // スコア表示用
-    public Text rankText;
+    public Text[] scoreText = new Text[4];          // スコア表示用
+    public Text[] rankText = new Text[4];
     public string message = "Stage Clear";
 
-    private int result;
+    private int[] results = new int[4];
 
     void Start()
     {
@@ -27,9 +27,13 @@ public class Goal : MonoBehaviour {
         if (messageText != null)
             messageText.enabled = false;
         if (scoreText != null)
-            scoreText.enabled = false;
+            foreach (var sT in scoreText)
+                if (sT != null)
+                    sT.enabled = false;
         if (rankText != null)
-            rankText.enabled = false;
+            foreach (var rT in rankText)
+                if (rT != null)
+                    rT.enabled = false;
     }
 
     void Update () {
@@ -43,38 +47,46 @@ public class Goal : MonoBehaviour {
                 messageText.enabled = true;
                 messageText.text = message;
             }
-            if (scoreText != null)
+
+                
+            // GameManager.Instance.score からスコアを取得
+            results = ScoreManager.scores; // ScoreManagerを使用してスコアを取得
+            for (int i = 0; i < 4; i++)
             {
-                scoreText.enabled = true;
-                // GameManager.Instance.score からスコアを取得
-                result = ScoreManager.score; // ScoreManagerを使用してスコアを取得
-                scoreText.text = "Result : " + result;
+                if (scoreText[i] != null)
+                {
+                scoreText[i].enabled = true;
+                scoreText[i].text = "Result : " + results[i];
+                }
             }
             if (rankText != null)
             {
-                rankText.enabled = true;
-                string rank;
-                if (result >= 85)
+                for (int i = 0; i < 4;i++)
                 {
-                    rank = "A";
+                    rankText[i].enabled = true;
+                    string rank;
+                    if (results[i] >= 85)
+                    {
+                        rank = "A";
+                    }
+                    else if (results[i] >= 70)
+                    {
+                        rank = "B";
+                    }
+                    else if (results[i] >= 60)
+                    {
+                        rank = "C";
+                    }
+                    else if (results[i] >= 50)
+                    {
+                        rank = "F";
+                    }
+                    else
+                    {
+                        rank = "N";
+                    }
+                    rankText[i].text = "Rank : " + rank;
                 }
-                else if (result >= 70)
-                {
-                    rank = "B";
-                }
-                else if (result >= 60)
-                {
-                    rank = "C";
-                }
-                else if (result >= 50)
-                {
-                    rank = "F";
-                }
-                else
-                {
-                    rank = "N";
-                }
-                rankText.text = "Rank : " + rank;
             }
         }
 
@@ -85,7 +97,11 @@ public class Goal : MonoBehaviour {
                 messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, alfa);
 
             if (scoreText != null)
-                scoreText.color = new Color(scoreText.color.r, scoreText.color.g, scoreText.color.b, alfa);
+                for (int i = 0; i < 4; i++)
+                { 
+                    scoreText[i].color = new Color(scoreText[i].color.r, scoreText[i].color.g, scoreText[i].color.b, alfa);    
+                }
+                
 
             alfa += speed;
         }
