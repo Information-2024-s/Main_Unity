@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
     public GameObject breakEffect;
     public int scoreValue = 10;
 
-    public void DestroyEnemy()
+    public void DestroyEnemy(int player_num)
     {
         // ゲーム中にのみ処理（エディタ停止時などを除外）
         if (!Application.isPlaying) return;
@@ -28,7 +28,9 @@ public class Enemy : MonoBehaviour
         // スコア加算
         if (ScoreManager.instance != null)
         {
-            ScoreManager.instance.AddScore(scoreValue);
+            Debug.Log(player_num);
+            ScoreManager.instance.AddScore(player_num, scoreValue);
+            
         }
 
         // 自身を削除
