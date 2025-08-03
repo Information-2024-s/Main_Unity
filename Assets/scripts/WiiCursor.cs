@@ -13,8 +13,8 @@ public class WiimoteTest : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float power = 500f;
     public float cooltime = 0.2f;
-
     private float timer = 0f;
+    public AudioClip sound1;
 
     void Start()
     {
@@ -31,8 +31,9 @@ public class WiimoteTest : MonoBehaviour
             Debug.Log("Wii is not connected!");
             return;
         }
-        else if(WiimoteManager.Wiimotes.Count < controller_num + 1){ 
-            Debug.Log("Wii"+controller_num + "is not connected!");
+        else if (WiimoteManager.Wiimotes.Count < controller_num + 1)
+        {
+            Debug.Log("Wii" + controller_num + "is not connected!");
             return;
         }
 
@@ -69,14 +70,14 @@ public class WiimoteTest : MonoBehaviour
 
             GameObject bulletObj = Instantiate(bullet, firePoint.position, Quaternion.identity);
             Rigidbody rb = bulletObj.GetComponent<Rigidbody>();
-
+            AudioSource.PlayClipAtPoint(sound1, transform.position, 1.0f);
             if (rb != null)
             {
                 rb.AddForce(ray.direction * power, ForceMode.Impulse);
             }
             //Debug.Log("弾の位置: " + bulletObj.transform.position);
         }
-}
+    }
 
     private void OnApplicationQuit()
     {
