@@ -70,7 +70,7 @@ public class WiimoteTest : MonoBehaviour
 
             GameObject bulletObj = Instantiate(bullet, firePoint.position, Quaternion.identity);
             Rigidbody rb = bulletObj.GetComponent<Rigidbody>();
-            AudioSource.PlayClipAtPoint(sound1, transform.position, 1.0f);
+            AudioSource.PlayClipAtPoint(sound1, firePoint.transform.position, 1.0f);
             if (rb != null)
             {
                 rb.AddForce(ray.direction * power, ForceMode.Impulse);
