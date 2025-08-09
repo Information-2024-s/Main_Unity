@@ -71,6 +71,8 @@ public class WiimoteTest : MonoBehaviour
             GameObject bulletObj = Instantiate(bullet, firePoint.position, Quaternion.identity);
             Rigidbody rb = bulletObj.GetComponent<Rigidbody>();
             AudioSource.PlayClipAtPoint(sound1, firePoint.transform.position, 1.0f);
+            StartCoroutine(rumble_for(0.2f));
+
             if (rb != null)
             {
                 rb.AddForce(ray.direction * power, ForceMode.Impulse);
@@ -83,6 +85,14 @@ public class WiimoteTest : MonoBehaviour
     {
         WiimoteManager.Cleanup(wiimote);
         wiimote = null;
+    }
+    IEnumerator rumble_for(float seconds)
+    {
+            wiimote.RumbleOn = true ; // ランブルを有効にする
+            wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
+            yield return new WaitForSeconds(seconds);
+            wiimote.RumbleOn = false; // ランブル無効
+            wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
     }
 
 }
