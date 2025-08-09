@@ -11,8 +11,11 @@ public class Goal : MonoBehaviour {
     bool isFading = false;
 
     public Text messageText;        // メッセージ用
+    public Text[] labelText;
     public Text[] scoreText = new Text[4];          // スコア表示用
     public Text[] rankText = new Text[4];
+    public Behaviour[] UI_to_delete;
+
     public string message = "Stage Clear";
 
     private int[] results = new int[4];
@@ -34,6 +37,10 @@ public class Goal : MonoBehaviour {
             foreach (var rT in rankText)
                 if (rT != null)
                     rT.enabled = false;
+        if (labelText != null)
+            foreach (var lT in labelText)
+                if (lT != null)
+                    lT.enabled = false;
     }
 
     void Update () {
@@ -41,28 +48,32 @@ public class Goal : MonoBehaviour {
 
         if (!isFading && Vector3.Distance(player.position, goalPosition) < threshold)
         {
+            Debug.Log("start fading");
             isFading = true;
             if (messageText != null)
             {
                 messageText.enabled = true;
                 messageText.text = message;
             }
+            foreach (var UIToDel in UI_to_delete)
+            {
+                UIToDel.enabled = false;
+            }
 
-                
             // GameManager.Instance.score からスコアを取得
             results = ScoreManager.scores; // ScoreManagerを使用してスコアを取得
             for (int i = 0; i < 4; i++)
             {
                 if (scoreText[i] != null)
                 {
-                scoreText[i].enabled = true;
-                scoreText[i].text = "Result : " + results[i];
+                    scoreText[i].enabled = true;
+                    scoreText[i].text = results[i].ToString();
                 }
             }
-            if (rankText != null)
+
+            for (int i = 0; i < 4;i++)
             {
-                for (int i = 0; i < 4;i++)
-                {
+                if(rankText[i] != null)
                     rankText[i].enabled = true;
                     string rank;
                     if (results[i] >= 85)
@@ -85,10 +96,10 @@ public class Goal : MonoBehaviour {
                     {
                         rank = "N";
                     }
-                    rankText[i].text = "Rank : " + rank;
-                }
+                    rankText[i].text = rank;
             }
         }
+        
 
         if (isFading && alfa <= 1f) {
             GetComponent<Image>().color = new Color(red, green, blue, alfa);
