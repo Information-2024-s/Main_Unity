@@ -55,6 +55,10 @@ public class Goal : MonoBehaviour {
                 messageText.enabled = true;
                 messageText.text = message;
             }
+            foreach (var lT in labelText)
+            {
+                lT.enabled = true;
+            }
             foreach (var UIToDel in UI_to_delete)
             {
                 UIToDel.enabled = false;
