@@ -59,7 +59,7 @@ public class WiimoteTest : MonoBehaviour
         }
 
 
-        if (wiimote.Button.b && timer >= cooltime)
+        if (wiimote.Button.b && timer >= cooltime && GetComponent<RawImage>().enabled)
         {
             timer = 0f;
             Vector3 screenPos = new Vector3(pointer[0] * 1920, pointer[1] * 1080, 0);
