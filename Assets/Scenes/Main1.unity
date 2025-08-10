@@ -570,6 +570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   distance: {x: 3, y: 0, z: 0}
+  random_enable: 0
+  random_range: 0.5
 --- !u!114 &71182530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4774,6 +4776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   distance: {x: 0, y: 7, z: 0}
+  random_enable: 1
+  random_range: 0.01
 --- !u!1 &2146351311
 GameObject:
   m_ObjectHideFlags: 0
