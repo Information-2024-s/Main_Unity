@@ -4,13 +4,13 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 public class face : MonoBehaviour
 {
-    public Texture2D[] textures = new Texture2D[4];
-    public GameObject[] enemys;
+    private Texture2D[] textures;
+    public GameObject[] enemy_faces;
     void Start()
     {
 
     }
-    void get_textures(int[] players_id)
+    public void get_textures(int[] players_id)
     {
         for (int i = 0; i < players_id.Length; i++)
         {
@@ -18,11 +18,11 @@ public class face : MonoBehaviour
         }
     }
 
-    void paste_image(int[] players_id)
+    public void paste_image(int[] players_id)
     {
-        for (int i = 0; i < enemys.Length; i++) {
-            if (enemys[i] != null && textures[i] != null) {
-                Renderer renderer = enemys[i].GetComponent<Renderer>();
+        for (int i = 0; i < enemy_faces.Length; i++) {
+            if (enemy_faces[i] != null && textures[i % players_id.Length] != null) {
+                Renderer renderer = enemy_faces[i].GetComponent<Renderer>();
                 if (renderer != null)
                 {
                     renderer.material.mainTexture = textures[i % players_id.Length];
