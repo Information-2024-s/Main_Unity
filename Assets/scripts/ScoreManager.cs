@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public Text scoreText;
-    public static int score = 0;
+    public Text[] scoreText = new Text[4];
+    public static int[] scores = new int[4];
 
     private void Awake()
     {
@@ -15,17 +15,19 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int amount)
+    public void AddScore(int player,int amount)
     {
-        score += amount;
-        UpdateScoreUI();
+        Debug.Log(player);
+        scores[player] += amount;
+        UpdateScoreUI(player);
     }
 
-    private void UpdateScoreUI()
+    private void UpdateScoreUI(int player)
     {
         if (scoreText != null)
         {
-            scoreText.text = "" + score;
+            Debug.Log(player);
+            scoreText[player].text = "" + scores[player];
         }
     }
 
