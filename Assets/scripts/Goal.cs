@@ -11,11 +11,14 @@ public class Goal : MonoBehaviour {
     bool isFading = false;
 
     public Text messageText;        // メッセージ用
-    public Text scoreText;          // スコア表示用
-    public Text rankText;
+    public Text[] labelText;
+    public Text[] scoreText = new Text[4];          // スコア表示用
+    public Text[] rankText = new Text[4];
+    public Behaviour[] UI_to_delete;
+
     public string message = "Stage Clear";
 
-    private int result;
+    private int[] results = new int[4];
 
     void Start()
     {
@@ -27,9 +30,17 @@ public class Goal : MonoBehaviour {
         if (messageText != null)
             messageText.enabled = false;
         if (scoreText != null)
-            scoreText.enabled = false;
+            foreach (var sT in scoreText)
+                if (sT != null)
+                    sT.enabled = false;
         if (rankText != null)
-            rankText.enabled = false;
+            foreach (var rT in rankText)
+                if (rT != null)
+                    rT.enabled = false;
+        if (labelText != null)
+            foreach (var lT in labelText)
+                if (lT != null)
+                    lT.enabled = false;
     }
 
     void Update () {
@@ -37,46 +48,62 @@ public class Goal : MonoBehaviour {
 
         if (!isFading && Vector3.Distance(player.position, goalPosition) < threshold)
         {
+            Debug.Log("start fading");
             isFading = true;
             if (messageText != null)
             {
                 messageText.enabled = true;
                 messageText.text = message;
             }
-            if (scoreText != null)
+            foreach (var lT in labelText)
             {
-                scoreText.enabled = true;
-                // GameManager.Instance.score からスコアを取得
-                result = ScoreManager.score; // ScoreManagerを使用してスコアを取得
-                scoreText.text = "Result : " + result;
+                lT.enabled = true;
             }
-            if (rankText != null)
+            foreach (var UIToDel in UI_to_delete)
             {
-                rankText.enabled = true;
-                string rank;
-                if (result >= 85)
+                UIToDel.enabled = false;
+            }
+
+            // GameManager.Instance.score からスコアを取得
+            results = ScoreManager.scores; // ScoreManagerを使用してスコアを取得
+            for (int i = 0; i < 4; i++)
+            {
+                if (scoreText[i] != null)
                 {
-                    rank = "A";
+                    scoreText[i].enabled = true;
+                    scoreText[i].text = results[i].ToString();
                 }
-                else if (result >= 70)
-                {
-                    rank = "B";
-                }
-                else if (result >= 60)
-                {
-                    rank = "C";
-                }
-                else if (result >= 50)
-                {
-                    rank = "F";
-                }
-                else
-                {
-                    rank = "N";
-                }
-                rankText.text = "Rank : " + rank;
+            }
+
+            for (int i = 0; i < 4;i++)
+            {
+                if(rankText[i] != null)
+                    rankText[i].enabled = true;
+                    string rank;
+                    if (results[i] >= 85)
+                    {
+                        rank = "A";
+                    }
+                    else if (results[i] >= 70)
+                    {
+                        rank = "B";
+                    }
+                    else if (results[i] >= 60)
+                    {
+                        rank = "C";
+                    }
+                    else if (results[i] >= 50)
+                    {
+                        rank = "F";
+                    }
+                    else
+                    {
+                        rank = "N";
+                    }
+                    rankText[i].text = rank;
             }
         }
+        
 
         if (isFading && alfa <= 1f) {
             GetComponent<Image>().color = new Color(red, green, blue, alfa);
@@ -85,7 +112,11 @@ public class Goal : MonoBehaviour {
                 messageText.color = new Color(messageText.color.r, messageText.color.g, messageText.color.b, alfa);
 
             if (scoreText != null)
-                scoreText.color = new Color(scoreText.color.r, scoreText.color.g, scoreText.color.b, alfa);
+                for (int i = 0; i < 4; i++)
+                { 
+                    scoreText[i].color = new Color(scoreText[i].color.r, scoreText[i].color.g, scoreText[i].color.b, alfa);    
+                }
+                
 
             alfa += speed;
         }
