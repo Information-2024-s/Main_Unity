@@ -9,7 +9,7 @@ public class face : MonoBehaviour
     public int loaded_count;
     void Start()
     {
-
+        set_textures(player_manager.players_id);
     }
     public void set_textures(int[] players_id)
     {
