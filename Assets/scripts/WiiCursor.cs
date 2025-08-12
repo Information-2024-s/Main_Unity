@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+
 public class WiiCursor : MonoBehaviour
 {
     private Wiimote wiimote;
@@ -17,8 +19,20 @@ public class WiiCursor : MonoBehaviour
     private GraphicRaycaster raycaster;
     private EventSystem eventSystem;
     private QRCodeReader QRCodeReader;
+    private VideoPlayer videoPlayer;
     void Start()
     {
+        videoPlayer = GetComponent<VideoPlayer>();
+
+        if (videoPlayer == null)
+        {
+            Debug.LogError("VideoPlayerコンポーネントがありません！");
+            return;
+        }
+
+        videoPlayer.time = 0.01f;  // 再生開始位置セット
+        videoPlayer.Pause();       // 一旦停止（再生はしない
+
         QRCodeReader = UnityEngine.Object.FindFirstObjectByType<QRCodeReader>();
         raycaster = GetComponentInParent<GraphicRaycaster>();
         eventSystem = EventSystem.current;
@@ -78,10 +92,7 @@ public class WiiCursor : MonoBehaviour
 
             if (ContainsGameObject(results, shot_me_object))
             {
-                wiimote.RumbleOn = false; // ランブル無効
-                wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
-                QRCodeReader.stop_webcam();
-                SceneManager.LoadScene("Main1");
+                StartCoroutine(transion_next_scene());
             }
 
 
@@ -94,23 +105,32 @@ public class WiiCursor : MonoBehaviour
         wiimote = null;
     }
     private bool ContainsGameObject(List<RaycastResult> results, GameObject target)
-{
-    foreach (RaycastResult result in results)
     {
-        if (result.gameObject == target)
+        foreach (RaycastResult result in results)
         {
-            return true;
+            if (result.gameObject == target)
+            {
+                return true;
+            }
         }
+        return false;
     }
-    return false;
-}
     IEnumerator rumble_for(float seconds)
     {
-            wiimote.RumbleOn = true ; // ランブルを有効にする
-            wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
-            yield return new WaitForSeconds(seconds);
-            wiimote.RumbleOn = false; // ランブル無効
-            wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
+        wiimote.RumbleOn = true; // ランブルを有効にする
+        wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
+        yield return new WaitForSeconds(seconds);
+        wiimote.RumbleOn = false; // ランブル無効
+        wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
+    }
+    IEnumerator transion_next_scene()
+    {
+        wiimote.RumbleOn = false; // ランブル無効
+        wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
+        QRCodeReader.stop_webcam();
+        videoPlayer.Play();
+        yield return new WaitWhile(() => videoPlayer.isPlaying);
+        SceneManager.LoadScene("Main1");
     }
 
 }
