@@ -7,11 +7,14 @@ public class QRCodeReader : MonoBehaviour
 {
     private player_manager player_manager;
     public RawImage rawImage;
+    public AudioClip player_add_sound;
+    private AudioSource audioSource;
     private WebCamTexture webcamTexture;
     private IBarcodeReader barcodeReader;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player_manager = UnityEngine.Object.FindFirstObjectByType<player_manager>();
 
         if (WebCamTexture.devices.Length > 1)
@@ -58,7 +61,11 @@ public class QRCodeReader : MonoBehaviour
                     {
                         Debug.Log("正常な値を読み取りました");
                         if (!Array.Exists(player_manager.players_id, x => x == player_id))
+                        {
+                            audioSource.PlayOneShot(player_add_sound,1.0f);
                             player_manager.add_player(player_id);
+                        }
+                            
 
                     }
                     else
