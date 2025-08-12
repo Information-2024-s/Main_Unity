@@ -5,7 +5,7 @@ using System.Linq;
 public class player_manager : MonoBehaviour
 {
     public static int[] players_id = new int[4];
-    public int player_count = 0;
+    public static int player_count = 0;
     public TextMeshProUGUI [] player_state = new TextMeshProUGUI [4];
     void Start()
     {
