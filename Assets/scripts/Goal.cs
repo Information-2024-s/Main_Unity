@@ -26,21 +26,6 @@ public class Goal : MonoBehaviour {
         red = img.color.r;
         green = img.color.g;
         blue = img.color.b;
-
-        if (messageText != null)
-            messageText.enabled = false;
-        if (scoreText != null)
-            foreach (var sT in scoreText)
-                if (sT != null)
-                    sT.enabled = false;
-        if (rankText != null)
-            foreach (var rT in rankText)
-                if (rT != null)
-                    rT.enabled = false;
-        if (labelText != null)
-            foreach (var lT in labelText)
-                if (lT != null)
-                    lT.enabled = false;
     }
 
     void Update () {
