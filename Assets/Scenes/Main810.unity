@@ -327,7 +327,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53964463}
   m_CullTransparentMesh: 1
-
 --- !u!114 &53964468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,7 +967,7 @@ MonoBehaviour:
   power: 200
   cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
-  bullettype: 0
+  bullettype: 2
 --- !u!1 &655156620
 GameObject:
   m_ObjectHideFlags: 0
