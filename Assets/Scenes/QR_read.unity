@@ -386,9 +386,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a97e184bc3cdf4d990322f5b259cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target_scene: Main1
   controller_num: 0
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
   shot_me_object: {fileID: 2137556460}
+  transion_for_debug: 0
 --- !u!114 &279363160
 MonoBehaviour:
   m_ObjectHideFlags: 0
