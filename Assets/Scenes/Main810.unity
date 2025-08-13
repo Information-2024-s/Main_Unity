@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 53964467}
   - component: {fileID: 53964466}
   - component: {fileID: 53964465}
+  - component: {fileID: 53964468}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -281,8 +282,12 @@ MonoBehaviour:
   goalPosition: {x: -150, y: 0, z: -200}
   threshold: 0.1
   messageText: {fileID: 471652525}
-  scoreText: {fileID: 770411179}
-  rankText: {fileID: 1354146073}
+  labelText: []
+  scoreText:
+  - {fileID: 0}
+  rankText:
+  - {fileID: 0}
+  UI_to_delete: []
   message: Stage Clear
 --- !u!114 &53964466
 MonoBehaviour:
@@ -297,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -322,6 +327,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53964463}
   m_CullTransparentMesh: 1
+
+--- !u!114 &53964468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53964463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd0c607fa127514ab8aff3f7a17e252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  player: {fileID: 586838656}
+  targetPosition: {x: 50, y: 0, z: -40}
+  threshold: 5
+  messageText: {fileID: 471652525}
+  targetText: {fileID: 770411179}
+  targetEnemyText: {fileID: 1354146073}
+  message: WAVE 1
+  target: "\u6575\u3092\u5012\u305B"
+  target_enemy: "\u76EE\u6A19\u6483\u7834\u6570\uFF1A10\u4F53"
+  shoterObject: {fileID: 586838653}
 --- !u!1 &157524090
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +402,9 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
+  - position: {x: 50, y: 5, z: -100}
+    tangent: {x: -15.452732, y: 0, z: 33.616066}
+    roll: 0
   - position: {x: 50, y: 0, z: -40}
     tangent: {x: 0, y: 0, z: 0}
     roll: 0
@@ -850,8 +882,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586838653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 0, z: -40}
+  m_LocalRotation: {x: 0, y: -0.21377583, z: 0, w: 0.97688276}
+  m_LocalPosition: {x: 50, y: 5, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -930,10 +962,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19daaa9facc68874395417a635838155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5137645440968469463, guid: 3017576d6d8c8ff41b0825109d3d02ff, type: 3}
+  bullet_nomal: {fileID: 5137645440968469463, guid: 3017576d6d8c8ff41b0825109d3d02ff, type: 3}
+  bullet_sniper: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
+  bullet_machinegun: {fileID: 5137645440968469463, guid: 486a6ffed5b84b948b05bf6cb2e2381c, type: 3}
   power: 200
   cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
+  bullettype: 0
 --- !u!1 &655156620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,7 +2499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b08a9e5365c03b489fb4a9d6c26493f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 2146351313}
+  scoreText:
+  - {fileID: 0}
 --- !u!1 &2025012038
 GameObject:
   m_ObjectHideFlags: 0
