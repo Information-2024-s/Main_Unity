@@ -1701,9 +1701,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &586838658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4216,6 +4215,15 @@ MonoBehaviour:
   message: WAVE 1
   target: "\u6575\u3092\u5012\u305B"
   target_enemy: "\u76EE\u6A19\u6483\u7834\u6570\uFF1A10\u4F53"
+  UI_to_display:
+  - {fileID: 874706745}
+  - {fileID: 581698955}
+  - {fileID: 1552390813}
+  - {fileID: 1961978351}
+  - {fileID: 1762844149}
+  - {fileID: 726693157}
+  - {fileID: 1410461821}
+  - {fileID: 1470641690}
   shoterObject: {fileID: 586838653}
 --- !u!114 &1325609246
 MonoBehaviour:
@@ -5792,7 +5800,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1f71f383b4bb547b5164b6299f7ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_faces: []
+  enemy_faces:
+  - {fileID: 102005534}
+  - {fileID: 600053326}
   loaded_count: 0
 --- !u!114 &1920136862
 MonoBehaviour:
