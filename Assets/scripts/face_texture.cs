@@ -20,7 +20,7 @@ public class face : MonoBehaviour
         loaded_count = 0;
         for (int i = 0; i < player_count; i++)
         {
-            StartCoroutine(SetTexture_coroutine(players_id,player_count,"http://127.0.0.1:5000/get/" + players_id[i], i));
+            StartCoroutine(SetTexture_coroutine(players_id,player_count,config_loader.config.texture_URL + players_id[i], i));
         }
     }
     private IEnumerator SetTexture_coroutine(int[] players_id,int player_count,string url, int i)

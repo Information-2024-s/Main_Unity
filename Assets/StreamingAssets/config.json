@@ -1,4 +1,6 @@
 {
     "scene":"Main810",
-    "camera_num":1
+    "camera_num":1,
+    "texture_URL":"http://127.0.0.1:5000/get/",
+    "DB_URL":"http://localhost:3000/api/scores"
 }
