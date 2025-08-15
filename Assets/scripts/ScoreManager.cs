@@ -38,7 +38,7 @@ public class ScoreManager : MonoBehaviour
         ScoreData.player_id = player_id;
         ScoreData.score = score;
         string jsonstr = JsonUtility.ToJson (ScoreData);
-        StartCoroutine(Post("http://localhost:3000/api/scores", jsonstr));
+        StartCoroutine(Post(config_loader.config.DB_URL, jsonstr));
     }
     private void UpdateScoreUI(int player)
     {
