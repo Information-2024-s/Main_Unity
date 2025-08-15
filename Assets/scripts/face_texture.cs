@@ -18,7 +18,7 @@ public class face : MonoBehaviour
     {
         textures = new Texture2D[player_count];
         loaded_count = 0;
-        for (int i = 0; i <= player_count; i++)
+        for (int i = 0; i < player_count; i++)
         {
             StartCoroutine(SetTexture_coroutine(players_id,player_count,"http://127.0.0.1:5000/get/" + players_id[i], i));
         }
