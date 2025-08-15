@@ -16,6 +16,7 @@ public class WiiCursor : MonoBehaviour
     public int controller_num;
     public AudioClip sound1;
     public GameObject shot_me_object;
+    public bool transion_for_debug = false;
     private GraphicRaycaster raycaster;
     private EventSystem eventSystem;
     private QRCodeReader QRCodeReader;
@@ -97,6 +98,11 @@ public class WiiCursor : MonoBehaviour
 
 
         }
+        if (transion_for_debug)
+        {
+            transion_for_debug = false;
+            StartCoroutine(transion_next_scene());
+        }
     }
 
     private void OnApplicationQuit()
@@ -130,7 +136,7 @@ public class WiiCursor : MonoBehaviour
         QRCodeReader.stop_webcam();
         videoPlayer.Play();
         yield return new WaitWhile(() => videoPlayer.isPlaying);
-        SceneManager.LoadScene("Main1");
+        SceneManager.LoadScene(config_loader.config.scene);
     }
 
 }

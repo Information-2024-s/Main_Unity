@@ -17,6 +17,7 @@ public class StartGame : MonoBehaviour
     public string message = "WAVE 1";
     public string target = "敵を倒せ";
     public string target_enemy = "目標撃破数：10体";
+    public Behaviour[] UI_to_display;
 
     public GameObject shoterObject;
 
@@ -55,6 +56,7 @@ public class StartGame : MonoBehaviour
         {
             isFading = true;
             shoterObject.GetComponent<Syouzyun>().enabled = true;
+
         }
 
         // フェード処理
@@ -69,6 +71,10 @@ public class StartGame : MonoBehaviour
                 targetText.color = new Color(targetText.color.r, targetText.color.g, targetText.color.b, alfa);
             if (targetEnemyText != null)
                 targetEnemyText.color = new Color(targetEnemyText.color.r, targetEnemyText.color.g, targetEnemyText.color.b, alfa);
+            foreach (var UItoDisp in UI_to_display) {
+                if (UItoDisp != null)
+                    UItoDisp.enabled = true; 
+            }
         }
     }
 }
