@@ -13,7 +13,6 @@ public class WiiCursor : MonoBehaviour
 {
     private Wiimote wiimote;
     private int flag = 0;
-    public string target_scene = "Main1"; 
     public int controller_num;
     public AudioClip sound1;
     public GameObject shot_me_object;
@@ -137,7 +136,7 @@ public class WiiCursor : MonoBehaviour
         QRCodeReader.stop_webcam();
         videoPlayer.Play();
         yield return new WaitWhile(() => videoPlayer.isPlaying);
-        SceneManager.LoadScene(target_scene);
+        SceneManager.LoadScene(config_loader.config.scene);
     }
 
 }
