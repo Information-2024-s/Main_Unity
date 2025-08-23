@@ -17,14 +17,10 @@ public class QRCodeReader : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         player_manager = UnityEngine.Object.FindFirstObjectByType<player_manager>();
 
-        if (WebCamTexture.devices.Length > 1)
+        if (WebCamTexture.devices.Length > 0)
         {
-            string camName = WebCamTexture.devices[1].name;  // インデックス1番のカメラ名を取得
+            string camName = WebCamTexture.devices[config_loader.config.camera_num].name;  // インデックス1番のカメラ名を取得
             webcamTexture = new WebCamTexture(camName);
-        }
-        else if (WebCamTexture.devices.Length > 0)
-        {
-            webcamTexture = new WebCamTexture(WebCamTexture.devices[0].name);
         }
         else
         {
