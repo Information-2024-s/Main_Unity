@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
     public class ScoreJson {
-        public int player_id;
+        public int userId;
         public int score;
     }
 
@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
     public void send_score(int player_id,int score)
     {
         ScoreJson ScoreData = new ScoreJson();
-        ScoreData.player_id = player_id;
+        ScoreData.userId = player_id;
         ScoreData.score = score;
         string jsonstr = JsonUtility.ToJson (ScoreData);
         StartCoroutine(Post(config_loader.config.DB_URL, jsonstr));

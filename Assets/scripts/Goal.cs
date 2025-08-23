@@ -50,7 +50,7 @@ public class Goal : MonoBehaviour {
             }
 
             // GameManager.Instance.score からスコアを取得
-            results = ScoreManager.scores; // ScoreManagerを使用してスコアを取得
+                results = ScoreManager.scores; // ScoreManagerを使用してスコアを取得
             for (int i = 0; i < 4; i++)
             {
                 if (scoreText[i] != null)
@@ -88,8 +88,12 @@ public class Goal : MonoBehaviour {
                     rankText[i].text = rank;
             }
         }
-        
 
+        for (int i = 0; i < player_manager.player_count; i++)
+        {
+            ScoreManager.instance.send_score(player_manager.players_id[i], results[i]);
+        }
+            
         if (isFading && alfa <= 1f) {
             GetComponent<Image>().color = new Color(red, green, blue, alfa);
 
