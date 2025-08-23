@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoveSideToSide : MonoBehaviour
+public class Enemy_side_to_side : MonoBehaviour
 {
     public float speed = 2.0f; // 移動速度
     public Vector3 distance = new Vector3(3.0f, 0.0f, 0.0f); // 左右前後上下の移動距離
