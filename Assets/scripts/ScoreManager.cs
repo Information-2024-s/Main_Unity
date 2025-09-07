@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro; // 追加
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public Text[] scoreText = new Text[4];
+    public TextMeshProUGUI[] scoreText = new TextMeshProUGUI[4]; // 型を変更
     public static int[] scores = new int[4];
 
     private void Awake()

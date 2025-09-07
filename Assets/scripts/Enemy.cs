@@ -6,34 +6,48 @@ public class Enemy : MonoBehaviour
     public GameObject breakEffect;
     public int scoreValue = 10;
 
+    public int maxHP = 10; // HP追加
+    private int currentHP;
+
+    public Vector3 breakEffectOffset = Vector3.zero; // オフセット追加
+
+    void Start()
+    {
+        currentHP = maxHP;
+    }
+
+    // ダメージを受ける
+    public void TakeDamage(int damage, int player_num)
+    {
+        currentHP -= damage;
+        if (currentHP <= 0)
+        {
+            DestroyEnemy(player_num);
+        }
+    }
+
     public void DestroyEnemy(int player_num)
     {
-        // ゲーム中にのみ処理（エディタ停止時などを除外）
         if (!Application.isPlaying) return;
 
-        // 音を鳴らす
         if (explodeSound != null)
         {
             Debug.Log("Play explodeSound!");
             AudioSource.PlayClipAtPoint(explodeSound, Camera.main.transform.position, 1.0f);
         }
 
-        // エフェクトを出す
         if (breakEffect != null)
         {
-            GameObject effect = Instantiate(breakEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 1.0f); // 自動削除
+            GameObject effect = Instantiate(breakEffect, transform.position + breakEffectOffset, Quaternion.identity);
+            Destroy(effect, 1.0f);
         }
 
-        // スコア加算
         if (ScoreManager.instance != null)
         {
             Debug.Log(player_num);
             ScoreManager.instance.AddScore(player_num, scoreValue);
-            
         }
 
-        // 自身を削除
         Destroy(gameObject);
     }
 }
