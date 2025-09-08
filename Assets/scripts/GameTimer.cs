@@ -28,6 +28,28 @@ public class GameTimer : MonoBehaviour
 
     private bool isPaused = false; // タイマーが一時停止中かどうかのフラグ
 
+    /// <summary>
+    /// シングルトンインスタンス
+    /// </summary>
+    public static GameTimer Instance { get; private set; }
+
+    /// <summary>
+    /// 現在、タイマー間の待機中かどうか
+    /// </summary>
+    public bool IsWaiting { get; private set; } = false;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         // UIテキストが設定されているか確認
@@ -66,12 +88,14 @@ public class GameTimer : MonoBehaviour
                     Debug.Log($"次のタイマーまで {delay}秒 待機します。");
 
                     // --- 待機開始イベントを呼び出す ---
+                    IsWaiting = true; // 待機状態を開始
                     onWaitStart.Invoke();
 
                     // 指定された秒数だけ待機
                     yield return new WaitForSeconds(delay);
 
                     // --- 待機終了イベントを呼び出す ---
+                    IsWaiting = false; // 待機状態を終了
                     onWaitEnd.Invoke();
                 }
                 else
@@ -108,12 +132,14 @@ public class GameTimer : MonoBehaviour
         Debug.Log($"次のタイマーまで {finalDelay}秒 待機します。");
 
         // --- 待機開始イベントを呼び出す ---
+        IsWaiting = true; // 待機状態を開始
         onWaitStart.Invoke();
 
         // 指定された秒数だけ待機
         yield return new WaitForSeconds(finalDelay);
 
         // --- 待機終了イベントを呼び出す ---
+        IsWaiting = false; // 待機状態を終了
         onWaitEnd.Invoke();
 
         Debug.Log("全てのタイマーが終了しました。QRリーダーへ移動します");

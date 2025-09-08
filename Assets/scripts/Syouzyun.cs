@@ -64,6 +64,12 @@ public class Syouzyun : MonoBehaviour
             }
             // --- ここまで追加 ---
 
+            // GameTimerが待機中の場合は射撃しない
+            if (GameTimer.Instance != null && GameTimer.Instance.IsWaiting)
+            {
+                return;
+            }
+
             timer = 0f;
             count++;
 
