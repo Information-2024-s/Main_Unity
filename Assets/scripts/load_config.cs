@@ -8,7 +8,7 @@ public class config_loader : MonoBehaviour
     void Start()
     {
         config = loadJsonData("/config.json");
-        Debug.Log(config.scene);
+        //Debug.Log(config.scene);
     }
 
     void Update()
@@ -31,6 +31,7 @@ public class config_loader : MonoBehaviour
         public int camera_num;
         public string texture_URL;
         public string DB_URL;
+        public string api_key;
     }
 
 }
