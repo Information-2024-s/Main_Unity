@@ -1,4 +1,7 @@
 {
-    "scene":"Main1",
-    "camera_num":1
+    "scene":"Main810",
+    "camera_num":1,
+    "texture_URL":"http://127.0.0.1:5000/get/",
+    "DB_URL":"https://koyofes.nittc-i24.tech/api/scores",
+    "api_key":"l7U2eA0/Y629WhjgJt2SC2McxMChN/f/EwBh/7G6cTM="
 }
