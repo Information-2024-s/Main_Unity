@@ -21,9 +21,12 @@ public class ScoreManager : MonoBehaviour
             instance = this;
         }
     }
-    public class ScoreJson {
+    public class ScoreJson
+    {
         public int userId;
         public int score;
+
+        public int gameSessionId;
     }
 
     public void AddScore(int player, int amount)
@@ -37,8 +40,9 @@ public class ScoreManager : MonoBehaviour
         ScoreJson ScoreData = new ScoreJson();
         ScoreData.userId = player_id;
         ScoreData.score = score;
+        ScoreData.gameSessionId = 1;
         string jsonstr = JsonUtility.ToJson (ScoreData);
-        StartCoroutine(Post(config_loader.config.DB_URL, jsonstr));
+        StartCoroutine(Post(config_loader.config.DB_URL,config_loader.config.api_key, jsonstr));
     }
     private void UpdateScoreUI(int player)
     {
@@ -48,13 +52,14 @@ public class ScoreManager : MonoBehaviour
             scoreText[player].text = "" + scores[player];
         }
     }
-    IEnumerator Post(string url, string jsonstr)
+    IEnumerator Post(string url,string api_key, string jsonstr)
     {
         var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonstr);
         request.uploadHandler = (UploadHandler) new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler) new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("x-api-key", api_key);
 
         yield return request.SendWebRequest();
 
