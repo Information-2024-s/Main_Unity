@@ -26,7 +26,7 @@ public class status_sender : MonoBehaviour
     void HandleLog(string logString, string stackTrace, LogType type)//logが出力されるたびにサーバーに送信
     {
         LogJson log_data = new LogJson();
-        log_data.stage = 1;
+        log_data.stage = config_loader.config.stage;
         log_data.log = logString;
         switch (type)//ロガーレベルを設定(小さいほうが重要)
         {
