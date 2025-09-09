@@ -29,7 +29,7 @@ public class config_loader : MonoBehaviour
     {
         public string scene;
         public int camera_num;
-        public string texture_URL;
+        public string local_server_URL;
         public string DB_URL;
         public string api_key;
     }
