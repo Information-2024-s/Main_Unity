@@ -15,7 +15,7 @@ public class WiiCursorShot : MonoBehaviour
     public float cooltime = 0.2f;
     private float timer = 0f;
     public AudioClip sound1;
-    bool disconnected_log = false; //過去にログを表示したか(したならtrue)
+    private bool disconnected_log = false; //過去にログを表示したか(したならtrue)
 
     void Start()
     {
