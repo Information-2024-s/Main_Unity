@@ -66,10 +66,6 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("Status Code: " + request.responseCode);
     }
 
-        yield return request.SendWebRequest();
-
-        Debug.Log("Status Code: " + request.responseCode);
-    }
-
-
 }
+
+
