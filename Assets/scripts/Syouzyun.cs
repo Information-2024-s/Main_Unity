@@ -23,8 +23,8 @@ public class Syouzyun : MonoBehaviour
     {
         if (bullettype == 0)
         {
-            cooltime = 0.5f;
-            power = 200f;
+            cooltime = 1f;
+            power = 100f;
         }
         else if (bullettype == 1)
         {
@@ -56,6 +56,20 @@ public class Syouzyun : MonoBehaviour
 
         if (Input.GetButton("Fire1") && timer >= cooltime)
         {
+            // --- ここから追加 ---
+            // LastBossがフェード中の場合は、ここで処理を中断して射撃しない
+            if (LastBoss.Instance != null && LastBoss.Instance.IsFading)
+            {
+                return;
+            }
+            // --- ここまで追加 ---
+
+            // GameTimerが待機中の場合は射撃しない
+            if (GameTimer.Instance != null && GameTimer.Instance.IsWaiting)
+            {
+                return;
+            }
+
             timer = 0f;
             count++;
 

@@ -14,10 +14,10 @@ public class Enemy_circle : MonoBehaviour
         angle += speed * Time.deltaTime;
 
         // 新しい位置を計算
-        float x = Mathf.Cos(angle) * radius;
+        float y = Mathf.Cos(angle) * radius;
         float z = Mathf.Sin(angle) * radius;
 
         // 中心の位置 + 円周上の座標
-        transform.position = center.position + new Vector3(x, 0, z);
+        transform.position = center.position + new Vector3(0, y, z);
     }
 }
