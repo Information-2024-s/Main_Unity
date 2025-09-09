@@ -7,29 +7,37 @@ public class EnemySpawnManager : MonoBehaviour
     [Header("敵の発生パターンを設定するリスト")]
     public List<EnemySpawnInfo> spawnWave;
 
-    // ゲームが開始された時に一度だけ呼ばれる
     void Start()
     {
-        // 敵を発生させるコルーチンを開始する
         StartCoroutine(SpawnEnemiesCoroutine());
     }
 
-    /// <summary>
-    /// 設定リストに従って敵を順番に発生させるコルーチン
-    /// </summary>
     private IEnumerator SpawnEnemiesCoroutine()
     {
-        // spawnWaveリストに登録された全ての敵を順番に処理する
         foreach (var spawnInfo in spawnWave)
         {
-            // 1. 指定された時間だけ待機する
             yield return new WaitForSeconds(spawnInfo.timeSincePreviousSpawn);
 
-            // 2. 敵のプレハブが設定されているか確認する
             if (spawnInfo.enemyPrefab != null)
             {
-                Quaternion spawnRotation = Quaternion.Euler(spawnInfo.spawnRotationEuler); // 追加
-                Instantiate(spawnInfo.enemyPrefab, spawnInfo.spawnPosition, spawnRotation);
+                Quaternion spawnRotation = Quaternion.Euler(spawnInfo.spawnRotationEuler);
+
+                // 1. 敵を生成し、GameObjectとして保持する
+                GameObject spawnedEnemy = Instantiate(spawnInfo.enemyPrefab, spawnInfo.spawnPosition, spawnRotation);
+
+                // 2. 生成した敵から EnemyController を取得する
+                EnemyController controller = spawnedEnemy.GetComponent<EnemyController>();
+
+                // 3. EnemyController に移動情報を設定する
+                if (controller != null)
+                {
+                    controller.Setup(spawnInfo);
+                }
+                else
+                {
+                    Debug.LogWarning($"{spawnedEnemy.name} に EnemyController がアタッチされていません！");
+                }
+
                 Debug.Log($"{spawnInfo.enemyPrefab.name} を {spawnInfo.spawnPosition} に発生させました。");
             }
             else
