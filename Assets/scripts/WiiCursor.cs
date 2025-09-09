@@ -21,6 +21,7 @@ public class WiiCursor : MonoBehaviour
     private EventSystem eventSystem;
     private QRCodeReader QRCodeReader;
     private VideoPlayer videoPlayer;
+    private bool disconnected_log = false; //過去にログを表示したか(したならtrue)
     void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
@@ -42,66 +43,70 @@ public class WiiCursor : MonoBehaviour
 
     void Update()
     {
-
         if (!WiimoteManager.HasWiimote())
         {
-            Debug.Log("Wii is not connected!");
+            if(!disconnected_log){
+                Debug.LogError("Wii is not connected!");
+                disconnected_log = true;
+            }
             return;
-        }
-        else if (WiimoteManager.Wiimotes.Count < controller_num + 1)
-        {
-            Debug.Log("Wii" + controller_num + "is not connected!");
+        }else if (WiimoteManager.Wiimotes.Count < controller_num + 1 && !disconnected_log){
+            if(!disconnected_log){
+                Debug.LogError("Wii" + controller_num + "is not connected!");
+                disconnected_log = true;
+            }
             return;
-        }
+        }else{
+            disconnected_log = false;
+            wiimote = WiimoteManager.Wiimotes[controller_num];
 
-        wiimote = WiimoteManager.Wiimotes[controller_num];
-
-        int ret;
-        do
-        {
-            ret = wiimote.ReadWiimoteData();
-        } while (ret > 0);
-
-        float[] pointer = wiimote.Ir.GetPointingPosition();
-
-        RectTransform rt = GetComponent<RectTransform>();
-        rt.anchorMin = new Vector2(pointer[0], pointer[1]);
-        rt.anchorMax = new Vector2(pointer[0], pointer[1]);
-        //Debug.Log(pointer0);
-
-        if (flag == 0)
-        {
-            wiimote.SetupIRCamera(IRDataType.BASIC);
-            flag++;
-        }
-
-
-        if (wiimote.Button.b && GetComponent<RawImage>().enabled)
-        {
-            Vector3 screenPos = new Vector3(pointer[0] * 1920, pointer[1] * 1080, 0);
-
-            //AudioSource.PlayClipAtPoint(sound1, firePoint.transform.position, 1.0f);
-            StartCoroutine(rumble_for(0.2f));
-
-
-            Vector2 cursorPos = new Vector2(screenPos.x, screenPos.y);
-            PointerEventData pointerData = new PointerEventData(eventSystem);
-            pointerData.position = cursorPos;
-
-            List<RaycastResult> results = new List<RaycastResult>();
-            raycaster.Raycast(pointerData, results);
-
-            if (ContainsGameObject(results, shot_me_object))
+            int ret;
+            do
             {
-                StartCoroutine(transion_next_scene());
+                ret = wiimote.ReadWiimoteData();
+            } while (ret > 0);
+
+            float[] pointer = wiimote.Ir.GetPointingPosition();
+
+            RectTransform rt = GetComponent<RectTransform>();
+            rt.anchorMin = new Vector2(pointer[0], pointer[1]);
+            rt.anchorMax = new Vector2(pointer[0], pointer[1]);
+            //Debug.Log(pointer0);
+
+            if (flag == 0)
+            {
+                wiimote.SetupIRCamera(IRDataType.BASIC);
+                flag++;
             }
 
 
-        }
-        if (transion_for_debug)
-        {
-            transion_for_debug = false;
-            StartCoroutine(transion_next_scene());
+            if (wiimote.Button.b && GetComponent<RawImage>().enabled)
+            {
+                Vector3 screenPos = new Vector3(pointer[0] * 1920, pointer[1] * 1080, 0);
+
+                //AudioSource.PlayClipAtPoint(sound1, firePoint.transform.position, 1.0f);
+                StartCoroutine(rumble_for(0.2f));
+
+
+                Vector2 cursorPos = new Vector2(screenPos.x, screenPos.y);
+                PointerEventData pointerData = new PointerEventData(eventSystem);
+                pointerData.position = cursorPos;
+
+                List<RaycastResult> results = new List<RaycastResult>();
+                raycaster.Raycast(pointerData, results);
+
+                if (ContainsGameObject(results, shot_me_object))
+                {
+                    StartCoroutine(transion_next_scene());
+                }
+
+
+            }
+            if (transion_for_debug)
+            {
+                transion_for_debug = false;
+                StartCoroutine(transion_next_scene());
+            }
         }
     }
 
