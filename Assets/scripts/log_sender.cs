@@ -4,7 +4,7 @@ using UnityEngine.Networking;
 using System.Text;
 
 
-public class status_sender : MonoBehaviour
+public class log_sender : MonoBehaviour
 {
 
     public class LogJson
