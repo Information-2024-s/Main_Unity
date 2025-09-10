@@ -50,9 +50,9 @@ public class log_sender : MonoBehaviour
                 break;
         }
         string json_data = JsonUtility.ToJson (log_data);
-        StartCoroutine(Post(config_loader.config.local_server_URL+"log",json_data));
+        StartCoroutine(Put(config_loader.config.local_server_URL+"log",json_data));
     }
-    IEnumerator Post(string url, string jsonstr)
+    IEnumerator Put(string url, string jsonstr)
     {
         var request = new UnityWebRequest(url, "PUT");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonstr);

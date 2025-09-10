@@ -7,6 +7,7 @@ using System.Text;
 public class battery_sender : MonoBehaviour
 {
 
+    public bool[] connected_wiimote = {false,false,false,false};
     public class BatteryJson
     {
         public int stage;
@@ -15,11 +16,27 @@ public class battery_sender : MonoBehaviour
     }   
     public void send_battery_level()
     {
-        BatteryJson battery_data = new BatteryJson();
-        battery_data.stage = config_loader.config.stage;
-        
+        for (int i = 0; i < 4; i++)
+        {
+            BatteryJson battery_data = new BatteryJson();
+            battery_data.stage = config_loader.config.stage;
+            battery_data.controller_num = i;
+            if (connected_wiimote[i])
+            {
+                battery_data.battery_level = 100;
+            }
+            else
+            {
+                battery_data.battery_level = -1;
+            }
+            string json_data = JsonUtility.ToJson(log_data);
+            StartCoroutine(Put(config_loader.config.local_server_URL+"battery",json_data));
+            
+        }
+
+
     }
-    IEnumerator Post(string url, string jsonstr)
+    IEnumerator Put(string url, string jsonstr)
     {
     var request = new UnityWebRequest(url, "PUT");
     byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonstr);
