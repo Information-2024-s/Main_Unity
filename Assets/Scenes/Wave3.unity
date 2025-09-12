@@ -1139,10 +1139,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnWave:
-  - enemyPrefab: {fileID: 0}
-    timeSincePreviousSpawn: 0
-    spawnPosition: {x: 0, y: 0, z: 0}
+  - enemyPrefab: {fileID: 7747358808486242702, guid: 87b94d8a72640234eaa7b268b42664d6, type: 3}
+    timeSincePreviousSpawn: 8
+    spawnPosition: {x: 24, y: -61, z: 48}
     spawnRotationEuler: {x: 0, y: 0, z: 0}
+    movementType: 0
+    moveSpeed: 0
+    zigzagAmplitude: 2
+    zigzagFrequency: 5
+    rectangleWidth: 10
+    rectangleHeight: 5
+    sideDuration: 1
+    initialDirection: 1
 --- !u!4 &1284006144
 Transform:
   m_ObjectHideFlags: 0
@@ -1152,7 +1160,7 @@ Transform:
   m_GameObject: {fileID: 1284006141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.671157, y: 15.691167, z: 21.959393}
+  m_LocalPosition: {x: -3.28, y: 13.91, z: 7.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8893,7 +8901,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2.8, z: 10}
+  m_Size: {x: 3, y: 2.8, z: 5}
   m_Center: {x: -64.8, y: 17.7, z: 30}
 --- !u!114 &7918473922385803859
 MonoBehaviour:
@@ -8910,7 +8918,7 @@ MonoBehaviour:
   explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
   breakEffect: {fileID: 215235371791981097, guid: 7f21a3bdec767bc45a964ded4b5ca256, type: 3}
   scoreValue: 10
-  maxHP: 1
+  maxHP: 15
   breakEffectOffset: {x: 300, y: 0, z: 50}
 --- !u!23 &7965369372382639365
 MeshRenderer:
