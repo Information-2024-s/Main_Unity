@@ -1,7 +1,12 @@
 # 2I研究所
 2I研究所のゲーム部分のプロリザルト表示
 ## 使い方
+#### 開発
 git cloneしてきて、unity hubからadd ->add project from disk でcloneしてきたやつ選択して、起動したら下のとこからscenes ->で好きなシーン選ぶ。(Main1でいいと思うよ) 
+#### プレイ
+installerからインストール（いつか作る、と思う）<br>
+niAI laboratory_Data\StreamingAssets\config.jsonから、URL、ステージなどを設定<br>
+普通にexeを起動
 ## 各スクリプトの説明
 * [wii_cursor](/Assets/scripts/WiiCursor.cs):wiiリモコンを使ってカーソル移動、弾の射出をする。各look_onにアタッチ
 * [Syouzyun](/Assets/scripts/Syouzyun.cs):マウスで弾の射出をする。main_cameraにアタッチ
@@ -17,7 +22,5 @@ git cloneしてきて、unity hubからadd ->add project from disk でcloneし�
 
 ## 開発関係のメモ
 ### プレイヤーの番号
-0:黒
-1:青
-2:赤
-3:緑
+~~0:黒 1:青 2:赤 3:緑~~
+0:黒 1:青 2:赤 3:緑(9/8修正)
