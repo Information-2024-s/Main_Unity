@@ -25,34 +25,17 @@ public enum BossInitialDirection
 [System.Serializable]
 public class EnemySpawnInfo
 {
-    // [Header("基本設定")] // ヘッダーは必須ではないので、好みで付けてください
     public GameObject enemyPrefab;
     public float timeSincePreviousSpawn;
     public Vector3 spawnPosition;
-    public bool useMovePosition; // ★追加：移動座標を使用するか
-    public Vector3 movePosition;  // ★追加：移動先の座標
     public Vector3 spawnRotationEuler;
-    public UnityEvent onInitialMoveComplete; // ★追加：初期移動完了時のイベント
 
-    // [Header("移動設定")] // こちらも同様
-    public EnemyMovementType movementType; // どのパターンで動くか
-    public float moveSpeed = 5f;           // 移動の速さ
+    [Header("リスポーン設定")]
+    public bool respawns;
+    public float respawnTime = 5f;
 
-    public float zigzagAmplitude = 2f;
-    public float zigzagFrequency = 5f;
-
-    // LastBoss1用
-    public float rectangleWidth = 5f;
-    public float rectangleHeight = 5f;
-    public float sideDuration = 2f;
-    public BossInitialDirection initialDirection = BossInitialDirection.Right;
-
-    // InitialMoveThenHoming用
-    public Vector3 initialMoveDirection = Vector3.forward;
-    public float initialMoveDuration = 2f;
-    public float waitDuration = 1f;
-
-    // Circle用
-    public float circleRadius = 3f;
-    public Vector3 circleCenterOffset = Vector3.zero;
+    [Header("レア敵設定")]
+    public GameObject rareEnemyPrefab;
+    [Range(0, 100)]
+    public float rareEnemyChance;
 }

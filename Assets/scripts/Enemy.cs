@@ -1,7 +1,9 @@
 using UnityEngine;
+using System;
 
 public class Enemy : MonoBehaviour
 {
+    public event Action OnDeath; // 死亡時に呼ばれるイベント
     public AudioClip explodeSound; // 爆発音
     public GameObject breakEffect;
     public int scoreValue = 10;
@@ -29,6 +31,8 @@ public class Enemy : MonoBehaviour
     public void DestroyEnemy(int player_num)
     {
         if (!Application.isPlaying) return;
+
+        OnDeath?.Invoke(); // 死亡イベントを呼び出す
 
         if (explodeSound != null)
         {

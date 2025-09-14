@@ -70,36 +70,7 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void Setup(EnemySpawnInfo spawnInfo)
     {
-        // ここでクラス変数に値を設定しています
-        movementType = spawnInfo.movementType;
-        moveSpeed = spawnInfo.moveSpeed;
-        zigzagAmplitude = spawnInfo.zigzagAmplitude;
-        zigzagFrequency = spawnInfo.zigzagFrequency;
-        rectangleWidth = spawnInfo.rectangleWidth;
-        rectangleHeight = spawnInfo.rectangleHeight;
-        sideDuration = spawnInfo.sideDuration;
-        initialDirection = spawnInfo.initialDirection; // 開始方向を設定
-        initialMoveDirection = spawnInfo.initialMoveDirection;
-        initialMoveDuration = spawnInfo.initialMoveDuration;
-        waitDuration = spawnInfo.waitDuration;
-        circleRadius = spawnInfo.circleRadius;
-        circleCenterOffset = spawnInfo.circleCenterOffset;
-
-        // ★追加：初期移動の設定
-        useMovePosition = spawnInfo.useMovePosition;
-        targetMovePosition = spawnInfo.movePosition;
-        onInitialMoveComplete = spawnInfo.onInitialMoveComplete; // イベントをコピー
-
-        if (useMovePosition)
-        {
-            currentState = State.InitialMove;
-        }
-        else
-        {
-            currentState = State.MainBehavior;
-            // 初期移動がない場合は、ここで各種移動パターンの初期化を行う
-            InitializeMainBehavior();
-        }
+        
     }
 
     // 各移動パターンの初期化処理をまとめる
