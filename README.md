@@ -22,8 +22,15 @@ niAI laboratory_Data\StreamingAssets\config.jsonから、URL、ステージな�
 
 ## 開発関係のメモ
 ### プレイヤーの番号
-~~0:黒 1:青 2:赤 3:緑~~
+~~0:黒 1:青 2:赤 3:緑~~<br>
 0:黒 1:青 2:赤 3:緑(9/8修正)
+### config.jsonのキー
+* stage:どこのステージか。0～2(ゼロインデックス)の数字で入力。
+* scene_name:QRどを読んだ後どのシーンに遷移するか。文字列で入力。
+* camera_num:QR読むのに使うカメラが内部カメラか外部カメラかとか、カメラのインデックスを数字で指定。
+* local_server_URL:顔写真、バッテリー、ログのデータを管理してるローカルサーバーのURL。http://xxx.xxx.xxx.xxx:xxxx/まで文字列で入力。
+* DB＿URL:スコアを管理してるDBサーバーのURL。~~/api/scoresまで文字列で入力。(になってるけど多分後で変える)
+* api_key:DB鯖にデータを送るときに使う。文字列。
 ## 進捗報告
 stage2進捗(9/15)https://d.kuku.lu/yjnyx4jy7<br>
 バッテリーログ送信(9/15)https://d.kuku.lu/huprmzkca
