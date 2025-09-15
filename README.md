@@ -25,7 +25,7 @@ niAI laboratory_Data\StreamingAssets\config.jsonから、URL、ステージな�
 ~~0:黒 1:青 2:赤 3:緑~~
 0:黒 1:青 2:赤 3:緑(9/8修正)
 ## 進捗報告
-stage2進捗(9/15)https://d.kuku.lu/yjnyx4jy7
+stage2進捗(9/15)https://d.kuku.lu/yjnyx4jy7<br>
 バッテリーログ送信(9/15)https://d.kuku.lu/huprmzkca
 
 
