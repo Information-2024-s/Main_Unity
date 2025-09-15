@@ -16,6 +16,9 @@ public class MoveTowardsPlayer : MonoBehaviour
     // ゲームが開始された時に一度だけ呼ばれる
     void Start()
     {
+        // スクリプトが無効なら何もしない
+        if (!enabled) return;
+
         // "Player" タグがついたオブジェクトをシーンから探す
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
