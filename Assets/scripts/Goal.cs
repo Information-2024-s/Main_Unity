@@ -29,6 +29,7 @@ public class Goal : MonoBehaviour
         red = img.color.r;
         green = img.color.g;
         blue = img.color.b;
+        
     }
 
     void Update()
@@ -37,6 +38,12 @@ public class Goal : MonoBehaviour
 
         if (!isFading && Vector3.Distance(player.position, goalPosition) < threshold)
         {
+            battery_sender.send_battery_level();
+            results = ScoreManager.scores; // ScoreManagerを使用してスコアを取得
+            for (int i = 0; i < player_manager.player_count; i++)
+            {
+                ScoreManager.instance.send_score(player_manager.players_id[i], results[i]);
+            }
             Debug.Log("start fading");
             isFading = true;
             if (messageText != null)
@@ -53,8 +60,7 @@ public class Goal : MonoBehaviour
                 UIToDel.enabled = false;
             }
 
-            // GameManager.Instance.score からスコアを取得
-            results = ScoreManager.scores; // ScoreManagerを使用してスコアを取得
+
             int tmp_score = 0;
             for (int i = 0; i < 4; i++)
             {
@@ -62,7 +68,7 @@ public class Goal : MonoBehaviour
                 {
                     scoreText[i].enabled = true;
                     scoreText[i].text = tmp_score.ToString();
-                    StartCoroutine(ScoreAnimation(scoreText[i],results[i], 2));
+                    StartCoroutine(ScoreAnimation(scoreText[i], results[i], 2));
                 }
             }
 
@@ -96,10 +102,7 @@ public class Goal : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < player_manager.player_count; i++)
-        {
-            ScoreManager.instance.send_score(player_manager.players_id[i], results[i]);
-        }
+
 
         if (isFading && alfa <= 1f)
         {
@@ -117,6 +120,7 @@ public class Goal : MonoBehaviour
 
             alfa += speed;
         }
+        
     }
     IEnumerator ScoreAnimation(Text text_component,float addScore, float time)
     {

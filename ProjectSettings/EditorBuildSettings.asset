@@ -24,10 +24,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Main810.unity
     guid: 696ab20c0a1388d48914ff24737f60e5
   - enabled: 1
-    path: Assets/Scenes/Wave 1.unity
+    path: Assets/Scenes/Wave1.unity
     guid: fa27e982471183447b90ab02ec62dbac
   - enabled: 1
-    path: Assets/Scenes/Wave 2.unity
+    path: Assets/Scenes/Wave2.unity
     guid: 80d82d793c3d6224ead4a4825eb7747b
   - enabled: 1
     path: Assets/Scenes/Wave3.unity

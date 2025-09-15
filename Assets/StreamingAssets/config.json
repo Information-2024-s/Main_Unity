@@ -1,8 +1,9 @@
 {
     "stage":0,
+    "scene_name":"Wave810",
     "camera_num":1,
     "local_server_URL":"http://127.0.0.1:5000/",
     "DB_URL":"https://koyofes.nittc-i24.tech/api/scores",
     "api_key":"l7U2eA0/Y629WhjgJt2SC2McxMChN/f/EwBh/7G6cTM=",
-    "$comment":"stageはゼロインデックスで、シーン名は「Wave(stage+1)」で camera_numはカメラのインデックス(内蔵カメラと外部のカメラとか) あきたので続きはいつか"
+    "$comment":"stageはゼロインデックスで、シーン名はそのままで stageはゼロインデックス、camera_numはカメラのインデックス(内蔵カメラと外部のカメラとか) あきたので続きはいつか"
 }

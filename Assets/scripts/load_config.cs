@@ -28,6 +28,7 @@ public class config_loader : MonoBehaviour
     public class Config
     {
         public int stage;
+        public string scene_name;
         public int camera_num;
         public string local_server_URL;
         public string DB_URL;

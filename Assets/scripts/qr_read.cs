@@ -36,6 +36,8 @@ public class QRCodeReader : MonoBehaviour
         webcamTexture.Play();
 
         barcodeReader = new BarcodeReader();
+
+        
     }
 
     void Update()

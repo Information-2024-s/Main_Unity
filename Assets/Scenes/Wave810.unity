@@ -2586,6 +2586,8 @@ MonoBehaviour:
   explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
   breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
   scoreValue: 90
+  maxHP: 10
+  breakEffectOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &766654779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4357,6 +4359,8 @@ MonoBehaviour:
   explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
   breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
   scoreValue: 90
+  maxHP: 10
+  breakEffectOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &1354966848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5735,7 +5739,8 @@ GameObject:
   - component: {fileID: 1920136857}
   - component: {fileID: 1920136860}
   - component: {fileID: 1920136861}
-  - component: {fileID: 1920136862}
+  - component: {fileID: 1920136864}
+  - component: {fileID: 1920136863}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -5804,7 +5809,7 @@ MonoBehaviour:
   - {fileID: 102005534}
   - {fileID: 600053326}
   loaded_count: 0
---- !u!114 &1920136862
+--- !u!114 &1920136863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5813,7 +5818,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1920136856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a9f32e602910aa488f1e0316fe40351, type: 3}
+  m_Script: {fileID: 11500000, guid: 927314c9f385a384698215d00930c77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1920136864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920136856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd29baaebb482e14ca3f277d5abf3b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1961978347
@@ -6705,6 +6722,8 @@ MonoBehaviour:
   explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
   breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
   scoreValue: 10
+  maxHP: 10
+  breakEffectOffset: {x: 0, y: 0, z: 0}
 --- !u!65 &919132148492696952
 BoxCollider:
   m_ObjectHideFlags: 0
