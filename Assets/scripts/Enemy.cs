@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public AudioClip explodeSound; // 爆発音
     public AudioClip damageSound; // ダメージ時の効果音を追加
     public GameObject breakEffect;
-    public Vector3 breakEffectOffset = Vector3.zero; // オフセット追加
+    public Vector3 breakEffectOffset = new Vector3(0, 1f, 0); // オフセット追加
 
     [Header("突進関連")]
     public float waitBeforeCharge = 2.0f; // 突進前の待機秒数
@@ -67,6 +67,9 @@ public class Enemy : MonoBehaviour
         {
             // 待機
             yield return new WaitForSeconds(waitBeforeCharge);
+
+            // 突進前の座標を保存
+            originalPosition = transform.position;
 
             // カメラを揺らす
             if (CameraShake.Instance != null)

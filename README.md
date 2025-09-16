@@ -24,3 +24,4 @@ niAI laboratory_Data\StreamingAssets\config.jsonから、URL、ステージな�
 ### プレイヤーの番号
 ~~0:黒 1:青 2:赤 3:緑~~
 0:黒 1:青 2:赤 3:緑(9/8修正)
+敵キャラのマネージャーの改良、それに伴う微調整(09/16)

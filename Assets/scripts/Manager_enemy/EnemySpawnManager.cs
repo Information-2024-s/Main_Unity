@@ -92,9 +92,22 @@ public class EnemySpawnManager : MonoBehaviour
             return;
         }
 
-        Quaternion spawnRotation = Quaternion.Euler(spawnInfo.spawnRotationEuler);
+        // 敵がカメラの方を向くようにY軸を180度回転させる
+        Vector3 correctedRotationEuler = spawnInfo.spawnRotationEuler + new Vector3(0, 180, 0);
+        Quaternion spawnRotation = Quaternion.Euler(correctedRotationEuler);
         GameObject spawnedEnemyObject = Instantiate(prefabToSpawn, spawnInfo.spawnPosition, spawnRotation);
         spawnedEnemies.Add(spawnedEnemyObject); // Wave切り替え時の削除用にリストに追加
+
+        // ★ここを追加
+        EnemyController controller = spawnedEnemyObject.GetComponent<EnemyController>();
+        if (controller != null)
+        {
+            controller.Setup(spawnInfo);
+        }
+        else
+        {
+            Debug.LogWarning($"プレハブ '{spawnedEnemyObject.name}' にEnemyControllerスクリプトがアタッチされていません。移動設定が適用されません。");
+        }
 
         Enemy enemyComponent = spawnedEnemyObject.GetComponent<Enemy>();
         if (enemyComponent != null)
