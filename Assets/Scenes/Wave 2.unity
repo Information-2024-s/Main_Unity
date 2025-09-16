@@ -726,7 +726,7 @@ MonoBehaviour:
       respawnTime: 5
       rareEnemyPrefab: {fileID: 7168523328094618366, guid: c4dea4d3f242fe646a92770ba4a6c563, type: 3}
       rareEnemyChance: 0
-    timeToNextWave: 20
+    timeToNextWave: 30
   - waveName: step2
     enemies:
     - enemyPrefab: {fileID: 5215315145328714069, guid: 114a750e4ffd4d14f8a07ff3c24261b0, type: 3}
@@ -788,6 +788,17 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 5215315145328714069, guid: 114a750e4ffd4d14f8a07ff3c24261b0, type: 3}
       timeSincePreviousSpawn: 8
       spawnPosition: {x: 8, y: 8.5, z: 3.5}
+      spawnRotationEuler: {x: 0, y: -90, z: 0}
+      respawns: 1
+      respawnTime: 5
+      rareEnemyPrefab: {fileID: 7168523328094618366, guid: c4dea4d3f242fe646a92770ba4a6c563, type: 3}
+      rareEnemyChance: 0
+    timeToNextWave: 32
+  - waveName: step3 mini boss
+    enemies:
+    - enemyPrefab: {fileID: 3380695603649245669, guid: 5ea8e764fa2385849a0beb3b3b8a0c9e, type: 3}
+      timeSincePreviousSpawn: 1
+      spawnPosition: {x: -15, y: 9, z: 22}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       respawns: 1
       respawnTime: 5
@@ -1488,6 +1499,7 @@ GameObject:
   - component: {fileID: 1558285235}
   - component: {fileID: 1558285237}
   - component: {fileID: 1558285236}
+  - component: {fileID: 1558285238}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1563,7 +1575,7 @@ Transform:
   m_GameObject: {fileID: 1558285231}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 15, y: 10, z: -2}
+  m_LocalPosition: {x: -2.5, y: 10, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1652,6 +1664,18 @@ MonoBehaviour:
   cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
   bullettype: 0
+--- !u!114 &1558285238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558285231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f2cd67bd678f44aa7b56892c9f3aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1578502626
 GameObject:
   m_ObjectHideFlags: 0

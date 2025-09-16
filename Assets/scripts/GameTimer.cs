@@ -27,6 +27,7 @@ public class GameTimer : MonoBehaviour
     public UnityEvent onWaitEnd;
 
     private bool isPaused = false; // タイマーが一時停止中かどうかのフラグ
+    private float remainingTime; // タイマーの残り時間（クラス変数に）
 
     /// <summary>
     /// シングルトンインスタンス
@@ -105,7 +106,7 @@ public class GameTimer : MonoBehaviour
             }
 
             // 現在のタイマーの残り時間を設定
-            float remainingTime = timeLimitsInSeconds[i];
+            remainingTime = timeLimitsInSeconds[i];
             Debug.Log($"タイマー #{i + 1} を開始します。制限時間: {remainingTime}秒");
 
             // 残り時間が0になるまでループ
@@ -144,6 +145,19 @@ public class GameTimer : MonoBehaviour
 
         Debug.Log("全てのタイマーが終了しました。QRリーダーへ移動します");
         //SceneManager.LoadScene("QR_read");
+    }
+
+    /// <summary>
+    /// タイマーの残り時間を減らす公開メソッド
+    /// </summary>
+    /// <param name="amount">減らす時間（秒）</param>
+    public void DecreaseTime(float amount)
+    {
+        if (!IsWaiting && remainingTime > 0) // タイマー実行中のみ減らす
+        {
+            remainingTime -= amount;
+            Debug.Log($"突進によりタイマーが {amount}秒 減少しました。");
+        }
     }
 
     /// <summary>

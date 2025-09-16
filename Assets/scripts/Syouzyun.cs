@@ -23,7 +23,7 @@ public class Syouzyun : MonoBehaviour
     {
         if (bullettype == 0)
         {
-            cooltime = 1.5f;
+            cooltime = 1f;
             power = 50f;
         }
         else if (bullettype == 1)

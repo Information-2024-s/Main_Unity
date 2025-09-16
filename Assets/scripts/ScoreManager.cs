@@ -39,6 +39,17 @@ public class ScoreManager : MonoBehaviour
         scores[player] += amount;
         UpdateScoreUI(player);
     }
+
+    public void DecreaseScore(int player, int amount)
+    {
+        scores[player] -= amount;
+        if (scores[player] < 0)
+        {
+            scores[player] = 0;
+        }
+        UpdateScoreUI(player);
+        Debug.Log($"Player {player} のスコアが {amount} 減少しました。現在のスコア: {scores[player]}");
+    }
     
     public void send_score(int player_id, int score)
     {
