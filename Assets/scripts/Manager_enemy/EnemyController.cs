@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     private List<Vector3> patrolCoordinates;
     private float coordinateWaitTime;
     private float circleRadius;
+    private bool circleClockwise; // ★追加：回転方向
     private Vector3 circleCenterOffset;
     private float floatingAmplitude, floatingSpeed;
     private Vector3 initialMoveDirection;
@@ -57,6 +58,7 @@ public class EnemyController : MonoBehaviour
         patrolCoordinates = info.patrolCoordinates;
         coordinateWaitTime = info.coordinateWaitTime;
         circleRadius = info.circleRadius;
+        circleClockwise = info.circleClockwise; // ★追加
         circleCenterOffset = info.circleCenterOffset;
         floatingAmplitude = info.floatingAmplitude;
         floatingSpeed = info.floatingSpeed;
@@ -139,10 +141,35 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
             case EnemyMovementType.Circle:
-                angle += moveSpeed * Time.deltaTime;
-                float x = Mathf.Cos(angle) * circleRadius;
-                float z = Mathf.Sin(angle) * circleRadius;
-                transform.position = circleCenter + new Vector3(x, 0, z);
+                float rotationDirection = circleClockwise ? -1f : 1f;
+                angle += rotationDirection * moveSpeed * Time.deltaTime;
+
+                // Main Cameraの向きを取得
+                Vector3 camForward = Camera.main.transform.forward;
+
+                // カメラの向きに最も近い軸を回転軸とする
+                float dotX = Mathf.Abs(Vector3.Dot(camForward, Vector3.right));
+                float dotY = Mathf.Abs(Vector3.Dot(camForward, Vector3.up));
+                float dotZ = Mathf.Abs(Vector3.Dot(camForward, Vector3.forward));
+
+                Vector3 offset;
+                if (dotX > dotY && dotX > dotZ) // X軸が最も近い
+                {
+                    // YZ平面での回転
+                    offset = new Vector3(0, Mathf.Cos(angle), Mathf.Sin(angle)) * circleRadius;
+                }
+                else if (dotY > dotZ) // Y軸が最も近い
+                {
+                    // XZ平面での回転 (元の挙動)
+                    offset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * circleRadius;
+                }
+                else // Z軸が最も近い
+                {
+                    // XY平面での回転
+                    offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * circleRadius;
+                }
+
+                transform.position = circleCenter + offset;
                 break;
             case EnemyMovementType.Floating:
                 float yOffset = Mathf.Sin(Time.time * floatingSpeed) * floatingAmplitude;

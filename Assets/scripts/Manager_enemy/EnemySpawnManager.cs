@@ -78,54 +78,116 @@ public class EnemySpawnManager : MonoBehaviour
 
     void SpawnEnemy(EnemySpawnInfo spawnInfo)
     {
-        GameObject prefabToSpawn = spawnInfo.enemyPrefab;
+        // 再生モード中でなければ実行しない (エディター起因のエラー防止)
+        if (!Application.isPlaying) return;
 
-        // レア敵の出現判定
-        if (spawnInfo.rareEnemyPrefab != null && Random.Range(0f, 100f) < spawnInfo.rareEnemyChance)
+        // --- 観覧車（グループ回転）ロジック ---
+        if (spawnInfo.movementType == EnemyMovementType.Circle && spawnInfo.circlePlacementCount > 1)
         {
-            prefabToSpawn = spawnInfo.rareEnemyPrefab;
-        }
+            // 1. 観覧車の中心となるPivotオブジェクトを生成
+            GameObject pivotObject = new GameObject($"FerrisWheel_{spawnInfo.enemyName}");
+            pivotObject.transform.position = spawnInfo.spawnPosition;
+            spawnedEnemies.Add(pivotObject); // PivotもWave終了時に破棄するリストに追加
 
-        if (prefabToSpawn == null)
-        {
-            Debug.LogWarning("発生させる敵のプレハブが設定されていません。");
-            return;
-        }
+            // 2. Pivotに回転を制御するコントローラーをアタッチして設定
+            var groupController = pivotObject.AddComponent<CircleGroupController>();
+            groupController.rotationSpeed = spawnInfo.moveSpeed;
+            groupController.clockwise = spawnInfo.circleClockwise;
 
-        // 敵がカメラの方を向くようにY軸を180度回転させる
-        Vector3 correctedRotationEuler = spawnInfo.spawnRotationEuler + new Vector3(0, 180, 0);
-        Quaternion spawnRotation = Quaternion.Euler(correctedRotationEuler);
-        GameObject spawnedEnemyObject = Instantiate(prefabToSpawn, spawnInfo.spawnPosition, spawnRotation);
-        spawnedEnemies.Add(spawnedEnemyObject); // Wave切り替え時の削除用にリストに追加
+            // 3. 回転軸をカメラに対して最適化
+            Vector3 camForward = Camera.main.transform.forward;
+            float dotX = Mathf.Abs(Vector3.Dot(camForward, Vector3.right));
+            float dotY = Mathf.Abs(Vector3.Dot(camForward, Vector3.up));
+            float dotZ = Mathf.Abs(Vector3.Dot(camForward, Vector3.forward));
 
-        // ★ここを追加
-        EnemyController controller = spawnedEnemyObject.GetComponent<EnemyController>();
-        if (controller != null)
-        {
-            controller.Setup(spawnInfo);
+            if (dotX > dotY && dotX > dotZ) groupController.rotationAxis = Vector3.right;
+            else if (dotY > dotZ) groupController.rotationAxis = Vector3.up;
+            else groupController.rotationAxis = Vector3.forward;
+
+            // 4. 敵を円周上に子オブジェクトとして配置
+            for (int i = 0; i < spawnInfo.circlePlacementCount; i++)
+            {
+                float angle = i * (360f / spawnInfo.circlePlacementCount);
+                float radian = angle * Mathf.Deg2Rad;
+                
+                // ★★★ 修正点：回転軸に合わせた平面に敵を配置する ★★★
+                Vector3 localOffset;
+                if (groupController.rotationAxis == Vector3.right) // YZ平面
+                {
+                    localOffset = new Vector3(0, Mathf.Cos(radian), Mathf.Sin(radian)) * spawnInfo.circlePlacementRadius;
+                }
+                else if (groupController.rotationAxis == Vector3.up) // XZ平面
+                {
+                    localOffset = new Vector3(Mathf.Cos(radian), 0, Mathf.Sin(radian)) * spawnInfo.circlePlacementRadius;
+                }
+                else // XY平面
+                {
+                    localOffset = new Vector3(Mathf.Cos(radian), Mathf.Sin(radian), 0) * spawnInfo.circlePlacementRadius;
+                }
+
+                Vector3 spawnPos = pivotObject.transform.position + localOffset;
+
+                // --- 個々の敵の生成（単体生成とほぼ同じロジック） ---
+                GameObject prefabToSpawn = spawnInfo.enemyPrefab;
+                if (spawnInfo.rareEnemyPrefab != null && Random.Range(0f, 100f) < spawnInfo.rareEnemyChance) 
+                    prefabToSpawn = spawnInfo.rareEnemyPrefab;
+                
+                if (prefabToSpawn == null) continue;
+
+                GameObject enemyObj = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+                enemyObj.transform.SetParent(pivotObject.transform); // Pivotの子にする
+                spawnedEnemies.Add(enemyObj);
+
+                // 敵の向きをPivotの中心方向から外側に向ける
+                enemyObj.transform.up = (enemyObj.transform.position - pivotObject.transform.position).normalized;
+
+                // 個々の敵は動かないように、MovementTypeをNoneにしてSetupを呼ぶ
+                var noMoveInfo = spawnInfo;
+                noMoveInfo.movementType = EnemyMovementType.None;
+                EnemyController controller = enemyObj.GetComponent<EnemyController>();
+                if (controller != null) controller.Setup(noMoveInfo);
+
+                Enemy enemyComponent = enemyObj.GetComponent<Enemy>();
+                if (enemyComponent != null) enemyComponent.OnDeath += () => OnEnemyDied(spawnInfo, enemyObj);
+            }
         }
         else
         {
-            Debug.LogWarning($"プレハブ '{spawnedEnemyObject.name}' にEnemyControllerスクリプトがアタッチされていません。移動設定が適用されません。");
-        }
+            // --- 通常の単体生成ロジック ---
+            GameObject prefabToSpawn = spawnInfo.enemyPrefab;
+            if (spawnInfo.rareEnemyPrefab != null && Random.Range(0f, 100f) < spawnInfo.rareEnemyChance)
+                prefabToSpawn = spawnInfo.rareEnemyPrefab;
 
-        Enemy enemyComponent = spawnedEnemyObject.GetComponent<Enemy>();
-        if (enemyComponent != null)
-        {
-            // ラムダ式を使って、どのspawnInfoで死んだかを渡す
-            enemyComponent.OnDeath += () => OnEnemyDied(spawnInfo, spawnedEnemyObject);
+            if (prefabToSpawn == null)
+            {
+                Debug.LogWarning("発生させる敵のプレハブが設定されていません。");
+                return;
+            }
+
+            Vector3 directionFromCamera = spawnInfo.spawnPosition - Camera.main.transform.position;
+            directionFromCamera.y = 0;
+            Quaternion spawnRotation = Quaternion.LookRotation(directionFromCamera);
+
+            GameObject spawnedEnemyObject = Instantiate(prefabToSpawn, spawnInfo.spawnPosition, spawnRotation);
+            spawnedEnemies.Add(spawnedEnemyObject);
+
+            EnemyController controller = spawnedEnemyObject.GetComponent<EnemyController>();
+            if (controller != null) controller.Setup(spawnInfo);
+            else Debug.LogWarning($"プレハブ '{spawnedEnemyObject.name}' にEnemyControllerスクリプトがアタッチされていません。");
+
+            Enemy enemyComponent = spawnedEnemyObject.GetComponent<Enemy>();
+            if (enemyComponent != null) enemyComponent.OnDeath += () => OnEnemyDied(spawnInfo, spawnedEnemyObject);
+            
+            Debug.Log($"{prefabToSpawn.name} を {spawnInfo.spawnPosition} に発生させました。");
         }
-        
-        Debug.Log($"{prefabToSpawn.name} を {spawnInfo.spawnPosition} に発生させました。");
     }
 
     void OnEnemyDied(EnemySpawnInfo spawnInfo, GameObject deadEnemy)
     {
-        // Wave切り替え時に削除されるリストからも削除
         spawnedEnemies.Remove(deadEnemy);
-
         if (spawnInfo.respawns)
         {
+            // 注意：観覧車の一部が死んだ場合、観覧車全体がリスポーンします
             Coroutine respawnCoroutine = null;
             respawnCoroutine = StartCoroutine(RespawnEnemyCoroutine(spawnInfo, co => activeRespawnCoroutines.Remove(respawnCoroutine)));
             activeRespawnCoroutines.Add(respawnCoroutine);

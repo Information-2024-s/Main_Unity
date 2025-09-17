@@ -941,12 +941,621 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - waveName: Movement_Sample
+  - waveName: frontOfStairs
     enemies:
-    - enemyName: Straight
-      enemyPrefab: {fileID: 4939757799248167359, guid: c04afc042780f184c9cf1d79f42ae296, type: 3}
-      timeSincePreviousSpawn: 0
-      spawnPosition: {x: 4, y: 2, z: -8}
+    - enemyName: Center
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 4, y: 2.5, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: Above
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 4, y: 4, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: Below
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 4, y: 1, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: CenterRightUp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 3, y: 3.25, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: CenterRightDown
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 3, y: 1.75, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: CenterLeftDown
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 5, y: 1.75, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: CenterLeftUp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 5, y: 3.25, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftUp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 6, y: 4, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftDown
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 6, y: 1, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightDown
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 2, y: 1, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightUp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 3
+      spawnPosition: {x: 2, y: 4, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 0
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 10
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: CircleRight
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 3, y: 2.5, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 7
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: CircleLeft
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 5, y: 2.5, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 7
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightUpUpRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 1, y: 4, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 0, y: 0.5, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightUpRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 1, y: 3, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 0, y: 0.5, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightDownRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 1, y: 2, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 0, y: 0.5, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightDownDownRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 1, y: 1, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 0, y: 0.5, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftDownDownRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 7, y: 1, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 0, y: 0.5, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftDownRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 7, y: 2, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 0, y: 0.5, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftUpRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 7, y: 3, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 0, y: 0.5, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftUpUpRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 7, y: 4, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 0, y: 0.5, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: UpRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 2, y: 4, z: -5}
       spawnRotationEuler: {x: 0, y: 0, z: 0}
       movementType: 4
       moveSpeed: 1
@@ -958,8 +1567,11 @@ MonoBehaviour:
       waypointWaitTime: 0
       patrolCoordinates: []
       coordinateWaitTime: 0
-      circleRadius: 10
+      circleRadius: 1
+      circleClockwise: 1
       circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -969,7 +1581,297 @@ MonoBehaviour:
       respawnTime: 0
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
-    timeToNextWave: 100
+    - enemyName: DownRp
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 18
+      spawnPosition: {x: 6, y: 1, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 1
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightUpCircle
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 1, y: 4, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 7
+      moveSpeed: 1.5
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 0.5
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightDownCircle
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 1, y: 1, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 7
+      moveSpeed: 1
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 0.5
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftDownCircle
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 7, y: 1, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 7
+      moveSpeed: 1.5
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 0.5
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftUpCircle
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 7, y: 4, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 7
+      moveSpeed: 1.5
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 0.5
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: CenterUpBigCir
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 4, y: 2.5, z: -5}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
+      movementType: 7
+      moveSpeed: 8
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 2.5
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: -2.5, z: 0}
+      circlePlacementCount: 8
+      circlePlacementRadius: 2.25
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: LeftCircle
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 3, y: 2.5, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 7
+      moveSpeed: 1.5
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 0.5
+      circleClockwise: 1
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: RightCircle
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 5, y: 2.5, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 7
+      moveSpeed: 1.5
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -4, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 0.5
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: UpSide
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 5, y: 3.5, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1.5
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: -2, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 0.5
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    - enemyName: Downside
+      enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
+      timeSincePreviousSpawn: 33
+      spawnPosition: {x: 3, y: 1.5, z: -5}
+      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      movementType: 4
+      moveSpeed: 1.5
+      moveDirection: {x: 3, y: 0, z: 0}
+      zigzagAmplitude: 0
+      zigzagFrequency: 0
+      sideToSideDistance: {x: 2, y: 0, z: 0}
+      waypoints: []
+      waypointWaitTime: 0
+      patrolCoordinates: []
+      coordinateWaitTime: 0
+      circleRadius: 0.5
+      circleClockwise: 0
+      circleCenterOffset: {x: 0, y: 0, z: 0}
+      circlePlacementCount: 1
+      circlePlacementRadius: 5
+      floatingAmplitude: 0
+      floatingSpeed: 0
+      initialMoveDirection: {x: 0, y: 0, z: 0}
+      initialMoveDuration: 0
+      homingWaitDuration: 0
+      respawns: 0
+      respawnTime: 0
+      rareEnemyPrefab: {fileID: 0}
+      rareEnemyChance: 0
+    timeToNextWave: 53
 --- !u!4 &1234497933
 Transform:
   m_ObjectHideFlags: 0
@@ -1738,7 +2640,7 @@ Transform:
   m_GameObject: {fileID: 1849617015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 4.07, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1854,9 +2756,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToMove: {fileID: 1849617018}
   targets:
-  - position: {x: 4, y: 0, z: 0}
+  - position: {x: 4, y: 2.5, z: 0}
     eulerRotation: {x: 0, y: 180, z: 0}
-  - position: {x: -24.5, y: 0, z: -23}
+  - position: {x: -25, y: 2.5, z: -25}
     eulerRotation: {x: 0, y: 180, z: 0}
   randomizeOrder: 0
   preventRepetition: 0
@@ -2162,10 +3064,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 1849617018}
   - {fileID: 384473766}
-  - {fileID: 205569907}
   - {fileID: 1234497933}
   - {fileID: 1800366267}
   - {fileID: 1295696115}
   - {fileID: 2123477052}
   - {fileID: 427317875}
+  - {fileID: 205569907}
   - {fileID: 163500750}

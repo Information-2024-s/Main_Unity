@@ -55,7 +55,13 @@ public class EnemySpawnInfo
 
     // Circle
     public float circleRadius = 3f;
+    public bool circleClockwise = false; // false:反時計回り, true:時計回り
     public Vector3 circleCenterOffset = Vector3.zero;
+    [Space(10)]
+    [Tooltip("円形に配置する敵の数。1より大きい場合、spawnPositionが中心点になります。")]
+    public int circlePlacementCount = 1;
+    [Tooltip("円形配置の半径")]
+    public float circlePlacementRadius = 5f;
 
     // Floating
     public float floatingAmplitude = 0.5f;
