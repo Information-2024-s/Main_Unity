@@ -93,38 +93,31 @@ public class EnemySpawnManager : MonoBehaviour
             var groupController = pivotObject.AddComponent<CircleGroupController>();
             groupController.rotationSpeed = spawnInfo.moveSpeed;
             groupController.clockwise = spawnInfo.circleClockwise;
+            groupController.plane = spawnInfo.plane;
+            groupController.radius = spawnInfo.circlePlacementRadius;
 
-            // 3. 回転軸をカメラに対して最適化
-            Vector3 camForward = Camera.main.transform.forward;
-            float dotX = Mathf.Abs(Vector3.Dot(camForward, Vector3.right));
-            float dotY = Mathf.Abs(Vector3.Dot(camForward, Vector3.up));
-            float dotZ = Mathf.Abs(Vector3.Dot(camForward, Vector3.forward));
-
-            if (dotX > dotY && dotX > dotZ) groupController.rotationAxis = Vector3.right;
-            else if (dotY > dotZ) groupController.rotationAxis = Vector3.up;
-            else groupController.rotationAxis = Vector3.forward;
-
-            // 4. 敵を円周上に子オブジェクトとして配置
+            // 3. 敵を円周上（指定平面）に子オブジェクトとして配置
+            groupController.enemyRotations.Clear();
             for (int i = 0; i < spawnInfo.circlePlacementCount; i++)
             {
                 float angle = i * (360f / spawnInfo.circlePlacementCount);
                 float radian = angle * Mathf.Deg2Rad;
-                
-                // ★★★ 修正点：回転軸に合わせた平面に敵を配置する ★★★
                 Vector3 localOffset;
-                if (groupController.rotationAxis == Vector3.right) // YZ平面
+                switch (spawnInfo.plane)
                 {
-                    localOffset = new Vector3(0, Mathf.Cos(radian), Mathf.Sin(radian)) * spawnInfo.circlePlacementRadius;
+                    case PlaneType.XZ:
+                        localOffset = new Vector3(Mathf.Cos(radian), 0, Mathf.Sin(radian)) * spawnInfo.circlePlacementRadius;
+                        break;
+                    case PlaneType.YZ:
+                        localOffset = new Vector3(0, Mathf.Cos(radian), Mathf.Sin(radian)) * spawnInfo.circlePlacementRadius;
+                        break;
+                    case PlaneType.XY:
+                        localOffset = new Vector3(Mathf.Cos(radian), Mathf.Sin(radian), 0) * spawnInfo.circlePlacementRadius;
+                        break;
+                    default:
+                        localOffset = Vector3.zero;
+                        break;
                 }
-                else if (groupController.rotationAxis == Vector3.up) // XZ平面
-                {
-                    localOffset = new Vector3(Mathf.Cos(radian), 0, Mathf.Sin(radian)) * spawnInfo.circlePlacementRadius;
-                }
-                else // XY平面
-                {
-                    localOffset = new Vector3(Mathf.Cos(radian), Mathf.Sin(radian), 0) * spawnInfo.circlePlacementRadius;
-                }
-
                 Vector3 spawnPos = pivotObject.transform.position + localOffset;
 
                 // --- 個々の敵の生成（単体生成とほぼ同じロジック） ---
@@ -132,14 +125,19 @@ public class EnemySpawnManager : MonoBehaviour
                 if (spawnInfo.rareEnemyPrefab != null && Random.Range(0f, 100f) < spawnInfo.rareEnemyChance) 
                     prefabToSpawn = spawnInfo.rareEnemyPrefab;
                 
-                if (prefabToSpawn == null) continue;
+                if (prefabToSpawn == null) {
+                    groupController.enemyRotations.Add(Quaternion.identity);
+                    continue;
+                }
 
-                GameObject enemyObj = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+                Quaternion enemyRot = Quaternion.Euler(spawnInfo.spawnRotationEuler);
+                GameObject enemyObj = Instantiate(prefabToSpawn, spawnPos, enemyRot);
                 enemyObj.transform.SetParent(pivotObject.transform); // Pivotの子にする
                 spawnedEnemies.Add(enemyObj);
 
-                // 敵の向きをPivotの中心方向から外側に向ける
-                enemyObj.transform.up = (enemyObj.transform.position - pivotObject.transform.position).normalized;
+                // CircleGroupControllerのenemiesリストに追加
+                groupController.enemies.Add(enemyObj.transform);
+                groupController.enemyRotations.Add(enemyRot);
 
                 // 個々の敵は動かないように、MovementTypeをNoneにしてSetupを呼ぶ
                 var noMoveInfo = spawnInfo;
@@ -164,9 +162,8 @@ public class EnemySpawnManager : MonoBehaviour
                 return;
             }
 
-            Vector3 directionFromCamera = spawnInfo.spawnPosition - Camera.main.transform.position;
-            directionFromCamera.y = 0;
-            Quaternion spawnRotation = Quaternion.LookRotation(directionFromCamera);
+            // カメラ方向を向く処理を削除し、spawnRotationEulerを使用
+            Quaternion spawnRotation = Quaternion.Euler(spawnInfo.spawnRotationEuler);
 
             GameObject spawnedEnemyObject = Instantiate(prefabToSpawn, spawnInfo.spawnPosition, spawnRotation);
             spawnedEnemies.Add(spawnedEnemyObject);

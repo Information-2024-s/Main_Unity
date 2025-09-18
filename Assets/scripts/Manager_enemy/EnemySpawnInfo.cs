@@ -1,5 +1,6 @@
+
 using UnityEngine;
-using System.Collections.Generic; // Listを使うために必要
+using System.Collections.Generic;
 
 // 敵の移動パターンの種類を定義 (enum)
 // 提供されたスクリプトの機能をすべて網羅するように拡張
@@ -17,6 +18,7 @@ public enum EnemyMovementType
     InitialMoveThenHoming   // 指定方向に初動後、プレイヤーを追尾
     // --- かつてのLastBoss1の動きはWaypointPatrolで代用可能です ---
 }
+
 
 [System.Serializable]
 public class EnemySpawnInfo
@@ -62,6 +64,8 @@ public class EnemySpawnInfo
     public int circlePlacementCount = 1;
     [Tooltip("円形配置の半径")]
     public float circlePlacementRadius = 5f;
+
+    public PlaneType plane = PlaneType.XZ;
 
     // Floating
     public float floatingAmplitude = 0.5f;

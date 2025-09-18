@@ -32,6 +32,8 @@ public class EnemySpawnInfoDrawer : PropertyDrawer
         var circleClockwise = property.FindPropertyRelative("circleClockwise");
         var circlePlacementCount = property.FindPropertyRelative("circlePlacementCount");
         var circlePlacementRadius = property.FindPropertyRelative("circlePlacementRadius");
+        // planeプロパティ（観覧車グループ用）
+        var plane = property.FindPropertyRelative("plane");
         var floatingAmplitude = property.FindPropertyRelative("floatingAmplitude");
         var floatingSpeed = property.FindPropertyRelative("floatingSpeed");
         var initialMoveDirection = property.FindPropertyRelative("initialMoveDirection");
@@ -86,12 +88,21 @@ public class EnemySpawnInfoDrawer : PropertyDrawer
                 case EnemyMovementType.Circle:
                     EditorGUILayout.PropertyField(circlePlacementCount);
                     EditorGUILayout.PropertyField(circleClockwise);
-                    
+
                     // 配置数に応じて表示を切り替える
                     if (circlePlacementCount.intValue > 1)
                     {
                         EditorGUILayout.LabelField("観覧車設定 (Group)", EditorStyles.boldLabel);
                         EditorGUILayout.PropertyField(circlePlacementRadius);
+                        // planeプロパティの選択UI
+                        if (plane != null)
+                        {
+                            EditorGUILayout.PropertyField(plane, new GUIContent("回転面"));
+                        }
+                        else
+                        {
+                            EditorGUILayout.HelpBox("planeプロパティが見つかりません。EnemySpawnInfoにpublic Vector3 plane = Vector3.up;があるか確認してください。", MessageType.Warning);
+                        }
                         EditorGUILayout.HelpBox("指定した数の敵が、SpawnPositionを中心点として半径(Radius)の円周上に配置され、全体が一体となって回転します。", MessageType.Info);
                     }
                     else
