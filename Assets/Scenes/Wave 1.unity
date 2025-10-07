@@ -963,7 +963,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -977,7 +977,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 4, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -993,7 +993,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1007,7 +1007,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 1, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1023,7 +1023,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1037,7 +1037,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 3, y: 3.25, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1053,7 +1053,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1067,7 +1067,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 3, y: 1.75, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1083,7 +1083,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1097,7 +1097,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 5, y: 1.75, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1113,7 +1113,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1127,7 +1127,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 5, y: 3.25, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1143,7 +1143,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1157,7 +1157,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 6, y: 4, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1173,7 +1173,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1187,7 +1187,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 6, y: 1, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1203,7 +1203,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1217,7 +1217,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 2, y: 1, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1233,7 +1233,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1247,7 +1247,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 3
       spawnPosition: {x: 2, y: 4, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1263,7 +1263,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1277,7 +1277,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 3, y: 2.5, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1293,7 +1293,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1307,7 +1307,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 5, y: 2.5, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1323,7 +1323,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1337,7 +1337,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 1, y: 4, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1353,7 +1353,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1367,7 +1367,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 1, y: 3, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1383,7 +1383,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1397,7 +1397,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 1, y: 2, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1413,7 +1413,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1427,7 +1427,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 1, y: 1, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1443,7 +1443,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1457,7 +1457,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 7, y: 1, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1473,7 +1473,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1487,7 +1487,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 7, y: 2, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1503,7 +1503,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1517,7 +1517,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 7, y: 3, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1533,7 +1533,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1547,7 +1547,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 7, y: 4, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1563,7 +1563,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1577,7 +1577,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 2, y: 4, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1593,7 +1593,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1607,7 +1607,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 18
       spawnPosition: {x: 6, y: 1, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1623,7 +1623,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1637,7 +1637,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 1, y: 4, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 1.5
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1653,7 +1653,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1667,7 +1667,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 1, y: 1, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 1
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1683,7 +1683,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1697,7 +1697,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 7, y: 1, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 1.5
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1713,7 +1713,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1727,7 +1727,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 7, y: 4, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 1.5
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1743,7 +1743,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1757,7 +1757,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 3, y: 2.5, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 1.5
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1773,7 +1773,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1787,7 +1787,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 5, y: 2.5, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 1.5
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1803,7 +1803,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1817,7 +1817,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 5, y: 3.5, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1.5
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1833,7 +1833,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1847,7 +1847,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 3, y: 1.5, z: -5}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1.5
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1863,7 +1863,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 5
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1877,7 +1877,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 33
       spawnPosition: {x: 4, y: 2.5, z: -5}
-      spawnRotationEuler: {x: 90, y: 180, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 8
       moveDirection: {x: 3, y: 0, z: 0}
@@ -1892,8 +1892,8 @@ MonoBehaviour:
       circleClockwise: 0
       circleCenterOffset: {x: 0, y: -2.5, z: 0}
       circlePlacementCount: 8
-      circlePlacementRadius: 2.54
-      plane: {x: 0, y: 1, z: 0}
+      circlePlacementRadius: 2
+      plane: 2
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1910,7 +1910,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -20, y: 5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -1930,7 +1930,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1944,7 +1944,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -30, y: 5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -1964,7 +1964,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -1978,7 +1978,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -30, y: 0, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -1998,7 +1998,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2012,7 +2012,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -20, y: 0, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2032,7 +2032,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2046,7 +2046,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -25, y: 4.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2066,7 +2066,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2080,7 +2080,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -29, y: 2.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2100,7 +2100,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2114,7 +2114,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -25, y: 0.4, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2134,7 +2134,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2148,7 +2148,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -21, y: 2.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2168,7 +2168,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2182,7 +2182,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -21, y: 4.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2202,7 +2202,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2216,7 +2216,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -29, y: 4.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2236,7 +2236,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2250,7 +2250,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -29, y: 0.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2270,7 +2270,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2284,7 +2284,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -21, y: 0.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2304,7 +2304,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2318,7 +2318,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -21, y: 2.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2338,7 +2338,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2352,7 +2352,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -29, y: 2.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2372,7 +2372,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2386,7 +2386,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 0
       spawnPosition: {x: -25, y: 0.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2406,7 +2406,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2420,7 +2420,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -20, y: 5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2443,7 +2443,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2457,7 +2457,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -20, y: 2.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2480,7 +2480,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2494,7 +2494,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -22.5, y: 1.25, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2517,7 +2517,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2531,7 +2531,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -25, y: 0, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2.18
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2554,7 +2554,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2568,7 +2568,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -27.5, y: 1.25, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2.18
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2591,7 +2591,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2605,7 +2605,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -30, y: 2.5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2.18
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2628,7 +2628,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2642,7 +2642,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -30, y: 5, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 5
       moveSpeed: 2.18
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2665,7 +2665,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2679,7 +2679,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -27.5, y: 3.75, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 0
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2702,7 +2702,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2716,7 +2716,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -22.5, y: 3.75, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 0
       moveSpeed: 0
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2739,7 +2739,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2753,7 +2753,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -27.5, y: 3.75, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 3
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2776,7 +2776,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2790,7 +2790,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -22.5, y: 3.75, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 7
       moveSpeed: 3
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2813,7 +2813,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2827,7 +2827,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -25, y: 1.875, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2850,7 +2850,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2864,7 +2864,7 @@ MonoBehaviour:
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
       timeSincePreviousSpawn: 30
       spawnPosition: {x: -23, y: 1.25, z: -30}
-      spawnRotationEuler: {x: 0, y: 0, z: 0}
+      spawnRotationEuler: {x: 0, y: 180, z: 0}
       movementType: 4
       moveSpeed: 1
       moveDirection: {x: 0, y: 0, z: 0}
@@ -2887,7 +2887,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 1
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2924,7 +2924,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2958,7 +2958,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -2992,7 +2992,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3026,7 +3026,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3060,7 +3060,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3094,7 +3094,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3128,7 +3128,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3162,7 +3162,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3196,7 +3196,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3230,7 +3230,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3264,7 +3264,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3298,7 +3298,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3332,7 +3332,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3366,7 +3366,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3400,7 +3400,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3437,7 +3437,7 @@ MonoBehaviour:
       circleCenterOffset: {x: 0, y: 0, z: 0}
       circlePlacementCount: 0
       circlePlacementRadius: 0
-      plane: {x: 0, y: 1, z: 0}
+      plane: 0
       floatingAmplitude: 0
       floatingSpeed: 0
       initialMoveDirection: {x: 0, y: 0, z: 0}
@@ -3722,65 +3722,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247368068}
   m_CullTransparentMesh: 1
---- !u!1001 &1295696115
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -13.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-      propertyPath: m_Name
-      value: "\u3053\u3046\u3057\u3083"
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7675316436869196995, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-    - {fileID: 7625582751868284038, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8b93936f6e3d0d94b949980ed120438e, type: 3}
 --- !u!1 &1619833188
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4279,63 @@ MonoBehaviour:
     eulerRotation: {x: 0, y: 180, z: 0}
   randomizeOrder: 0
   preventRepetition: 0
+--- !u!1001 &1890437271
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
+      propertyPath: m_Name
+      value: 2floorsschool
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 633f2cb13c811e34588de88686cb4823, type: 3}
 --- !u!1 &1985199540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4642,8 +4640,8 @@ SceneRoots:
   - {fileID: 384473766}
   - {fileID: 1234497933}
   - {fileID: 1800366267}
-  - {fileID: 1295696115}
   - {fileID: 2123477052}
   - {fileID: 427317875}
   - {fileID: 205569907}
   - {fileID: 163500750}
+  - {fileID: 1890437271}
