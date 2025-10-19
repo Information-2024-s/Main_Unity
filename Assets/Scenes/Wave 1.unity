@@ -4907,15 +4907,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreTexts:
-  - {fileID: 0}
+  - {fileID: 1649404286}
   - {fileID: 1352098999}
   - {fileID: 1192397261}
   - {fileID: 1884424226}
   generalFadeItems:
-  - {fileID: 0}
+  - {fileID: 2135900118}
   - {fileID: 1301300138}
   - {fileID: 820279681}
-  - {fileID: 0}
+  - {fileID: 261723257}
   - {fileID: 1719530220}
   fadeInDuration: 1.5
 --- !u!114 &1719530223
