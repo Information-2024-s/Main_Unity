@@ -12,7 +12,7 @@ public class WiiCursorShot : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float power = 500f;
-    public float cooltime = 0.2f;
+    public float cooltime = 1.0f;
     private float timer = 0f;
     public AudioClip sound1;
     private bool disconnected_log = false; //過去にログを表示したか(したならtrue)
@@ -20,6 +20,8 @@ public class WiiCursorShot : MonoBehaviour
     void Start()
     {
         WiimoteManager.FindWiimotes();
+        int playerCount = Mathf.Max(1, player_manager.player_count);
+        cooltime = (playerCount * 0.7f);
     }
 
     void Update()
@@ -66,6 +68,19 @@ public class WiiCursorShot : MonoBehaviour
 
             if (wiimote.Button.b && timer >= cooltime && GetComponent<RawImage>().enabled)
             {
+
+                // LastBossがフェード中の場合は、ここで処理を中断して射撃しない
+                if (LastBoss.Instance != null && LastBoss.Instance.IsFading)
+                {
+                    return;
+                }
+                // --- ここまで追加 ---
+
+                // GameTimerが待機中の場合は射撃しない
+                if (GameTimer.Instance != null && GameTimer.Instance.IsWaiting)
+                {
+                    return;
+                }
                 timer = 0f;
                 Vector3 screenPos = new Vector3(pointer[0] * 1920, pointer[1] * 1080, 0);
                 //Debug.Log(screenPos);
