@@ -26,6 +26,9 @@ public class GameTimer : MonoBehaviour
     [Tooltip("待機時間が終了した時に呼び出されます。")]
     public UnityEvent onWaitEnd;
 
+    [Tooltip("タイマー完全終了後のイベント")]
+    public UnityEvent onTimerComplete;
+
     private bool isPaused = false; // タイマーが一時停止中かどうかのフラグ
     private float remainingTime; // タイマーの残り時間（クラス変数に）
 
@@ -47,7 +50,7 @@ public class GameTimer : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
     }
 
@@ -143,7 +146,21 @@ public class GameTimer : MonoBehaviour
         IsWaiting = false; // 待機状態を終了
         onWaitEnd.Invoke();
 
-        Debug.Log("全てのタイマーが終了しました。タイトルシーンへ移動します");
+        Debug.Log("全てのタイマーが終了しました。スコアを表示します");
+
+        // タイマーテキストを非表示にする
+        if (timerText != null)
+        {
+            timerText.gameObject.SetActive(false);
+        }
+
+        // スコア表示処理をここに追加
+        onTimerComplete.Invoke();
+
+        // 2. 10秒間待機する
+        yield return new WaitForSeconds(10f);
+
+        Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
         SceneManager.LoadScene("title_scene");
     }
 
