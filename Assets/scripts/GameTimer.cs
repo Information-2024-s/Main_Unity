@@ -143,8 +143,8 @@ public class GameTimer : MonoBehaviour
         IsWaiting = false; // 待機状態を終了
         onWaitEnd.Invoke();
 
-        Debug.Log("全てのタイマーが終了しました。QRリーダーへ移動します");
-        //SceneManager.LoadScene("QR_read");
+        Debug.Log("全てのタイマーが終了しました。タイトルシーンへ移動します");
+        SceneManager.LoadScene("title_scene");
     }
 
     /// <summary>

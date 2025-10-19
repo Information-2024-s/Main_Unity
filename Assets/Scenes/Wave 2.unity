@@ -527,7 +527,7 @@ MonoBehaviour:
     enemies:
     - enemyName: Threat
       enemyPrefab: {fileID: 5983850222810608511, guid: 9731de8e083297b4fa9254ff45e00d3b, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 9.5, z: -16}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: Dia1
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 9, z: -16}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 5
@@ -591,7 +591,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: Dia2
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 8, z: -14}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 5
@@ -625,7 +625,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: Dia3
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 7, z: -16}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 5
@@ -659,7 +659,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: Dia4
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 8, z: -18}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 5
@@ -693,7 +693,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: zig1
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 11, z: -14}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 4
@@ -727,7 +727,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: zig2
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 10, z: -15}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 4
@@ -761,7 +761,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: zig3
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 11, z: -16}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 4
@@ -795,7 +795,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: zig4
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 10, z: -17}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 4
@@ -829,7 +829,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: zig5
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 11, z: -18}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 4
@@ -863,7 +863,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: ldcs
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 8.5, z: -12}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 0
@@ -897,7 +897,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: ldc
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 8.5, z: -12}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 7
@@ -931,7 +931,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: rdcs
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 8.5, z: -20}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 0
@@ -965,7 +965,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: rdc
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 8.5, z: -20}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 7
@@ -999,7 +999,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: rucs
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 10.5, z: -20}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 0
@@ -1033,7 +1033,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: ruc
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 10.5, z: -20}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 7
@@ -1067,7 +1067,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: lucs
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 10.5, z: -12}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: luc
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 10.5, z: -12}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 7
@@ -1135,7 +1135,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: rnd1
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 9.5, z: -13.5}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 2
@@ -1169,7 +1169,7 @@ MonoBehaviour:
       rareEnemyChance: 0
     - enemyName: rnd2
       enemyPrefab: {fileID: 6727176947950883917, guid: 22a9311660319b64aa0632ffab0c63cd, type: 3}
-      timeSincePreviousSpawn: 0
+      timeSincePreviousSpawn: 3
       spawnPosition: {x: 4, y: 9.5, z: -18.5}
       spawnRotationEuler: {x: 0, y: -90, z: 0}
       movementType: 2
@@ -1230,8 +1230,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 2
@@ -1260,8 +1260,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 3
@@ -1290,8 +1290,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 4
@@ -1320,8 +1320,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 5
@@ -1350,8 +1350,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 6
@@ -1380,8 +1380,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 7
@@ -1410,8 +1410,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 8
@@ -1440,8 +1440,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 9
@@ -1470,8 +1470,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 10
@@ -1500,8 +1500,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 11
@@ -1530,8 +1530,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 12
@@ -1560,8 +1560,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 13
@@ -1590,8 +1590,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 14
@@ -1620,8 +1620,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 16
@@ -1650,8 +1650,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 17
@@ -1680,8 +1680,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 18
@@ -1710,8 +1710,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 19
@@ -1740,8 +1740,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 20
@@ -1770,8 +1770,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 21
@@ -1800,8 +1800,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 22
@@ -1830,8 +1830,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 23
@@ -1860,8 +1860,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 24
@@ -1890,8 +1890,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 25
@@ -1920,8 +1920,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 26
@@ -1950,8 +1950,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 27
@@ -2040,11 +2040,11 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
-    timeToNextWave: 32
+    timeToNextWave: 33
   - waveName: 2F_Corridor-mwave2
     enemies:
     - enemyName: 1
@@ -2103,8 +2103,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 3
@@ -2133,8 +2133,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 4
@@ -2163,8 +2163,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 5
@@ -2193,8 +2193,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 6
@@ -2223,8 +2223,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 7
@@ -2253,8 +2253,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 8
@@ -2283,8 +2283,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 9
@@ -2313,8 +2313,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 10
@@ -2343,8 +2343,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 11
@@ -2373,8 +2373,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 12
@@ -2403,8 +2403,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 13
@@ -2433,8 +2433,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 14
@@ -2463,8 +2463,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     - enemyName: 15
@@ -2493,8 +2493,8 @@ MonoBehaviour:
       initialMoveDirection: {x: 0, y: 0, z: 0}
       initialMoveDuration: 0
       homingWaitDuration: 0
-      respawns: 0
-      respawnTime: 0
+      respawns: 1
+      respawnTime: 5
       rareEnemyPrefab: {fileID: 0}
       rareEnemyChance: 0
     timeToNextWave: 32
