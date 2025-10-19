@@ -28,8 +28,16 @@ public class Enemy : MonoBehaviour
 
     private Vector3 originalPosition; // 元の座標
     private bool isCharging = false;
+    private bool isPreparing = false; // 突進の準備中フラグ
+    private bool chargeCanceled = false; // 準備中にキャンセルされたか
+    public float prepareDuration = 2.0f; // 突進開始前の予備時間（プレイヤーが攻撃してキャンセルできる）
     private int currentHP;
     private MonoBehaviour[] otherScripts; // 自分以外のスクリプト
+    [Header("Cancel Effects")]
+    [Tooltip("突進がキャンセルされたときに再生するエフェクト（プレハブ）")]
+    public GameObject cancelEffectPrefab;
+    [Tooltip("突進がキャンセルされたときに再生するサウンド")]
+    public AudioClip cancelSound;
 
     void Start()
     {
@@ -55,6 +63,18 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage, int player_num)
     {
         currentHP -= damage;
+        // 準備中にダメージを受けたら突進をキャンセル
+        if (isPreparing)
+        {
+            CancelCharge();
+        }
+        // ボス用の HP 管理があればそちらに委譲して重複処理を防ぐ
+        var bossHp = GetComponentInParent<Boss_HP_manager>();
+        if (bossHp != null)
+        {
+            bossHp.TakeDamage(damage, player_num);
+            return;
+        }
         if (currentHP <= 0)
         {
             DestroyEnemy(player_num);
@@ -88,7 +108,28 @@ public class Enemy : MonoBehaviour
                 CameraShake.Instance.Shake(shakeDuration, shakeMagnitude);
             }
 
-            // 他のスクリプトを無効化
+            // 突進の準備フェーズ: この間にダメージを受けると突進がキャンセルされる
+            isPreparing = true;
+            chargeCanceled = false;
+            float t = 0f;
+            while (t < prepareDuration)
+            {
+                if (chargeCanceled) break;
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            // 準備フラグを下げる
+            isPreparing = false;
+            if (chargeCanceled)
+            {
+                // キャンセルされた場合、必要ならエフェクトやリアクションを入れてから次のループへ
+                Debug.Log("Charge cancelled by damage.");
+                yield return new WaitForSeconds(0.1f);
+                continue; // 次の待機へ戻る
+            }
+
+            // 準備が完了したので、突進に入る前に他スクリプトを無効化する
             foreach (var script in otherScripts)
             {
                 script.enabled = false;
@@ -157,5 +198,25 @@ public class Enemy : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    // 突進をキャンセルする（準備中にダメージを受けたときなど）
+    private void CancelCharge()
+    {
+        if (!isPreparing) return;
+        chargeCanceled = true;
+        isPreparing = false;
+        // キャンセル時のエフェクトを再生
+        if (cancelEffectPrefab != null)
+        {
+            GameObject effect = Instantiate(cancelEffectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 1.0f); // 1秒後に自動破棄
+        }
+        // キャンセル時の音を再生
+        if (cancelSound != null && Camera.main != null)
+        {
+            AudioSource.PlayClipAtPoint(cancelSound, Camera.main.transform.position, 1.0f);
+        }
+        Debug.Log("CancelCharge called: charge will be cancelled.");
     }
 }
