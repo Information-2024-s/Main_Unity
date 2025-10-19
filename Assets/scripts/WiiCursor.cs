@@ -141,7 +141,7 @@ public class WiiCursor : MonoBehaviour
         QRCodeReader.stop_webcam();
         videoPlayer.Play();
         yield return new WaitWhile(() => videoPlayer.isPlaying);
-        SceneManager.LoadScene("Wave"+config_loader.config.stage+1);
+        SceneManager.LoadScene("Wave "+(config_loader.config.stage+1));
     }
 
 }

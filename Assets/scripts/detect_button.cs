@@ -47,7 +47,7 @@ public class DetectButton : MonoBehaviour
 
 
 
-            if (wiimote.Button.b && GetComponent<RawImage>().enabled)
+            if (wiimote.Button.b)
             {
 
                 //AudioSource.PlayClipAtPoint(sound1, firePoint.transform.position, 1.0f);
