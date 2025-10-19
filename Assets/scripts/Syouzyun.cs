@@ -21,6 +21,9 @@ public class Syouzyun : MonoBehaviour
 
     void Start()
     {
+
+        int playerCount = Mathf.Max(1, player_manager.player_count);
+
         if (bullettype == 0)
         {
             cooltime = 1f;
@@ -37,6 +40,8 @@ public class Syouzyun : MonoBehaviour
             overheat = 20;
             power = 100f;
         }
+
+        cooltime *= (playerCount * 0.7f);
     }
 
     void Update()
