@@ -52,10 +52,6 @@ public class DetectButton : MonoBehaviour
 
                 //AudioSource.PlayClipAtPoint(sound1, firePoint.transform.position, 1.0f);
                 StartCoroutine(rumble_for(0.2f));
-<<<<<<< HEAD
-=======
-                titleVideoController.transion_to_qr();
->>>>>>> 6400e6dc218a81248193b7d9ba1c988d3fe154f3
                 
                 // TitleVideoControllerのインスタンスを検索して、そのインスタンスのメソッドを呼び出す
                 TitleVideoController controller = FindObjectOfType<TitleVideoController>();
