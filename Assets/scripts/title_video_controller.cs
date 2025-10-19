@@ -13,6 +13,7 @@ public class TitleVideoController : MonoBehaviour
 {
 
     private VideoPlayer videoPlayer;
+    public GameObject loop_video;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class TitleVideoController : MonoBehaviour
             Debug.LogError("VideoPlayerコンポーネントがありません！");
             return;
         }
+        loop_video.SetActive(true);
 
 
 
@@ -30,14 +32,17 @@ public class TitleVideoController : MonoBehaviour
 
     public void transion_to_qr()
     {
-        transion_next_scene();
+        StartCoroutine(transion_next_scene());
     }
 
 
 
     IEnumerator transion_next_scene()
     {
+        
         videoPlayer.Play();
+        yield return new WaitUntil(() => videoPlayer.isPlaying);
+        loop_video.SetActive(false);
         yield return new WaitWhile(() => videoPlayer.isPlaying);
         SceneManager.LoadScene("QR_read");
     }

@@ -7,6 +7,7 @@ using WiimoteApi;
 public class DetectButton : MonoBehaviour
 {
     private Wiimote wiimote;
+    private TitleVideoController titleVideoController;
     [SerializeField] public int controller_num;
 //    [SerializeField] private Transform firePoint;
 
@@ -15,6 +16,7 @@ public class DetectButton : MonoBehaviour
 
     void Start()
     {
+        titleVideoController = GetComponent<TitleVideoController>();
         WiimoteManager.FindWiimotes();
     }
 
@@ -50,7 +52,7 @@ public class DetectButton : MonoBehaviour
 
                 //AudioSource.PlayClipAtPoint(sound1, firePoint.transform.position, 1.0f);
                 StartCoroutine(rumble_for(0.2f));
-                TitleVideoController.transion_to_qr();
+                titleVideoController.transion_to_qr();
                 
 
             }

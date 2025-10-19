@@ -8,14 +8,10 @@ public class DetectKeyboard : MonoBehaviour
     void Start()
     {
         titleVideoController = GetComponent<TitleVideoController>();
-    if(titleVideoController != null)
-    {
-        titleVideoController.transion_to_qr();
-    }
-    else
-    {
-        Debug.LogWarning("TitleVideoController がアタッチされていません");
-    }
+        if(titleVideoController == null)
+        {
+            Debug.LogWarning("TitleVideoController がアタッチされていません");
+        }
     }
     void Update()
     {
