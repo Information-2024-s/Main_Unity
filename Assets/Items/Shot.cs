@@ -13,6 +13,22 @@ public class Shot : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        // "monitor"タグを持つオブジェクトに当たった場合
+        if (col.gameObject.CompareTag("monitor"))
+        {
+            // TargetObjectコンポーネントを取得
+            TargetObject target = col.gameObject.GetComponent<TargetObject>();
+            if (target != null)
+            {
+                Debug.Log("Monitor Hit!");
+                // TargetObjectのTakeDamageを呼び出す
+                target.TakeDamage(damage, player_num);
+                Destroy(this.gameObject); // 弾を消す
+                return; // 処理を終了
+            }
+        }
+
+        // "Enemy"タグを持つオブジェクトに当たった場合
         if (col.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = col.gameObject.GetComponent<Enemy>();
@@ -25,7 +41,7 @@ public class Shot : MonoBehaviour
             else if (bossEnemy != null)
             {
                 Debug.Log("Boss Enemy Hit!");
-                bossEnemy.TakeDamage(damage, player_num);
+                bossEnemy.ApplyDamage(damage, player_num);
             }
             Destroy(this.gameObject); // 弾も削除
         }

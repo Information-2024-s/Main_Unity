@@ -14,7 +14,9 @@ public class Enemy : MonoBehaviour
     public Vector3 breakEffectOffset = new Vector3(0, 1f, 0); // オフセット追加
 
     [Header("突進関連")]
-    public float waitBeforeCharge = 2.0f; // 突進前の待機秒数
+    // Inspector で最小/最大を指定してその範囲から乱数で待機時間を決める
+    public float waitBeforeCharge_min = 1.0f; // 突進前の最小待機秒数
+    public float waitBeforeCharge_max = 3.0f; // 突進前の最大待機秒数
     private float chargeDistance = -1.0f; // 突進する距離
     private float chargeSpeed = 30.0f; // 突進速度
     private float returnSpeed = 30.0f; // 戻る速度
@@ -36,6 +38,14 @@ public class Enemy : MonoBehaviour
 
         // 自分以外の有効なMonoBehaviourを取得
         otherScripts = GetComponents<MonoBehaviour>().Where(script => script != this && script.enabled).ToArray();
+
+        // min/max の整合性チェック（min が max より大きければ入れ替える）
+        if (waitBeforeCharge_min > waitBeforeCharge_max)
+        {
+            float tmp = waitBeforeCharge_min;
+            waitBeforeCharge_min = waitBeforeCharge_max;
+            waitBeforeCharge_max = tmp;
+        }
 
         // 突進コルーチンを開始
         StartCoroutine(ChargeRoutine());
@@ -65,8 +75,9 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
-            // 待機
-            yield return new WaitForSeconds(waitBeforeCharge);
+            // 待機（min〜max の範囲から乱数）
+            float waitTime = UnityEngine.Random.Range(waitBeforeCharge_min, waitBeforeCharge_max);
+            yield return new WaitForSeconds(waitTime);
 
             // 突進前の座標を保存
             originalPosition = transform.position;

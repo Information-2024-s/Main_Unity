@@ -264,11 +264,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28de86e60418ae346913e64bcc4f9a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
-  breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
-  scoreValue: 10
   maxHP: 1000
+  scoreValue: 10
+  explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
+  damageSound: {fileID: 0}
+  breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
   breakEffectOffset: {x: 0, y: 0, z: 0}
+  waitBeforeCharge: 10000
+  scorePenaltyOnCharge: 50
+  shakeDuration: 0.3
+  shakeMagnitude: 0.1
 --- !u!114 &-236845521948421271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,13 +288,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnList:
   - prefabToSpawn: {fileID: 4556800067345648348, guid: bcc0f3dd54b22cd48909704eeadcce23, type: 3}
-    spawnPosition: {x: 4.5, y: 10, z: 3.5}
+    spawnPosition: {x: 4.5, y: 8, z: 0}
   - prefabToSpawn: {fileID: 1269563044526145786, guid: d5638abae38faea47a0d2d2b8b8d25e6, type: 3}
-    spawnPosition: {x: 4.5, y: 10, z: 3.5}
+    spawnPosition: {x: 4.5, y: 8, z: 0}
   - prefabToSpawn: {fileID: 7622873724621726509, guid: 62209e1c3b9aa814a81f88bda4419446, type: 3}
-    spawnPosition: {x: 4.5, y: 10, z: 3.5}
+    spawnPosition: {x: 4.5, y: 8, z: 0}
   - prefabToSpawn: {fileID: 9126901273475964204, guid: 285e5a94c844b234686f23e97c43b4f9, type: 3}
-    spawnPosition: {x: 4.5, y: 10, z: 3.5}
+    spawnPosition: {x: 4.5, y: 8, z: 0}
 --- !u!1 &9121098655252199560
 GameObject:
   m_ObjectHideFlags: 0

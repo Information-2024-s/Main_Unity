@@ -99,11 +99,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28de86e60418ae346913e64bcc4f9a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
-  breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
-  scoreValue: 10
   maxHP: 1
+  scoreValue: 10
+  explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
+  damageSound: {fileID: 0}
+  breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
   breakEffectOffset: {x: 0, y: 0, z: 0}
+  waitBeforeCharge: 2
+  scorePenaltyOnCharge: 50
+  shakeDuration: 0.3
+  shakeMagnitude: 0.1
 --- !u!65 &-8029502590535511750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -137,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde2c66f851921a4e920bda9875e09b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectangleWidth: 10
+  rectangleWidth: 15
   rectangleHeight: 7
   sideDuration: 1
   initialDirection: 0
