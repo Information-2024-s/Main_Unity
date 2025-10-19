@@ -1053,7 +1053,7 @@ MonoBehaviour:
   controller_num: 0
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: 3017576d6d8c8ff41b0825109d3d02ff, type: 3}
-  power: 500
+  power: 50
   cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &1228716142
