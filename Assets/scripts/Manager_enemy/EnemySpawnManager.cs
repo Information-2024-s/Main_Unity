@@ -198,4 +198,19 @@ public class EnemySpawnManager : MonoBehaviour
         SpawnEnemy(spawnInfo);
         onComplete(null); // 完了を通知
     }
+
+    public void DestroyAllEnemies()
+    {
+        // "Enemy" というタグが付いている全てのゲームオブジェクトを配列として取得
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        // 見つかった全ての敵をループ処理で削除
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+
+        // 削除した敵の数をコンソールに表示（確認用）
+        Debug.Log($"Destroyed {enemies.Length} enemies.");
+    }
 }

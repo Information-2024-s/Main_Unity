@@ -51,6 +51,20 @@ public class ScoreManager : MonoBehaviour
         Debug.Log($"Player {player} のスコアが {amount} 減少しました。現在のスコア: {scores[player]}");
     }
     
+    /// <summary>
+    /// 全てのスコア表示UIを非表示にします。
+    /// </summary>
+    public void HideAllScoreUI()
+    {
+        foreach (var text in scoreText)
+        {
+            if (text != null)
+            {
+                text.gameObject.SetActive(false);
+            }
+        }
+    }
+    
     public void send_score(int player_id, int score)
     {
         ScoreJson ScoreData = new ScoreJson();
