@@ -3826,8 +3826,8 @@ MonoBehaviour:
   - 60
   delaysBetweenTimers:
   - 3
-  - 8
-  - 9
+  - 5
+  - 3
   timerText: {fileID: 1247368071}
   onWaitStart:
     m_PersistentCalls:

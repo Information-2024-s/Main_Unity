@@ -39,6 +39,7 @@ public class Lastboss_Attack : MonoBehaviour
         public Texture originalEmissionTexture;
         public Color originalEmissionColor;
         public Coroutine coroutine;
+        public bool isAttackSuccessful = false; // 攻撃が成功したかどうかを追跡
     }
 
     private HashSet<TargetObject> activeMonitors = new HashSet<TargetObject>();
@@ -106,6 +107,12 @@ public class Lastboss_Attack : MonoBehaviour
 
         while (Time.time < endTime)
         {
+            // オブジェクトが破棄されたか、攻撃が成功したらコルーチンを停止
+            if (target == null || info.isAttackSuccessful)
+            {
+                yield break;
+            }
+
             if (isBlinkingOn)
             {
                 material.mainTexture = changeTexture;
@@ -132,12 +139,16 @@ public class Lastboss_Attack : MonoBehaviour
             yield return new WaitForSeconds(currentBlinkInterval);
         }
 
-        if (failureParticle != null)
+        // タイムアウト時にオブジェクトがまだ存在し、攻撃が成功していなければ失敗処理を実行
+        if (target != null && !info.isAttackSuccessful)
         {
-            Instantiate(failureParticle, target.transform.position, Quaternion.identity);
+            if (failureParticle != null)
+            {
+                Instantiate(failureParticle, target.transform.position, Quaternion.identity);
+            }
+            HandlePenalty();
+            RestoreTexture(target, material, info);
         }
-        HandlePenalty();
-        RestoreTexture(target, material, info);
     }
 
     private IEnumerator InvincibleRoutine(TargetObject target, Material material, AttackInfo info)
@@ -166,18 +177,21 @@ public class Lastboss_Attack : MonoBehaviour
 
             if (blinkingHitCounts[hitObject] >= currentRequiredHits)
             {
-                Debug.Log($"Attack on {hitObject.name} successful!");
-                if (ScoreManager.instance != null)
-                {
-                    ScoreManager.instance.AddScore(player_num, scoreOnSuccess);
-                }
-                if (successParticle != null)
-                {
-                    Instantiate(successParticle, hitObject.transform.position, Quaternion.identity);
-                }
-                
                 if (runningAttacks.TryGetValue(hitObject, out AttackInfo info))
                 {
+                    // 攻撃が成功したことをマーク
+                    info.isAttackSuccessful = true;
+
+                    Debug.Log($"Attack on {hitObject.name} successful!");
+                    if (ScoreManager.instance != null)
+                    {
+                        ScoreManager.instance.AddScore(player_num, scoreOnSuccess);
+                    }
+                    if (successParticle != null)
+                    {
+                        Instantiate(successParticle, hitObject.transform.position, Quaternion.identity);
+                    }
+                
                     StopCoroutine(info.coroutine);
                     Material material = hitObject.GetComponent<Renderer>().material;
                     RestoreTexture(hitObject, material, info);

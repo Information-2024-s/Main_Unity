@@ -149,10 +149,7 @@ public class GameTimer : MonoBehaviour
         Debug.Log("全てのタイマーが終了しました。スコアを表示します");
 
         // タイマーテキストを非表示にする
-        if (timerText != null)
-        {
-            timerText.gameObject.SetActive(false);
-        }
+        HideTimerText();
 
         // スコア表示処理をここに追加
         onTimerComplete.Invoke();
@@ -174,6 +171,17 @@ public class GameTimer : MonoBehaviour
         {
             remainingTime -= amount;
             Debug.Log($"突進によりタイマーが {amount}秒 減少しました。");
+        }
+    }
+
+    /// <summary>
+    /// タイマーテキストを非表示にする
+    /// </summary>
+    public void HideTimerText()
+    {
+        if (timerText != null)
+        {
+            timerText.gameObject.SetActive(false);
         }
     }
 

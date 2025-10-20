@@ -5,11 +5,26 @@ public class TargetObject : MonoBehaviour
     // trueの間は、通常のHPダメージを受けない
     public bool isInvulnerable = false;
 
+    // --- キャッシュ用の変数 ---
+    private Lastboss_Attack bossAttack;
+    private BossEnemy enemyPart;
+
+    void Start()
+    {
+        // 最初にコンポーネントへの参照を取得しておく
+        bossAttack = FindObjectOfType<Lastboss_Attack>();
+        enemyPart = GetComponent<BossEnemy>();
+
+        if (enemyPart == null)
+        {
+            Debug.LogError("BossEnemy コンポーネントが見つかりません！", gameObject);
+        }
+    }
+
     // 弾が当たった時に呼び出されることを想定
     public void TakeDamage(int damage, int player_num)
     {
-        // Lastboss_Attackの特殊攻撃中かどうかをチェック
-        Lastboss_Attack bossAttack = FindObjectOfType<Lastboss_Attack>();
+        // 特殊攻撃の対象かどうかをチェック
         if (bossAttack != null && bossAttack.IsSpecialAttackTarget(this))
         {
             // 特殊攻撃の対象なので、ヒットしたことを通知する
@@ -24,19 +39,11 @@ public class TargetObject : MonoBehaviour
             return;
         }
 
-        // ★★★ ここから修正 ★★★
         // 通常のダメージ処理
-        // 同じオブジェクトにアタッチされている BossEnemy コンポーネントを取得
-        BossEnemy enemyPart = GetComponent<BossEnemy>();
         if (enemyPart != null)
         {
             // BossEnemy の ApplyDamage を呼び出して、ダメージ処理を親に伝達する
             enemyPart.ApplyDamage(damage, player_num);
-        }
-        else
-        {
-            // もしBossEnemyが見つからなかった場合（念のため）
-            Debug.LogError("BossEnemy コンポーネントが見つかりません！", gameObject);
         }
     }
 }

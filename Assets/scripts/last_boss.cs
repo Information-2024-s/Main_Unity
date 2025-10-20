@@ -1,22 +1,22 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Events; // UnityEventを使うために必要
+using UnityEngine.SceneManagement;
 
 public class LastBoss : MonoBehaviour
 {
     // シングルトンインスタンス
     public static LastBoss Instance { get; private set; }
 
-    /// <summary>
-    /// 現在、画面効果（ホワイトアウト）が実行中かどうか
-    /// </summary>
     public bool IsFading { get; private set; } = false;
 
     [Header("参照")]
-    [Tooltip("停止させたいGameTimerスクリプト")]
-    [SerializeField] private GameTimer gameTimer;
+    [Tooltip("ホワイトアウト時に停止させたいスクリプトのリスト")]
+    [SerializeField] private List<MonoBehaviour> scriptsToPause = new List<MonoBehaviour>();
 
-    [Tooltip("フェードアウトさせたいBGMのAudioSource")]
-    [SerializeField] private AudioSource bgmAudioSource;
+    [Tooltip("表示するリザルト画面のResultスクリプト")]
+    [SerializeField] private Result resultScreen;
 
     [Header("UI設定")]
     [Tooltip("ホワイトアウトに使用するUIのCanvasGroup")]
@@ -25,18 +25,26 @@ public class LastBoss : MonoBehaviour
     [Tooltip("フェードインさせたいテキストのCanvasGroup")]
     [SerializeField] private CanvasGroup textCanvasGroup;
 
-    [Header("ホワイトアウト設定")]
-    [Tooltip("画面が完全に白くなるまでにかかる時間")]
-    [SerializeField] private float fadeToWhiteDuration = 2.0f;
+    [Header("エフェクト設定")]
+    [Tooltip("画面が白くなる/透明になるまでにかかる時間")]
+    [SerializeField] private float fadeDuration = 2.0f;
 
-    [Tooltip("フェード終了後、シーン遷移までの待機時間（秒）")]
-    [SerializeField] private float delayBeforeSceneChange = 10.0f;
+    [Tooltip("ホワイトアウト後、リザルトが表示されるまでの待機時間")]
+    [SerializeField] private float delayBeforeResult = 2.0f;
+    [Tooltip("ノイズフェーダー。フェードから戻る（白→透明）の際にノイズ停止を呼びます。")]
+    [SerializeField] private NoiseFader noiseFader;
+
+    // --- ここから追加 ---
+    [Header("イベント")]
+    [Tooltip("ホワイトアウトが完了した時に呼び出されます。")]
+    public UnityEvent onWhiteoutComplete;
+    // --- ここまで追加 ---
 
     private Coroutine currentEffectCoroutine;
 
     void Awake()
     {
-        // シングルトンパターンの実装
+        // ... (Awakeメソッドは変更なし)
         if (Instance == null)
         {
             Instance = this;
@@ -44,6 +52,15 @@ public class LastBoss : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        if (resultScreen == null)
+        {
+            Debug.LogError("Result Screenが設定されていません！", this.gameObject);
+        }
+        else
+        {
+            resultScreen.gameObject.SetActive(false);
         }
 
         if (whiteoutCanvasGroup != null)
@@ -72,72 +89,103 @@ public class LastBoss : MonoBehaviour
         {
             StopCoroutine(currentEffectCoroutine);
         }
-        currentEffectCoroutine = StartCoroutine(DoFadeToWhite());
+        currentEffectCoroutine = StartCoroutine(DoFade(1f, true)); // ターゲットアルファを1に
     }
 
+    // --- ここから追加 ---
     /// <summary>
-    /// ホワイトアウトとBGMフェードアウトを実行するコルーチン
+    /// 白い画面から徐々に透明にする（フェードアウト）公開メソッド
     /// </summary>
-    private IEnumerator DoFadeToWhite()
+    public void FadeFromWhite()
     {
-        // IsFadingをtrueにすることで、Syouzyun.cs側で射撃が停止されます
+        if (whiteoutCanvasGroup == null || IsFading) return;
+
+        if (currentEffectCoroutine != null)
+        {
+            StopCoroutine(currentEffectCoroutine);
+        }
+        currentEffectCoroutine = StartCoroutine(DoFade(0f, false)); // ターゲットアルファを0に
+    }
+    // --- ここまで追加 ---
+
+    /// <summary>
+    /// フェード処理とシーケンスを実行する汎用コルーチン
+    /// </summary>
+    /// <param name="targetAlpha">目標のアルファ値 (0 or 1)</param>
+    /// <param name="isFadingToWhite">ホワイトアウト処理かどうか</param>
+    private IEnumerator DoFade(float targetAlpha, bool isFadingToWhite)
+    {
         IsFading = true;
 
-        // タイマーを停止
-        if (gameTimer != null)
+        // スクリプトの状態を制御
+        foreach (var script in scriptsToPause)
         {
-            gameTimer.PauseTimer();
+            if (script is GameTimer timer && isFadingToWhite)
+            {
+                timer.PauseTimer();
+            }
+            else if (script != null)
+            {
+                script.enabled = !isFadingToWhite; // FadeToWhiteなら無効、FadeFromWhiteなら有効
+            }
         }
 
         float time = 0f;
         float startAlpha = whiteoutCanvasGroup.alpha;
-        float startVolume = (bgmAudioSource != null) ? bgmAudioSource.volume : 0f;
-        float textStartAlpha = (textCanvasGroup != null) ? textCanvasGroup.alpha : 0f;
 
-        while (time < fadeToWhiteDuration)
+        // 1. フェード処理
+        while (time < fadeDuration)
         {
-            float progress = time / fadeToWhiteDuration;
-
-            // 画面のアルファ値を変更 (ホワイトアウト)
-            whiteoutCanvasGroup.alpha = Mathf.Lerp(startAlpha, 1f, progress);
-
-            // テキストのアルファ値を変更 (フェードイン)
-            if (textCanvasGroup != null)
-            {
-                textCanvasGroup.alpha = Mathf.Lerp(textStartAlpha, 1f, progress);
-            }
-
-            // BGMの音量を変更 (フェードアウト)
-            if (bgmAudioSource != null)
-            {
-                bgmAudioSource.volume = Mathf.Lerp(startVolume, 0f, progress);
-            }
-
+            float progress = time / fadeDuration;
+            whiteoutCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, progress);
+            if (textCanvasGroup != null) textCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, progress);
             time += Time.deltaTime;
             yield return null;
         }
 
-        // 最終的な値を設定
-        whiteoutCanvasGroup.alpha = 1f;
-        if (textCanvasGroup != null)
-        {
-            textCanvasGroup.alpha = 1f;
-        }
-        if (bgmAudioSource != null)
-        {
-            bgmAudioSource.volume = 0f;
-        }
+        whiteoutCanvasGroup.alpha = targetAlpha;
+        if (textCanvasGroup != null) textCanvasGroup.alpha = targetAlpha;
 
-        // IsFadingをfalseに戻すことで、再び射撃が可能になります　多分必要ないのでコメントアウト
+        // ホワイトアウト完了時の処理
+        if (isFadingToWhite)
+        {
 
-        //IsFading = false;
+            yield return new WaitForSeconds(delayBeforeResult);
+
+            // --- イベントを呼び出す ---
+            onWhiteoutComplete.Invoke();
+
+            Debug.Log("ホワイトアウト完了。スコアを表示します");
+
+            foreach (var script in scriptsToPause)
+            {
+                if (script is GameTimer timer && timer.timerText != null)
+                {
+                    timer.timerText.gameObject.SetActive(false);
+                    break;
+                }
+            }
+
+            if (resultScreen != null)
+            {
+                resultScreen.gameObject.SetActive(true);
+                resultScreen.StartFadeIn();
+            }
+
+            yield return new WaitForSeconds(10f);
+
+            Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
+            SceneManager.LoadScene("title_scene");
+        }
+        else
+        {
+            // フェードアウト（白->透明）処理時にノイズアニメーションを停止する
+            if (noiseFader != null)
+            {
+                noiseFader.StartFadeOut();
+            }
+        }
+        IsFading = false;
         currentEffectCoroutine = null;
-
-        // 指定した時間待機
-        yield return new WaitForSeconds(delayBeforeSceneChange);
-
-        // シーンを遷移
-        Debug.Log("QRリーダーへ移動します");
-        //SceneManager.LoadScene("QR_read");
     }
 }
