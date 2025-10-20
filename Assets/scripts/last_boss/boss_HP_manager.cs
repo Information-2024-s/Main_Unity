@@ -53,7 +53,8 @@ public class Boss_HP_manager : MonoBehaviour
         // エフェクトとサウンドを再生
         if (breakEffect != null)
         {
-            Instantiate(breakEffect, transform.position + breakEffectOffset, Quaternion.identity);
+            GameObject effect = Instantiate(breakEffect, transform.position + breakEffectOffset, Quaternion.identity);
+            Destroy(effect, 1.0f);
         }
         if (explodeSound != null && Camera.main != null)
         {
