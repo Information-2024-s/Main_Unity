@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Wave 2.unity
     guid: 80d82d793c3d6224ead4a4825eb7747b
   - enabled: 1
-    path: Assets/Scenes/Wave3.unity
+    path: Assets/Scenes/Wave 3.unity
     guid: edcedf8e22f87c742a20bf36971d2bc1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

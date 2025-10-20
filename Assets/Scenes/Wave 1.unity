@@ -747,8 +747,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
+  m_sharedMaterial: {fileID: 3811695687980804856, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -877,9 +877,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: {fileID: 743401455}
   textsToShow:
-  - "\u6575\u306E\u6392\u9664\u306E\u305F\u3081\u3001\u60C5\u5831\u68DF\u3078\u6F5C\u5165\u3057\u305F\u3002"
-  - "\u30BB\u30AD\u30E5\u30EA\u30C6\u30A3\u3092\u53F8\u308BPC\u5BA4\u306B\u6F5C\u5165\u3057\u305F\u3002"
-  - "2\u968E\u3078\u884C\u3051\u308B\u3088\u3046\u306B\u306A\u3063\u305F\u3002\u5148\u3078\u9032\u3082\u3046\u3002"
+  - a
+  - b
+  - c
   fadeDuration: 0.5
 --- !u!225 &743401454
 CanvasGroup:
@@ -915,8 +915,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: story
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
+  m_sharedMaterial: {fileID: 3811695687980804856, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1124,7 +1124,7 @@ MonoBehaviour:
   controller_num: 1
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
-  power: 500
+  power: 50
   cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &798333219
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798333216}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
@@ -1221,8 +1221,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player4
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
+  m_sharedMaterial: {fileID: 3811695687980804856, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1740,7 +1740,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228716139}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
@@ -4135,7 +4135,7 @@ MonoBehaviour:
   controller_num: 2
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: 429c084736e9ad745b543caa55fcf0b6, type: 3}
-  power: 500
+  power: 50
   cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &1281168895
@@ -4145,7 +4145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281168892}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
@@ -4377,7 +4377,7 @@ MonoBehaviour:
   controller_num: 3
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
-  power: 500
+  power: 50
   cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &1618896478
@@ -4387,7 +4387,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618896475}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
@@ -4660,8 +4660,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
+  m_sharedMaterial: {fileID: 3811695687980804856, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5612,8 +5612,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
+  m_sharedMaterial: {fileID: 3811695687980804856, guid: aee04f864574b6d41a28d71c70323dce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5841,7 +5841,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: abbd0529a7e4c73479840a3b7817a74c, type: 3}
   m_Resource: {fileID: 8300000, guid: abbd0529a7e4c73479840a3b7817a74c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
