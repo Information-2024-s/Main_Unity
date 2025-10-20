@@ -21,7 +21,7 @@ public class WiiCursorShot : MonoBehaviour
     {
         WiimoteManager.FindWiimotes();
         int playerCount = Mathf.Max(1, player_manager.player_count);
-        cooltime = (playerCount * 0.7f);
+        cooltime = (playerCount * 0.5f);
     }
 
     void Update()

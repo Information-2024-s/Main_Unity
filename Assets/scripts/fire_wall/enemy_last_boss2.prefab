@@ -105,10 +105,14 @@ MonoBehaviour:
   damageSound: {fileID: 0}
   breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
   breakEffectOffset: {x: 0, y: 0, z: 0}
-  waitBeforeCharge: 2
+  waitBeforeCharge_min: 5
+  waitBeforeCharge_max: 5
   scorePenaltyOnCharge: 50
   shakeDuration: 0.3
   shakeMagnitude: 0.1
+  prepareDuration: 2
+  cancelEffectPrefab: {fileID: 0}
+  cancelSound: {fileID: 0}
 --- !u!65 &6310276383432231564
 BoxCollider:
   m_ObjectHideFlags: 0

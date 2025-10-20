@@ -96,35 +96,51 @@ public class Result : MonoBehaviour
         // --- 表示直前にスコアとランクを更新 ---
         UpdateAllUIContents();
 
+        // Safety: StartCoroutine を呼ぶ前にこのコンポーネントと GameObject が有効か確認する
+        if (!this.isActiveAndEnabled || this.gameObject == null || !this.gameObject.activeInHierarchy)
+        {
+            // GameObject が無効なら有効化してからフェードインを開始する
+            // 注意: 他のロジックで無効化している可能性があるため、強制的に有効化するのが望ましくない場合は
+            // 呼び出し側で有効化してから StartFadeIn を呼ぶようにしてください。
+            this.gameObject.SetActive(true);
+        }
+
         // 登録されているすべての要素のフェードインを同時に開始する
         
         // 1. 汎用要素のフェードインを開始
         foreach (var obj in generalFadeItems)
         {
-            if (obj != null)
+            if (obj == null) continue;
+            var cg = obj.GetComponent<CanvasGroup>();
+            if (cg != null)
             {
-                var cg = obj.GetComponent<CanvasGroup>();
-                if (cg != null) StartCoroutine(Fade(cg, fadeInDuration));
+                // Ensure target object is active so CanvasGroup updates are visible
+                if (!obj.activeInHierarchy) obj.SetActive(true);
+                StartCoroutine(Fade(cg, fadeInDuration));
             }
         }
 
         // 2. スコア表示のフェードインを開始
         foreach (var text in scoreTexts)
         {
-            if (text != null)
+            if (text == null) continue;
+            var cg = text.GetComponent<CanvasGroup>();
+            if (cg != null)
             {
-                var cg = text.GetComponent<CanvasGroup>();
-                if (cg != null) StartCoroutine(Fade(cg, fadeInDuration));
+                if (!text.gameObject.activeInHierarchy) text.gameObject.SetActive(true);
+                StartCoroutine(Fade(cg, fadeInDuration));
             }
         }
         
         // 3. ランク表示のフェードインを開始
         foreach (var text in rankTexts)
         {
-            if (text != null)
+            if (text == null) continue;
+            var cg = text.GetComponent<CanvasGroup>();
+            if (cg != null)
             {
-                var cg = text.GetComponent<CanvasGroup>();
-                if (cg != null) StartCoroutine(Fade(cg, fadeInDuration));
+                if (!text.gameObject.activeInHierarchy) text.gameObject.SetActive(true);
+                StartCoroutine(Fade(cg, fadeInDuration));
             }
         }
     }

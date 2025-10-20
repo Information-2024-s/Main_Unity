@@ -41,7 +41,7 @@ public class Syouzyun : MonoBehaviour
             power = 100f;
         }
 
-        cooltime *= (playerCount * 0.7f);
+        cooltime *= (playerCount * 0.5f);
     }
 
     void Update()
