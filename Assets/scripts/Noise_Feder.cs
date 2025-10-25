@@ -17,6 +17,8 @@ public class NoiseFader : MonoBehaviour
     [Tooltip("ノイズのスクロール速度")]
     [SerializeField] private Vector2 noiseScrollSpeed = new Vector2(0.1f, 0.1f);
 
+    public float init_alpha = 255f;
+
     // --- 内部参照 ---
     private CanvasGroup canvasGroup;
     private RawImage noiseImage; // テクスチャを動かすためRawImageを使用
@@ -35,7 +37,7 @@ public class NoiseFader : MonoBehaviour
         }
 
         // 初期状態では透明にしておく
-        canvasGroup.alpha = 255f;
+        canvasGroup.alpha = init_alpha;
     }
 
     /// <summary>

@@ -102,12 +102,6 @@ public class Enemy : MonoBehaviour
             // 突進前の座標を保存
             originalPosition = transform.position;
 
-            // カメラを揺らす
-            if (CameraShake.Instance != null)
-            {
-                CameraShake.Instance.Shake(shakeDuration, shakeMagnitude);
-            }
-
             // 突進の準備フェーズ: この間にダメージを受けると突進がキャンセルされる
             isPreparing = true;
             chargeCanceled = false;
@@ -152,6 +146,12 @@ public class Enemy : MonoBehaviour
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, chargeSpeed * Time.deltaTime);
                 yield return null;
+            }
+
+            // カメラを揺らす
+            if (CameraShake.Instance != null)
+            {
+                CameraShake.Instance.Shake(shakeDuration, shakeMagnitude);
             }
 
             // 少し待機（到着演出用、必要なら調整）
