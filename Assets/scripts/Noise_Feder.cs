@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 // CanvasGroupコンポーネントを必須にする
@@ -10,32 +9,27 @@ public class NoiseFader : MonoBehaviour
     [Tooltip("フェードイン/アウトにかかる時間（秒）")]
     [SerializeField] private float fadeDuration = 0.5f;
 
-    [Header("ノイズアニメーション設定")]
-    [Tooltip("ノイズテクスチャをスクロールさせてアニメーションさせるか")]
-    [SerializeField] private bool animateNoise = true;
-
-    [Tooltip("ノイズのスクロール速度")]
-    [SerializeField] private Vector2 noiseScrollSpeed = new Vector2(0.1f, 0.1f);
+    [Tooltip("初期アルファ (0.0 - 1.0)")]
+    [Range(0f, 1f)]
+    [SerializeField] private float initAlpha = 0f;
 
     // --- 内部参照 ---
     private CanvasGroup canvasGroup;
-    private RawImage noiseImage; // テクスチャを動かすためRawImageを使用
     private Coroutine currentFadeCoroutine;
-    private Coroutine noiseAnimationCoroutine;
 
     void Awake()
     {
         // 必要なコンポーネントを取得
         canvasGroup = GetComponent<CanvasGroup>();
-        noiseImage = GetComponent<RawImage>();
 
-        if (noiseImage == null)
+        if (canvasGroup == null)
         {
-            Debug.LogError("このスクリプトにはRawImageコンポーネントが必要です。");
+            Debug.LogError("CanvasGroup コンポーネントが必要です。");
+            return;
         }
 
-        // 初期状態では透明にしておく
-        canvasGroup.alpha = 255f;
+        // 初期状態のアルファを設定
+        canvasGroup.alpha = Mathf.Clamp01(initAlpha);
     }
 
     /// <summary>
@@ -49,12 +43,6 @@ public class NoiseFader : MonoBehaviour
             StopCoroutine(currentFadeCoroutine);
         }
         currentFadeCoroutine = StartCoroutine(Fade(1f));
-
-        // ノイズアニメーションを開始
-        if (animateNoise && noiseAnimationCoroutine == null)
-        {
-           noiseAnimationCoroutine = StartCoroutine(AnimateNoiseTexture());
-        }
     }
 
     /// <summary>
@@ -67,13 +55,6 @@ public class NoiseFader : MonoBehaviour
             StopCoroutine(currentFadeCoroutine);
         }
         currentFadeCoroutine = StartCoroutine(Fade(0f));
-
-        // ノイズアニメーションを停止
-        if (noiseAnimationCoroutine != null)
-        {
-            StopCoroutine(noiseAnimationCoroutine);
-            noiseAnimationCoroutine = null;
-        }
     }
 
     /// <summary>
@@ -82,8 +63,20 @@ public class NoiseFader : MonoBehaviour
     /// <param name="targetAlpha">目標の透明度 (0.0f - 1.0f)</param>
     private IEnumerator Fade(float targetAlpha)
     {
+        if (canvasGroup == null)
+        {
+            yield break;
+        }
+
         float startAlpha = canvasGroup.alpha;
         float time = 0f;
+
+        if (fadeDuration <= 0f)
+        {
+            canvasGroup.alpha = targetAlpha;
+            currentFadeCoroutine = null;
+            yield break;
+        }
 
         while (time < fadeDuration)
         {
@@ -96,24 +89,5 @@ public class NoiseFader : MonoBehaviour
         // 最終的なアルファ値を設定
         canvasGroup.alpha = targetAlpha;
         currentFadeCoroutine = null;
-    }
-
-    /// <summary>
-    /// RawImageのUV Rectを動かしてノイズをアニメーションさせるコルーチン
-    /// </summary>
-    private IEnumerator AnimateNoiseTexture()
-    {
-        while (true)
-        {
-            if (noiseImage != null)
-            {
-                // UV座標を時間経過でずらす
-                Rect currentUV = noiseImage.uvRect;
-                currentUV.x += noiseScrollSpeed.x * Time.deltaTime;
-                currentUV.y += noiseScrollSpeed.y * Time.deltaTime;
-                noiseImage.uvRect = currentUV;
-            }
-            yield return null; // 1フレーム待機
-        }
     }
 }
