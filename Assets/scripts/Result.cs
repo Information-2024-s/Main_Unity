@@ -38,6 +38,10 @@ public class Result : MonoBehaviour
     [Tooltip("すべての要素がフェードインするのにかかる時間")]
     [SerializeField] private float fadeInDuration = 1.5f;
 
+    [Header("スコアカウントアップ設定")]
+    [Tooltip("スコアが0から最終値までカウントアップするのにかかる時間（秒）")]
+    [SerializeField] private float scoreCountUpDuration = 1.5f;
+
     private void Awake()
     {
         if (instance == null)
@@ -93,7 +97,7 @@ public class Result : MonoBehaviour
     /// </summary>
     public void StartFadeIn()
     {
-        // --- 表示直前にスコアとランクを更新 ---
+        // --- 表示直前にランクを更新（スコアは0で初期化） ---
         UpdateAllUIContents();
 
         // Safety: StartCoroutine を呼ぶ前にこのコンポーネントと GameObject が有効か確認する
@@ -120,16 +124,19 @@ public class Result : MonoBehaviour
             }
         }
 
-        // 2. スコア表示のフェードインを開始
-        foreach (var text in scoreTexts)
+        // 2. スコア表示のフェードイン + カウントアップアニメーションを開始
+        for (int i = 0; i < scoreTexts.Length; i++)
         {
-            if (text == null) continue;
-            var cg = text.GetComponent<CanvasGroup>();
+            if (scoreTexts[i] == null) continue;
+            var cg = scoreTexts[i].GetComponent<CanvasGroup>();
             if (cg != null)
             {
-                if (!text.gameObject.activeInHierarchy) text.gameObject.SetActive(true);
+                if (!scoreTexts[i].gameObject.activeInHierarchy) scoreTexts[i].gameObject.SetActive(true);
                 StartCoroutine(Fade(cg, fadeInDuration));
             }
+            // スコアのカウントアップアニメーションを同時に開始
+            int finalScore = ScoreManager.scores[i];
+            StartCoroutine(ScoreCountUpAnimation(scoreTexts[i], finalScore, scoreCountUpDuration));
         }
         
         // 3. ランク表示のフェードインを開始
@@ -152,9 +159,40 @@ public class Result : MonoBehaviour
     {
         for (int i = 0; i < ScoreManager.scores.Length; i++)
         {
-            UpdateScoreUI(i);
+            // スコアは0で初期化（カウントアップアニメーションが最終値にする）
+            if (scoreTexts != null && i < scoreTexts.Length && scoreTexts[i] != null)
+            {
+                scoreTexts[i].text = "0";
+            }
+            // ランクは最終スコアに基づいて設定
             UpdateRankUI(i);
         }
+    }
+
+    /// <summary>
+    /// スコアを0から最終値までカウントアップするアニメーション
+    /// </summary>
+    private IEnumerator ScoreCountUpAnimation(TextMeshProUGUI textComponent, float finalScore, float duration)
+    {
+        if (textComponent == null) yield break;
+
+        float startScore = 0f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            float rate = elapsedTime / duration;
+            // イージング: 徐々に減速（イーズアウト）
+            float easedRate = 1f - Mathf.Pow(1f - rate, 2f);
+            float currentScore = Mathf.Lerp(startScore, finalScore, easedRate);
+            textComponent.text = Mathf.RoundToInt(currentScore).ToString();
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 最終的な着地のスコア
+        textComponent.text = Mathf.RoundToInt(finalScore).ToString();
     }
 
     /// <summary>
@@ -173,13 +211,7 @@ public class Result : MonoBehaviour
     }
 
     // --- スコア・ランク更新メソッド ---
-    private void UpdateScoreUI(int player)
-    {
-        if (scoreTexts != null && player < scoreTexts.Length && scoreTexts[player] != null)
-        {
-            scoreTexts[player].text = "" + ScoreManager.scores[player];
-        }
-    }
+    // UpdateScoreUI は削除（カウントアップアニメーションが代わりに行う）
 
     private void UpdateRankUI(int player)
     {
