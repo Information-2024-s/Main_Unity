@@ -32,6 +32,20 @@ public class GameTimer : MonoBehaviour
     private bool isPaused = false; // タイマーが一時停止中かどうかのフラグ
     private float remainingTime; // タイマーの残り時間（クラス変数に）
 
+    [Header("警告表示（残りわずか）")]
+    [Tooltip("この秒数以下になったら赤色＆点滅を開始")]
+    [SerializeField] private float warningThresholdSeconds = 11f;
+    [Tooltip("警告時のテキスト色")]
+    [SerializeField] private Color warningColor = Color.red;
+    [Tooltip("点滅の速さ（1=ゆっくり、5=速い）")]
+    [Range(0.1f, 10f)]
+    [SerializeField] private float blinkSpeed = 3f;
+
+    // 内部: 警告点滅管理
+    private Coroutine blinkCoroutine;
+    private Color originalColor;
+    private bool isWarningActive = false;
+
     /// <summary>
     /// シングルトンインスタンス
     /// </summary>
@@ -62,6 +76,9 @@ public class GameTimer : MonoBehaviour
             Debug.LogError("TimerTextが設定されていません！インスペクターでUIテキストをアタッチしてください。");
             return;
         }
+
+        // 元の色を記録
+        originalColor = timerText.color;
 
         // 制限時間が設定されているか確認
         if (timeLimitsInSeconds.Count == 0)
@@ -181,6 +198,8 @@ public class GameTimer : MonoBehaviour
     {
         if (timerText != null)
         {
+            // 警告点滅を停止し、表示を元に戻してから非表示
+            DeactivateWarningIfNeeded(force: true);
             timerText.gameObject.SetActive(false);
         }
     }
@@ -215,5 +234,64 @@ public class GameTimer : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        // 残りわずかの警告（赤色＋点滅）
+        if (timeToDisplay > 0f && timeToDisplay <= warningThresholdSeconds)
+        {
+            ActivateWarningIfNeeded();
+        }
+        else
+        {
+            DeactivateWarningIfNeeded();
+        }
+    }
+
+    private void ActivateWarningIfNeeded()
+    {
+        if (isWarningActive || timerText == null) return;
+        isWarningActive = true;
+
+        // 色を赤に変更
+        timerText.color = warningColor;
+
+        // 既存のコルーチンがあれば止める
+        if (blinkCoroutine != null) StopCoroutine(blinkCoroutine);
+        blinkCoroutine = StartCoroutine(BlinkTextAlpha());
+    }
+
+    private void DeactivateWarningIfNeeded(bool force = false)
+    {
+        if (!isWarningActive && !force) return;
+        if (blinkCoroutine != null)
+        {
+            StopCoroutine(blinkCoroutine);
+            blinkCoroutine = null;
+        }
+        if (timerText != null)
+        {
+            // 色とアルファを元に戻す
+            var c = originalColor;
+            c.a = 1f;
+            timerText.color = c;
+        }
+        isWarningActive = false;
+    }
+
+    private IEnumerator BlinkTextAlpha()
+    {
+        // アルファを 1 ↔ 0.25 の範囲で点滅
+        const float minA = 0.25f;
+        const float maxA = 1f;
+        float t = 0f;
+        while (true)
+        {
+            if (timerText == null) yield break;
+            t += Time.deltaTime * blinkSpeed * Mathf.PI; // 速度調整
+            float a = Mathf.Lerp(minA, maxA, 0.5f * (Mathf.Sin(t) + 1f));
+            var c = timerText.color;
+            c.a = a;
+            timerText.color = c;
+            yield return null;
+        }
     }
 }

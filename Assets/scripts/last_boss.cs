@@ -34,6 +34,12 @@ public class LastBoss : MonoBehaviour
     [Tooltip("ノイズフェーダー。フェードから戻る（白→透明）の際にノイズ停止を呼びます。")]
     [SerializeField] private NoiseFader noiseFader;
 
+    [Header("Skybox設定")]
+    [Tooltip("ボス撃破後に切り替えるスカイボックスの Material（未指定なら変更しません）")]
+    [SerializeField] private Material skyboxAfterBossDefeated;
+    [Tooltip("ホワイトアウト完了時にスカイボックスを切り替えるか")]
+    [SerializeField] private bool changeSkyboxOnWhiteoutComplete = true;
+
     // --- ここから追加 ---
     [Header("イベント")]
     [Tooltip("ホワイトアウトが完了した時に呼び出されます。")]
@@ -151,6 +157,14 @@ public class LastBoss : MonoBehaviour
         {
 
             yield return new WaitForSeconds(delayBeforeResult);
+
+            // スカイボックスを切り替え（白画面中に行うため切り替えが視覚的に自然）
+            if (changeSkyboxOnWhiteoutComplete && skyboxAfterBossDefeated != null)
+            {
+                RenderSettings.skybox = skyboxAfterBossDefeated;
+                // 反映を即時更新（環境ライティング使用時）
+                DynamicGI.UpdateEnvironment();
+            }
 
             // --- イベントを呼び出す ---
             onWhiteoutComplete.Invoke();

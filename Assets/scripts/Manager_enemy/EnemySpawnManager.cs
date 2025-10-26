@@ -17,6 +17,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();
     private List<Coroutine> activeRespawnCoroutines = new List<Coroutine>();
+    private Coroutine currentWaveSpawnCoroutine; // 現在のWaveのスポーン処理参照
 
     void Start()
     {
@@ -27,6 +28,13 @@ public class EnemySpawnManager : MonoBehaviour
     {
         for (int i = 0; i < waves.Count; i++)
         {
+            // 前回Waveのスポーン処理が残っていれば停止
+            if (currentWaveSpawnCoroutine != null)
+            {
+                StopCoroutine(currentWaveSpawnCoroutine);
+                currentWaveSpawnCoroutine = null;
+            }
+
             // 実行中のリスポーン処理をすべて停止
             foreach (var coroutine in activeRespawnCoroutines)
             {
@@ -47,12 +55,40 @@ public class EnemySpawnManager : MonoBehaviour
             Debug.Log($"Wave {i + 1} 開始: {waves[i].waveName}");
             
             // Waveの敵出現コルーチンを非同期で開始
-            StartCoroutine(SpawnWaveEnemies(waves[i]));
+            currentWaveSpawnCoroutine = StartCoroutine(SpawnWaveEnemies(waves[i]));
 
             // 次のWaveまでの待機時間
             yield return new WaitForSeconds(waves[i].timeToNextWave);
             
             Debug.Log($"Wave {i + 1} 終了");
+
+            // 最終Waveなら敵を全て消去して終了
+            if (i == waves.Count - 1)
+            {
+                // スポーン処理停止
+                if (currentWaveSpawnCoroutine != null)
+                {
+                    StopCoroutine(currentWaveSpawnCoroutine);
+                    currentWaveSpawnCoroutine = null;
+                }
+
+                // リスポーン処理停止
+                foreach (var coroutine in activeRespawnCoroutines)
+                {
+                    StopCoroutine(coroutine);
+                }
+                activeRespawnCoroutines.Clear();
+
+                // 残っている生成物を全て破棄（Pivot含む）
+                foreach (var enemy in spawnedEnemies)
+                {
+                    if (enemy != null)
+                    {
+                        Destroy(enemy);
+                    }
+                }
+                spawnedEnemies.Clear();
+            }
         }
         Debug.Log("全てのWaveが終了しました。");
     }
