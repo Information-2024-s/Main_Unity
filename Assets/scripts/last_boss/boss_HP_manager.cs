@@ -64,11 +64,11 @@ public class Boss_HP_manager : MonoBehaviour
         // スコアを加算
         ScoreManager.instance?.AddScore(player_num, scoreValue);
 
-        // ホワイトアウトの待機時間
-        yield return new WaitForSeconds(2.0f);
-
         // ボス本体（親オブジェクト）を破壊
         Destroy(gameObject);
+        
+        // ホワイトアウトの待機時間
+        yield return new WaitForSeconds(2.0f);
     }
 
     // HPを外部から参照したい場合（例：UI表示）
