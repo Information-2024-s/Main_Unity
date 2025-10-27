@@ -1568,6 +1568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 1
+  useMotionPlus: 0
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
   power: 50
@@ -2176,6 +2177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 0
+  useMotionPlus: 0
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: 3017576d6d8c8ff41b0825109d3d02ff, type: 3}
   power: 50
@@ -4247,6 +4249,7 @@ MonoBehaviour:
   deltaDisplayDuration: 0.8
   deltaPositiveColor: {r: 1, g: 0.9, b: 0.2, a: 1}
   deltaNegativeColor: {r: 1, g: 0.2, b: 0.2, a: 1}
+  decreaseScoreSound: {fileID: 8300000, guid: d1101706d9d17724d89dcf935751e3bd, type: 3}
 --- !u!114 &1234497935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4605,6 +4608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 2
+  useMotionPlus: 0
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: 429c084736e9ad745b543caa55fcf0b6, type: 3}
   power: 50
@@ -4983,6 +4987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 3
+  useMotionPlus: 0
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
   power: 50
@@ -6350,6 +6355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 1
+  useMotionPlus: 0
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
   power: 50
