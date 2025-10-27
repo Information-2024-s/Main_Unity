@@ -1571,7 +1571,7 @@ MonoBehaviour:
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
   power: 50
-  cooltime: 1
+  cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &798333219
 MonoBehaviour:
@@ -1963,15 +1963,15 @@ MonoBehaviour:
   - rankName: N
     minimumScore: 0
   - rankName: F
-    minimumScore: 500
-  - rankName: C
     minimumScore: 800
+  - rankName: C
+    minimumScore: 1000
   - rankName: B
-    minimumScore: 1200
+    minimumScore: 1800
   - rankName: A
-    minimumScore: 1600
+    minimumScore: 2500
   - rankName: S
-    minimumScore: 2000
+    minimumScore: 3500
   fadeInDuration: 1.5
   scoreCountUpDuration: 1.5
 --- !u!1 &1192397259
@@ -2179,7 +2179,7 @@ MonoBehaviour:
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: 3017576d6d8c8ff41b0825109d3d02ff, type: 3}
   power: 50
-  cooltime: 1
+  cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &1228716142
 MonoBehaviour:
@@ -4608,7 +4608,7 @@ MonoBehaviour:
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: 429c084736e9ad745b543caa55fcf0b6, type: 3}
   power: 50
-  cooltime: 1
+  cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &1281168895
 MonoBehaviour:
@@ -4986,7 +4986,7 @@ MonoBehaviour:
   firePoint: {fileID: 1849617018}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
   power: 50
-  cooltime: 1
+  cooltime: 0.2
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &1618896478
 MonoBehaviour:

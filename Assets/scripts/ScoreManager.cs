@@ -27,6 +27,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private Color deltaPositiveColor = new Color(1f, 0.9f, 0.2f, 1f); // やや黄色
     [Tooltip("-表記の色（減点時）")]
     [SerializeField] private Color deltaNegativeColor = new Color(1f, 0.2f, 0.2f, 1f); // 赤寄り
+
+    [Header("サウンド")]
+    [Tooltip("スコア減少時に再生するサウンド")]
+    public AudioClip decreaseScoreSound;
     
     public static int[] scores = new int[4];
 
@@ -76,6 +80,12 @@ public class ScoreManager : MonoBehaviour
         // 減点演出（0 のときは表示しない）
         if (amount > 0)
         {
+            // スコア減少効果音を再生
+            if (decreaseScoreSound != null && Camera.main != null)
+            {
+                // メインカメラの位置でサウンドを再生
+                AudioSource.PlayClipAtPoint(decreaseScoreSound, Camera.main.transform.position, 1.0f);
+            }
             ShowDeltaText(player, -amount); // 負の値で渡す
         }
     }

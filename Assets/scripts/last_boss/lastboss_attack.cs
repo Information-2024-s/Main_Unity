@@ -171,7 +171,7 @@ public class Lastboss_Attack : MonoBehaviour
             blinkingHitCounts[hitObject]++;
 
             int playerCount = Mathf.Max(1, player_manager.player_count);
-            int currentRequiredHits = requiredHits * playerCount;
+            int currentRequiredHits = requiredHits;
 
             Debug.Log($"Special target {hitObject.name} hit! Hit count: {blinkingHitCounts[hitObject]}");
 

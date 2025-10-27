@@ -8,7 +8,9 @@ public class WiiCursorShot : MonoBehaviour
 {
     private Wiimote wiimote;
     private int flag = 0;
+    private bool isIRSetupComplete = false;
     [SerializeField] public int controller_num;
+    [SerializeField] public bool useMotionPlus = false; // インスペクターでモーションプラス使用を指定
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float power = 500f;
@@ -21,7 +23,6 @@ public class WiiCursorShot : MonoBehaviour
     {
         WiimoteManager.FindWiimotes();
         int playerCount = Mathf.Max(1, player_manager.player_count);
-        cooltime = (playerCount * 0.5f);
     }
 
     void Update()
@@ -29,6 +30,7 @@ public class WiiCursorShot : MonoBehaviour
 
         timer += Time.deltaTime;
 
+        // --- 接続チェック (バグ修正済み) ---
         if (!WiimoteManager.HasWiimote())
         {
             if(!disconnected_log){
@@ -36,13 +38,21 @@ public class WiiCursorShot : MonoBehaviour
                 disconnected_log = true;
             }
             return;
-        }else if (WiimoteManager.Wiimotes.Count < controller_num + 1 && !disconnected_log){
+        }
+        // ★★★ 以前指摘したバグの修正箇所 ★★★
+        // 「&& !disconnected_log」 を削除し、コントローラーが足りない場合は
+        // ログの状態に関わらず、必ず return するように修正
+        else if (WiimoteManager.Wiimotes.Count < controller_num + 1)
+        {
             if(!disconnected_log){
                 Debug.LogError("Wii" + controller_num + "is not connected!");
                 disconnected_log = true;
             }
             return;
-        }else{
+        }
+        // --- 接続チェックここまで ---
+        else
+        {
             disconnected_log = false;
             wiimote = WiimoteManager.Wiimotes[controller_num];
 
@@ -53,6 +63,12 @@ public class WiiCursorShot : MonoBehaviour
             } while (ret > 0);
 
             float[] pointer = wiimote.Ir.GetPointingPosition();
+            
+            // IRデータのデバッグログ（一時的）
+            if (Time.frameCount % 60 == 0) // 60フレームに1回ログ出力
+            {
+                Debug.Log("IR pointer: [" + pointer[0] + ", " + pointer[1] + "]");
+            }
 
             RectTransform rt = GetComponent<RectTransform>();
             rt.anchorMin = new Vector2(pointer[0], pointer[1]);
@@ -61,8 +77,15 @@ public class WiiCursorShot : MonoBehaviour
 
             if (flag == 0)
             {
-                wiimote.SetupIRCamera(IRDataType.BASIC);
+                // IRカメラのセットアップをコルーチンで実行
+                StartCoroutine(SetupIRCameraWithDelay());
                 flag++;
+            }
+
+            // IRセットアップが完了するまで待機
+            if (!isIRSetupComplete)
+            {
+                return;
             }
 
 
@@ -100,9 +123,6 @@ public class WiiCursorShot : MonoBehaviour
                 //Debug.Log("弾の位置: " + bulletObj.transform.position);
             }
         }
-
-        
-        
     }
 
     private void OnApplicationQuit()
@@ -119,4 +139,60 @@ public class WiiCursorShot : MonoBehaviour
             wiimote.SendStatusInfoRequest(); // ステータスレポートを要求し、Rumbleを入力レポートにエンコードします
     }
 
+    IEnumerator SetupIRCameraWithDelay()
+{
+    Debug.Log("========== IRカメラセットアップ開始 ==========");
+    Debug.Log("コントローラー番号: " + controller_num);
+    Debug.Log("モーションプラス使用設定: " + (useMotionPlus ? "有効 (Wiiリモコンプラス)" : "無効 (通常のWiiリモコン)"));
+    
+    if (useMotionPlus)
+    {
+        // モーションプラス使用時の処理
+        Debug.Log(">> Wiiリモコンプラス用のセットアップを実行");
+        
+        // モーションプラスの識別を要求
+        Debug.Log(">> RequestIdentifyWiiMotionPlus() 呼び出し");
+        wiimote.RequestIdentifyWiiMotionPlus();
+        yield return new WaitForSeconds(0.5f);
+        
+        // ★★★★★ 修正箇所 ★★★★★
+        // データレポートモードを「ボタン＋加速度＋IR(12バイト)」に設定します。
+        // これによりモーションプラスが無効化され、IRデータが送信されるようになります。
+        Debug.Log(">> SendDataReportMode(REPORT_BUTTONS_ACCEL_IR12) 呼び出し");
+        wiimote.SendDataReportMode(InputDataType.REPORT_BUTTONS_ACCEL_IR12);
+        // ★★★★★ 修正ここまで ★★★★★
+        
+        yield return new WaitForSeconds(0.5f);
+    }
+    else
+    {
+        // 通常のWiiリモコンの処理
+        Debug.Log(">> 通常のWiiリモコン用のセットアップを実行");
+        yield return new WaitForSeconds(0.2f);
+    }
+    
+    // IRカメラをセットアップ (EXTENDED)
+    Debug.Log(">> SetupIRCamera(EXTENDED) 呼び出し");
+    bool result = wiimote.SetupIRCamera(IRDataType.EXTENDED);
+    Debug.Log(">> IRカメラセットアップ(EXTENDED)結果: " + (result ? "成功" : "失敗"));
+    
+    if (!result)
+    {
+        // EXTENDED で失敗した場合は BASIC を試す
+        Debug.Log(">> EXTENDED失敗、BASICモードで再試行");
+        yield return new WaitForSeconds(0.3f);
+        result = wiimote.SetupIRCamera(IRDataType.BASIC);
+        Debug.Log(">> IRカメラセットアップ(BASIC)結果: " + (result ? "成功" : "失敗"));
+    }
+    
+    yield return new WaitForSeconds(0.3f);
+    
+    // IRデータの初期確認
+    float[] testPointer = wiimote.Ir.GetPointingPosition();
+    Debug.Log(">> 初期IRテスト - 座標: [" + testPointer[0] + ", " + testPointer[1] + "]");
+    
+    // セットアップ完了フラグを立てる
+    isIRSetupComplete = true;
+    Debug.Log("========== IRカメラセットアップ完了 ==========");
+}
 }

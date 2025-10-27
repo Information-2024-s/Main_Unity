@@ -74,92 +74,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5370707042439082369}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7976447613420899826}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2619881733524998583}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3233550575012315712}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5079543896419387083}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1965541404203392522}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1511753519313768207}
   m_SourcePrefab: {fileID: 100100000, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
 --- !u!1 &8662188285073317097 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bc552592524f43f43a7760a2b9b03aa3, type: 3}
   m_PrefabInstance: {fileID: 8428257489771127224}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5370707042439082369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8662188285073317097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a156201520f756428bce900499c7e75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossEnemy
---- !u!114 &7976447613420899826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8662188285073317097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f00650b8f4963a45a7976265eba18c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Boss_HP_manager
-  maxHP: 30
-  scoreValue: 1000
-  breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
-  explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
-  breakEffectOffset: {x: 0, y: 0, z: 0}
---- !u!114 &2619881733524998583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8662188285073317097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 181b43221e172fd4e8eda2434fb7c0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3233550575012315712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8662188285073317097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28de86e60418ae346913e64bcc4f9a9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 10000000
-  scoreValue: 10
-  explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
-  damageSound: {fileID: 8300000, guid: 30fd221d91ddc594f9e334b8d205eaf9, type: 3}
-  breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
-  breakEffectOffset: {x: 0, y: 0, z: 0}
-  waitBeforeCharge_min: 5
-  waitBeforeCharge_max: 10
-  scorePenaltyOnCharge: 50
-  shakeDuration: 0.3
-  shakeMagnitude: 0.1
-  prepareDuration: 1
-  cancelEffectPrefab: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
-  cancelSound: {fileID: 8300000, guid: 4b33172db13274443bbe13ab905e2874, type: 3}
 --- !u!65 &5079543896419387083
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -181,3 +108,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5, y: 2.5, z: 2.0000002}
   m_Center: {x: 0.25, y: 0.25, z: -0.0000000027939677}
+--- !u!114 &-1965541404203392522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662188285073317097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34585622eba6a147be6d41742f11342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_chuboss
+  maxHP: 30
+  scoreValue: 1000
+  scoreValue_damaged: 30
+  explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
+  damageSound: {fileID: 8300000, guid: 30fd221d91ddc594f9e334b8d205eaf9, type: 3}
+  breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
+  breakEffectOffset: {x: 0, y: 0, z: 0}
+  waitBeforeCharge_min: 3
+  waitBeforeCharge_max: 5
+  scorePenaltyOnCharge: 50
+  shakeDuration: 0.3
+  shakeMagnitude: 0.1
+  prepareDuration: 2
+  prepareSound: {fileID: 8300000, guid: 2fb6c817b459802409c91d2768af65fc, type: 3}
+  cancelEffectPrefab: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
+  cancelSound: {fileID: 8300000, guid: 4b33172db13274443bbe13ab905e2874, type: 3}
+  chargeEffectPrefab: {fileID: 1945285629436616872, guid: 45163716f059fb041a98576b7d1282cd, type: 3}
+  chargeSound: {fileID: 0}
+  chargeEffectDuration: 0.3
+--- !u!114 &-1511753519313768207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8662188285073317097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181b43221e172fd4e8eda2434fb7c0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController

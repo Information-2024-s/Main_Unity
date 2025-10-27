@@ -33,10 +33,16 @@ public class Shot : MonoBehaviour
         {
             Enemy enemy = col.gameObject.GetComponent<Enemy>();
             BossEnemy bossEnemy = col.gameObject.GetComponent<BossEnemy>();
+            Enemy_chuboss chuboss = col.gameObject.GetComponent<Enemy_chuboss>();
             if (enemy != null)
             {
                 Debug.Log("Enemy Hit!");
                 enemy.TakeDamage(damage, player_num);
+            }
+            else if (chuboss != null)
+            {
+                Debug.Log("Chuboss Hit!");
+                chuboss.TakeDamage(damage, player_num);
             }
             else if (bossEnemy != null)
             {

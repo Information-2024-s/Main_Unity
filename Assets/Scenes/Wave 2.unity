@@ -270,10 +270,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 3
+  useMotionPlus: 0
   firePoint: {fileID: 1558285234}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
   power: 50
-  cooltime: 0.2
+  cooltime: 1
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &91005856
 MonoBehaviour:
@@ -2297,7 +2298,7 @@ MonoBehaviour:
       spawnPosition: {x: -10, y: 10, z: 1.5}
       spawnRotationEuler: {x: -88, y: -135, z: 90}
       movementType: 6
-      moveSpeed: 40
+      moveSpeed: 10
       moveDirection: {x: 0, y: 0, z: 0}
       zigzagAmplitude: 0
       zigzagFrequency: 0
@@ -2372,6 +2373,7 @@ MonoBehaviour:
   deltaDisplayDuration: 0.8
   deltaPositiveColor: {r: 1, g: 0.9, b: 0.2, a: 1}
   deltaNegativeColor: {r: 1, g: 0.2, b: 0.2, a: 1}
+  decreaseScoreSound: {fileID: 8300000, guid: d1101706d9d17724d89dcf935751e3bd, type: 3}
 --- !u!114 &478750636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2702,10 +2704,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 2
+  useMotionPlus: 0
   firePoint: {fileID: 1558285234}
   bullet: {fileID: 5137645440968469463, guid: 429c084736e9ad745b543caa55fcf0b6, type: 3}
   power: 50
-  cooltime: 0.2
+  cooltime: 1
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &889032724
 MonoBehaviour:
@@ -2793,10 +2796,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 1
+  useMotionPlus: 0
   firePoint: {fileID: 1558285234}
   bullet: {fileID: 5137645440968469463, guid: dd753e831c947c842b828f8ce9ef5c3d, type: 3}
   power: 50
-  cooltime: 0.2
+  cooltime: 1
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &1041214958
 MonoBehaviour:
@@ -2889,7 +2893,7 @@ MonoBehaviour:
   delaysBetweenTimers:
   - 3
   - 3
-  - 10
+  - 3
   timerText: {fileID: 1074122849}
   onWaitStart:
     m_PersistentCalls:
@@ -3131,15 +3135,15 @@ MonoBehaviour:
   - rankName: N
     minimumScore: 0
   - rankName: F
-    minimumScore: 800
+    minimumScore: 300
   - rankName: C
-    minimumScore: 1500
+    minimumScore: 800
   - rankName: B
-    minimumScore: 2000
+    minimumScore: 1200
   - rankName: A
-    minimumScore: 3000
+    minimumScore: 2000
   - rankName: S
-    minimumScore: 4000
+    minimumScore: 3500
   fadeInDuration: 1.5
   scoreCountUpDuration: 1.5
 --- !u!1 &1139251926
@@ -5061,10 +5065,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_num: 0
+  useMotionPlus: 0
   firePoint: {fileID: 1558285234}
   bullet: {fileID: 5137645440968469463, guid: 3017576d6d8c8ff41b0825109d3d02ff, type: 3}
   power: 50
-  cooltime: 0.2
+  cooltime: 1
   sound1: {fileID: 8300000, guid: e59150dd3c7357841aff0c32b44fd80b, type: 3}
 --- !u!114 &1797901601
 MonoBehaviour:
@@ -5437,10 +5442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
