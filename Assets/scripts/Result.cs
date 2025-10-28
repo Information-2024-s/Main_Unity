@@ -100,6 +100,8 @@ public class Result : MonoBehaviour
         // --- 表示直前にランクを更新（スコアは0で初期化） ---
         UpdateAllUIContents();
 
+
+
         // Safety: StartCoroutine を呼ぶ前にこのコンポーネントと GameObject が有効か確認する
         if (!this.isActiveAndEnabled || this.gameObject == null || !this.gameObject.activeInHierarchy)
         {

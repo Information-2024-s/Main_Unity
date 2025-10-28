@@ -12,9 +12,14 @@ using TMPro; // TextMesh Proの名前空間を追加
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    
+
+
+
     // Text型をTextMeshProUGUI型に変更
     public TextMeshProUGUI[] scoreText = new TextMeshProUGUI[4];
+
+    string[] stage_name = { "First", "Second", "Third" };
+
     
     [Header("スコア変動演出（±○○ の表示）")]
     [Tooltip("スコア変動時に『±○○』を表示するテキスト（各プレイヤー分）")]
@@ -31,8 +36,9 @@ public class ScoreManager : MonoBehaviour
     [Header("サウンド")]
     [Tooltip("スコア減少時に再生するサウンド")]
     public AudioClip decreaseScoreSound;
-    
+
     public static int[] scores = new int[4];
+    public static int[] patch_state = new int[4];
 
     // 内部管理用
     private Coroutine[] deltaCoroutines = new Coroutine[4];
@@ -49,9 +55,7 @@ public class ScoreManager : MonoBehaviour
     
     public class ScoreJson
     {
-        public int userId;
         public int score;
-        public int gameSessionId;
     }
 
     public void AddScore(int player, int amount)
@@ -104,14 +108,16 @@ public class ScoreManager : MonoBehaviour
         }
     }
     
-    public void send_score(int player_id, int score)
+    public void send_score()
     {
-        ScoreJson ScoreData = new ScoreJson();
-        ScoreData.userId = player_id;
-        ScoreData.score = score;
-        ScoreData.gameSessionId = 1;
-        string jsonstr = JsonUtility.ToJson(ScoreData);
-        StartCoroutine(Post(config_loader.config.DB_URL, config_loader.config.api_key, jsonstr));
+        for (int i = 0; i < player_manager.player_count; i++){
+            ScoreJson ScoreData = new ScoreJson();
+            string stage = stage_name[config_loader.config.stage];
+            ScoreData.score = scores[i];
+            string jsonstr = JsonUtility.ToJson(ScoreData);
+            string url = config_loader.config.DB_URL + "/api/tmpscores/" + player_manager.players_id[i] + "/" + stage;
+            StartCoroutine(patch_score(url, config_loader.config.api_key, jsonstr,i));  
+        }
     }
     
     private void UpdateScoreUI(int player)
@@ -189,9 +195,9 @@ public class ScoreManager : MonoBehaviour
         deltaCoroutines[player] = null;
     }
     
-    IEnumerator Post(string url, string api_key, string jsonstr)
+    IEnumerator patch_score(string url, string api_key, string jsonstr,int i)
     {
-        var request = new UnityWebRequest(url, "POST");
+        var request = new UnityWebRequest(url, "PATCH");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonstr);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -201,5 +207,13 @@ public class ScoreManager : MonoBehaviour
         yield return request.SendWebRequest();
 
         Debug.Log("Status Code: " + request.responseCode);
+        if (request.responseCode == 200)
+        {
+            patch_state[i] = 1;
+        }
+        else
+        {
+            patch_state[i] = -1;
+        }
     }
 }

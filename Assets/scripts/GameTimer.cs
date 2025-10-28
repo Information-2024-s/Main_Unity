@@ -4,6 +4,8 @@ using System.Collections.Generic; // Listを使うために必要
 using System.Collections; // コルーチンを使うために必要
 using UnityEngine.Events; // UnityEventを使うために必要
 using UnityEngine.SceneManagement;
+using System.Linq;
+
 
 public class GameTimer : MonoBehaviour
 {
@@ -171,8 +173,16 @@ public class GameTimer : MonoBehaviour
         // スコア表示処理をここに追加
         onTimerComplete.Invoke();
 
+        GetComponent<ScoreManager>().send_score();
+
         // 2. 10秒間待機する
         yield return new WaitForSeconds(10f);
+
+        while (ScoreManager.patch_state.Count(x => x != 0) != player_manager.player_count)
+        {
+            yield return null;
+        }
+        
 
         Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
         SceneManager.LoadScene("title_scene");

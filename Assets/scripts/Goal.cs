@@ -98,7 +98,7 @@ public class Goal : MonoBehaviour
 
         for (int i = 0; i < player_manager.player_count; i++)
         {
-            ScoreManager.instance.send_score(player_manager.players_id[i], results[i]);
+            //ScoreManager.instance.send_score(player_manager.players_id[i],"First", results[i]);
         }
 
         if (isFading && alfa <= 1f)
