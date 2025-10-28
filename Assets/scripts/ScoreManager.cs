@@ -7,7 +7,8 @@ using UnityEngine;
 // using UnityEngine.UI; // Textクラスは不要になるためコメントアウトまたは削除
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
-using TMPro; // TextMesh Proの名前空間を追加
+using TMPro;
+using System.Diagnostics; // TextMesh Proの名前空間を追加
 
 public class ScoreManager : MonoBehaviour
 {
@@ -55,12 +56,14 @@ public class ScoreManager : MonoBehaviour
     
     public class ScoreJson
     {
+        public int id;
+        public string stage;
         public int score;
     }
 
     public void AddScore(int player, int amount)
     {
-        Debug.Log(player);
+        UnityEngine.Debug.Log(player);
         scores[player] += amount;
         UpdateScoreUI(player);
 
@@ -79,7 +82,7 @@ public class ScoreManager : MonoBehaviour
             scores[player] = 0;
         }
         UpdateScoreUI(player);
-        Debug.Log($"Player {player} のスコアが {amount} 減少しました。現在のスコア: {scores[player]}");
+        UnityEngine.Debug.Log($"Player {player} のスコアが {amount} 減少しました。現在のスコア: {scores[player]}");
 
         // 減点演出（0 のときは表示しない）
         if (amount > 0)
@@ -112,11 +115,12 @@ public class ScoreManager : MonoBehaviour
     {
         for (int i = 0; i < player_manager.player_count; i++){
             ScoreJson ScoreData = new ScoreJson();
-            string stage = stage_name[config_loader.config.stage];
+            ScoreData.id = player_manager.players_id[i];
             ScoreData.score = scores[i];
+            ScoreData.stage = stage_name[config_loader.config.stage];
             string jsonstr = JsonUtility.ToJson(ScoreData);
-            string url = config_loader.config.DB_URL + "/api/tmpscores/" + player_manager.players_id[i] + "/" + stage;
-            StartCoroutine(patch_score(url, config_loader.config.api_key, jsonstr,i));  
+            string url = config_loader.config.DB_URL + "/api/tmpscores";
+            StartCoroutine(post_score(url, config_loader.config.api_key, jsonstr,i));  
         }
     }
     
@@ -124,7 +128,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            Debug.Log(player);
+            UnityEngine.Debug.Log(player);
             // TextMeshProUGUIでも .text プロパティでテキストを設定できるため、この行は変更不要
             scoreText[player].text = "" + scores[player];
         }
@@ -195,9 +199,9 @@ public class ScoreManager : MonoBehaviour
         deltaCoroutines[player] = null;
     }
     
-    IEnumerator patch_score(string url, string api_key, string jsonstr,int i)
+    IEnumerator post_score(string url, string api_key, string jsonstr,int i)
     {
-        var request = new UnityWebRequest(url, "PATCH");
+        var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonstr);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -206,14 +210,15 @@ public class ScoreManager : MonoBehaviour
 
         yield return request.SendWebRequest();
 
-        Debug.Log("Status Code: " + request.responseCode);
-        if (request.responseCode == 200)
+        UnityEngine.Debug.Log("Status Code: " + request.responseCode);
+        if (request.responseCode == 201)
         {
             patch_state[i] = 1;
         }
         else
         {
             patch_state[i] = -1;
+            UnityEngine.Debug.Log(request.error);
         }
     }
 }

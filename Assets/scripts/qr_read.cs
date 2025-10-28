@@ -90,7 +90,7 @@ public class QRCodeReader : MonoBehaviour
                     isCooldown = true;
                     Debug.Log("QRコード認識成功: " + result.Text);
                     
-                    ShowNextImage(); // 次の画像を表示する
+                    
                     
                     audioSource.PlayOneShot(player_add_sound, 1.0f);
                     
@@ -102,6 +102,7 @@ public class QRCodeReader : MonoBehaviour
                         Debug.Log("正常な値を読み取りました");
                         if (!Array.Exists(player_manager.players_id, x => x == player_id))
                         {
+                            ShowNextImage(); // 次の画像を表示する
                             player_manager.add_player(player_id);
                         }
                     }

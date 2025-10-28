@@ -42,6 +42,8 @@ public class Result : MonoBehaviour
     [Tooltip("スコアが0から最終値までカウントアップするのにかかる時間（秒）")]
     [SerializeField] private float scoreCountUpDuration = 1.5f;
 
+
+
     private void Awake()
     {
         if (instance == null)

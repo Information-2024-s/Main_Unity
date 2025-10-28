@@ -43,6 +43,10 @@ public class GameTimer : MonoBehaviour
     [Range(0.1f, 10f)]
     [SerializeField] private float blinkSpeed = 3f;
 
+    [Header("エラーダイアログ")]
+    [Tooltip("エラーダイアログの画像のオブbジェクトを選択")]
+    [SerializeField] private GameObject error_dialog;
+
     // 内部: 警告点滅管理
     private Coroutine blinkCoroutine;
     private Color originalColor;
@@ -178,14 +182,25 @@ public class GameTimer : MonoBehaviour
         // 2. 10秒間待機する
         yield return new WaitForSeconds(10f);
 
+        //スコア送信が全部終わるまで待ち
         while (ScoreManager.patch_state.Count(x => x != 0) != player_manager.player_count)
         {
             yield return null;
         }
+
+        if (ScoreManager.patch_state.Sum() == player_manager.player_count)
+        {
+            Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
+            SceneManager.LoadScene("title_scene");
+        }
+        else
+        {
+            Debug.Log("スコア送信に失敗しました。");
+            error_dialog.SetActive(true);
+        }
         
 
-        Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
-        SceneManager.LoadScene("title_scene");
+
     }
 
     /// <summary>
