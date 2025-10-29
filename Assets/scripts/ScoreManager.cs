@@ -236,34 +236,28 @@ public class ScoreManager : MonoBehaviour
         for (int i = 0; i < scores.Length; i++)
         {
             scores[i] = 0;
-            patch_state[i] = 0; // 送信状態もリセット
+            // patch_state[i] = 0; // ← この行を削除（またはコメントアウト）
             
             // スコアUIを更新 (UIがセットされていれば)
             if (scoreText != null && i < scoreText.Length && scoreText[i] != null)
             {
-                // UIを念のため表示状態にする
                 scoreText[i].gameObject.SetActive(true); 
                 UpdateScoreUI(i);
             }
         }
+        
+        // ... (スコア変動演出の停止処理はそのまま) ...
+    }
 
-        // 実行中の可能性のあるスコア変動演出（±）を停止・非表示にする
-        for (int i = 0; i < scoreDeltaText.Length; i++)
+    /// <summary>
+    /// 【追加】patch_state のみ初期化する public static メソッド
+    /// </summary>
+    public static void InitializePatchState()
+    {
+        UnityEngine.Debug.Log("Initializing patch_state to 0.");
+        for (int i = 0; i < patch_state.Length; i++)
         {
-            if (deltaCoroutines[i] != null)
-            {
-                StopCoroutine(deltaCoroutines[i]);
-                deltaCoroutines[i] = null;
-            }
-            if (scoreDeltaText[i] != null)
-            {
-                // 初期位置に戻して非表示に
-                if(deltaPosInitialized[i])
-                {
-                    scoreDeltaText[i].rectTransform.anchoredPosition = deltaInitialAnchoredPos[i];
-                }
-                scoreDeltaText[i].gameObject.SetActive(false);
-            }
+            patch_state[i] = 0;
         }
     }
 }

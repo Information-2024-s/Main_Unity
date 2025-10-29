@@ -8,10 +8,13 @@ public class DetectKeyboard : MonoBehaviour
     void Start()
     {
         titleVideoController = GetComponent<TitleVideoController>();
-        if(titleVideoController == null)
+        if (titleVideoController == null)
         {
             Debug.LogWarning("TitleVideoController がアタッチされていません");
         }
+        
+        // プレイヤー情報をタイトルで初期化　まったく関係ない処理でごめんなさい
+        ScoreManager.InitializePatchState();
     }
     void Update()
     {
