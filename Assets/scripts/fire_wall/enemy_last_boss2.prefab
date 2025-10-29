@@ -105,8 +105,8 @@ MonoBehaviour:
   damageSound: {fileID: 0}
   breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
   breakEffectOffset: {x: 0, y: 0, z: 0}
-  waitBeforeCharge_min: 5
-  waitBeforeCharge_max: 5
+  waitBeforeCharge_min: 3
+  waitBeforeCharge_max: 3
   scorePenaltyOnCharge: 50
   shakeDuration: 0.3
   shakeMagnitude: 0.1
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde2c66f851921a4e920bda9875e09b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectangleWidth: 10
-  rectangleHeight: 5
-  sideDuration: 1
+  rectangleWidth: 5
+  rectangleHeight: 4
+  sideDuration: 0.5
   initialDirection: 3

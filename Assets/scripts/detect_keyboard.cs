@@ -17,9 +17,9 @@ public class DetectKeyboard : MonoBehaviour
     {
 
         // 任意のキーが押されているか
-        if (Input.anyKey)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("any key pressed");
+            Debug.Log("Return key pressed");
             titleVideoController.transion_to_qr();
         }
     }

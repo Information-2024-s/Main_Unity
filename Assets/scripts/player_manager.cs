@@ -9,7 +9,7 @@ public class player_manager : MonoBehaviour
     public TextMeshProUGUI [] player_state = new TextMeshProUGUI [4];
     void Start()
     {
-
+        player_count = 0;
     }
 
     void Update()

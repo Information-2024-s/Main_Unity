@@ -300,13 +300,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnList:
   - prefabToSpawn: {fileID: 4556800067345648348, guid: bcc0f3dd54b22cd48909704eeadcce23, type: 3}
-    spawnPosition: {x: 4.5, y: 8, z: 0}
+    spawnPosition: {x: 4.5, y: 6, z: -3}
   - prefabToSpawn: {fileID: 1269563044526145786, guid: d5638abae38faea47a0d2d2b8b8d25e6, type: 3}
-    spawnPosition: {x: 4.5, y: 8, z: 0}
+    spawnPosition: {x: 4.5, y: 6, z: -3}
   - prefabToSpawn: {fileID: 7622873724621726509, guid: 62209e1c3b9aa814a81f88bda4419446, type: 3}
-    spawnPosition: {x: 4.5, y: 8, z: 0}
+    spawnPosition: {x: 4.5, y: 6, z: -3}
   - prefabToSpawn: {fileID: 9126901273475964204, guid: 285e5a94c844b234686f23e97c43b4f9, type: 3}
-    spawnPosition: {x: 4.5, y: 8, z: 0}
+    spawnPosition: {x: 4.5, y: 6, z: -3}
 --- !u!95 &7807681655490701971
 Animator:
   serializedVersion: 7

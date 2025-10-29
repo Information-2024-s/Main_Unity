@@ -239,11 +239,17 @@ public class EnemySpawnManager : MonoBehaviour
     {
         // "Enemy" というタグが付いている全てのゲームオブジェクトを配列として取得
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        // "monitor"タグも同様に削除
+        GameObject[] monitors = GameObject.FindGameObjectsWithTag("monitor");
 
         // 見つかった全ての敵をループ処理で削除
         foreach (GameObject enemy in enemies)
         {
             Destroy(enemy);
+        }
+        foreach (GameObject monitor in monitors)
+        {
+            Destroy(monitor);
         }
 
         // 削除した敵の数をコンソールに表示（確認用）

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde2c66f851921a4e920bda9875e09b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectangleWidth: 15
-  rectangleHeight: 7
+  rectangleWidth: 10
+  rectangleHeight: 4
   sideDuration: 1
   initialDirection: 0

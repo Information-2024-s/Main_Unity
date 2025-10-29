@@ -53,6 +53,12 @@ public class ScoreManager : MonoBehaviour
             instance = this;
         }
     }
+
+    private void Start()
+    {
+        // シーンが開始されるたびにスコアを初期化する
+        InitializeScores();
+    }
     
     public class ScoreJson
     {
@@ -198,8 +204,8 @@ public class ScoreManager : MonoBehaviour
         label.gameObject.SetActive(false);
         deltaCoroutines[player] = null;
     }
-    
-    IEnumerator post_score(string url, string api_key, string jsonstr,int i)
+
+    IEnumerator post_score(string url, string api_key, string jsonstr, int i)
     {
         var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonstr);
@@ -219,6 +225,45 @@ public class ScoreManager : MonoBehaviour
         {
             patch_state[i] = -1;
             UnityEngine.Debug.Log(request.error);
+        }
+    }
+    
+    public void InitializeScores()
+    {
+        UnityEngine.Debug.Log("Initializing all player scores to 0.");
+
+        // スコアと送信状態をリセット
+        for (int i = 0; i < scores.Length; i++)
+        {
+            scores[i] = 0;
+            patch_state[i] = 0; // 送信状態もリセット
+            
+            // スコアUIを更新 (UIがセットされていれば)
+            if (scoreText != null && i < scoreText.Length && scoreText[i] != null)
+            {
+                // UIを念のため表示状態にする
+                scoreText[i].gameObject.SetActive(true); 
+                UpdateScoreUI(i);
+            }
+        }
+
+        // 実行中の可能性のあるスコア変動演出（±）を停止・非表示にする
+        for (int i = 0; i < scoreDeltaText.Length; i++)
+        {
+            if (deltaCoroutines[i] != null)
+            {
+                StopCoroutine(deltaCoroutines[i]);
+                deltaCoroutines[i] = null;
+            }
+            if (scoreDeltaText[i] != null)
+            {
+                // 初期位置に戻して非表示に
+                if(deltaPosInitialized[i])
+                {
+                    scoreDeltaText[i].rectTransform.anchoredPosition = deltaInitialAnchoredPos[i];
+                }
+                scoreDeltaText[i].gameObject.SetActive(false);
+            }
         }
     }
 }

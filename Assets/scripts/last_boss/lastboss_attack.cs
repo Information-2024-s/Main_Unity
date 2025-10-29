@@ -5,6 +5,10 @@ using System.Linq;
 
 public class Lastboss_Attack : MonoBehaviour
 {
+    [Header("攻撃フェーズの設定")]
+    [Tooltip("この時間（秒）が経過すると、ボスは新しい攻撃をしなくなります")]
+    public float totalAttackDuration = 108f; // 例: 108秒間攻撃を続ける
+
     [Header("点滅攻撃の設定")]
     public float blinkingAttackInterval = 10f;
     public Texture2D changeTexture;
@@ -50,6 +54,8 @@ public class Lastboss_Attack : MonoBehaviour
     {
         InvokeRepeating("TryStartBlinkingAttack", 5f, blinkingAttackInterval);
         InvokeRepeating("TryStartInvincibleAttack", 10f, invincibleAttackInterval);
+
+        Invoke("StopAllAttacks", totalAttackDuration);
     }
 
     public void TryStartBlinkingAttack()
@@ -235,6 +241,55 @@ public class Lastboss_Attack : MonoBehaviour
     public bool IsSpecialAttackTarget(TargetObject target)
     {
         return activeMonitors.Contains(target);
+    }
+
+    public void StopAllAttacks()
+    {
+        Debug.Log("ボスの攻撃フェーズが終了。全ての攻撃を停止します。");
+
+        // 1. InvokeRepeating での新規の攻撃発生を停止
+        CancelInvoke("TryStartBlinkingAttack");
+        CancelInvoke("TryStartInvincibleAttack");
+
+        // 2. 現在実行中の攻撃（コルーチン）をすべて停止・復元
+        //    辞書をコピーしてループします（ループ内で元の辞書を変更するため）
+        List<TargetObject> targetsToStop = runningAttacks.Keys.ToList();
+
+        foreach (TargetObject target in targetsToStop)
+        {
+            // ターゲットが（破壊などで）既に null (破棄済み) でないかチェック
+            if (target != null) 
+            {
+                if (runningAttacks.TryGetValue(target, out AttackInfo info))
+                {
+                    if (info.coroutine != null)
+                    {
+                        // 実行中のコルーチンを停止
+                        StopCoroutine(info.coroutine);
+                    }
+                    
+                    Renderer renderer = target.GetComponent<Renderer>();
+                    if (renderer != null && renderer.material != null)
+                    {
+                        Material material = renderer.material;
+                        // テクスチャや状態を元に戻す
+                        RestoreTexture(target, material, info);
+                    }
+                    else
+                    {
+                        // レンダラーがない場合でも、管理リストからは削除する
+                        activeMonitors.Remove(target);
+                        blinkingHitCounts.Remove(target);
+                        runningAttacks.Remove(target);
+                    }
+                }
+            }
+        }
+        
+        // 強制停止なので、リストに残骸が残らないように全てクリアします
+        runningAttacks.Clear();
+        activeMonitors.Clear();
+        blinkingHitCounts.Clear();
     }
 
     private enum AttackType { Blinking, Invincible }
