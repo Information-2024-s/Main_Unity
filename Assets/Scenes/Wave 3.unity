@@ -4276,6 +4276,7 @@ GameObject:
   - component: {fileID: 1284006146}
   - component: {fileID: 1284006147}
   - component: {fileID: 1284006148}
+  - component: {fileID: 1284006149}
   m_Layer: 0
   m_Name: 'Manager '
   m_TagString: Untagged
@@ -4626,7 +4627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimitsInSeconds:
-  - 105
+  - 1
   delaysBetweenTimers:
   - 3
   - 3
@@ -4791,6 +4792,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d8e35c750a2e648a5913fe9313eeee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Emergency
+--- !u!114 &1284006149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284006141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a49a529cfec5b443911cc4457750b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::battery_sender
 --- !u!1 &1331463008
 GameObject:
   m_ObjectHideFlags: 0

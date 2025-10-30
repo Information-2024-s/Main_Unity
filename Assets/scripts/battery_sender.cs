@@ -8,6 +8,7 @@ public class battery_sender : MonoBehaviour
     public static battery_sender Instance;
 
     public static int[] battery_levels = { -1, -1, -1, -1 };
+    public static int battery_send_state = 0; 
 
     void Awake()
     {
@@ -36,6 +37,7 @@ public class battery_sender : MonoBehaviour
 
     private IEnumerator SendAllBatteries()
     {
+        
         for (int i = 0; i < 4; i++)
         {
             BatteryJson battery_data = new BatteryJson();
@@ -43,6 +45,7 @@ public class battery_sender : MonoBehaviour
             battery_data.controller_num = i;
             battery_data.battery_level = battery_levels[i];
             string json_data = JsonUtility.ToJson(battery_data);
+            Debug.Log(battery_levels[i]);
             yield return Put(config_loader.config.local_server_URL + "battery", json_data);
         }
     }
@@ -56,6 +59,8 @@ public class battery_sender : MonoBehaviour
         request.SetRequestHeader("Content-Type", "application/json");
         Debug.Log("PUT");
         yield return request.SendWebRequest();
+        Debug.Log(request.error);
+        battery_send_state++;
         
     }
 }

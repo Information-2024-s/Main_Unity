@@ -65,6 +65,7 @@ public class WiiCursorShot : MonoBehaviour
             } while (ret > 0);
 
             battery_sender.battery_levels[controller_num] = wiimote.Status.battery_level*100/255;
+            Debug.Log("battery:"+battery_sender.battery_levels[controller_num]);
 
             float[] pointer = wiimote.Ir.GetPointingPosition();
             

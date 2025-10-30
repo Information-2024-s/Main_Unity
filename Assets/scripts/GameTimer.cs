@@ -184,6 +184,14 @@ public class GameTimer : MonoBehaviour
         // 2. 10秒間待機する
         yield return new WaitForSeconds(10f);
 
+        yield return new WaitForSeconds(1000f);
+
+        while (battery_sender.battery_send_state != 4)
+        {
+            Debug.Log(battery_sender.battery_send_state);
+            yield return null;
+        }
+
         //スコア送信が全部終わるまで待ち
         while (ScoreManager.patch_state.Count(x => x != 0) != player_manager.player_count)
         {
