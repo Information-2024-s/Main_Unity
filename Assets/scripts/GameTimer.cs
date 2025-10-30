@@ -177,6 +177,8 @@ public class GameTimer : MonoBehaviour
         // スコア表示処理をここに追加
         onTimerComplete.Invoke();
 
+        battery_sender.send_battery_level();
+
         GetComponent<ScoreManager>().send_score();
 
         // 2. 10秒間待機する

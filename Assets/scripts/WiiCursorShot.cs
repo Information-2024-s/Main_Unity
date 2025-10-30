@@ -36,6 +36,7 @@ public class WiiCursorShot : MonoBehaviour
             if(!disconnected_log){
                 Debug.LogError("Wii is not connected!");
                 disconnected_log = true;
+                battery_sender.battery_levels[controller_num] = -1;
             }
             return;
         }
@@ -47,6 +48,7 @@ public class WiiCursorShot : MonoBehaviour
             if(!disconnected_log){
                 Debug.LogError("Wii" + controller_num + "is not connected!");
                 disconnected_log = true;
+                battery_sender.battery_levels[controller_num] = -1;
             }
             return;
         }
@@ -61,6 +63,8 @@ public class WiiCursorShot : MonoBehaviour
             {
                 ret = wiimote.ReadWiimoteData();
             } while (ret > 0);
+
+            battery_sender.battery_levels[controller_num] = wiimote.Status.battery_level*100/255;
 
             float[] pointer = wiimote.Ir.GetPointingPosition();
             
