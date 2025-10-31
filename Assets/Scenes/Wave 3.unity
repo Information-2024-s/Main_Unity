@@ -6557,7 +6557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f00650b8f4963a45a7976265eba18c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss_HP_manager
-  maxHP: 30
+  maxHP: 1
   scoreValue: 1000
   breakEffect: {fileID: 215235371791981097, guid: 7f21a3bdec767bc45a964ded4b5ca256, type: 3}
   explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
