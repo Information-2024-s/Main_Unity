@@ -30,6 +30,8 @@ public class QRCodeReader : MonoBehaviour
 
     void Start()
     {
+        currentImageIndex = 0;
+        
         audioSource = GetComponent<AudioSource>();
         player_manager = UnityEngine.Object.FindFirstObjectByType<player_manager>();
 

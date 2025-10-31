@@ -10,6 +10,12 @@ public class player_manager : MonoBehaviour
     void Start()
     {
         player_count = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            players_id[i] = 0;
+            player_state[i].text = "";
+        }
+        Debug.Log("リセットしたよーーー");
     }
 
     void Update()
