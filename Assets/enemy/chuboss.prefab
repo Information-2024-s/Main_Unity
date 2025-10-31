@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_chuboss
   maxHP: 30
-  scoreValue: 1000
+  scoreValue: 500
   scoreValue_damaged: 30
   explodeSound: {fileID: 8300000, guid: 08709652efc9f1740aa923a7bf7dbbc3, type: 3}
   damageSound: {fileID: 8300000, guid: 30fd221d91ddc594f9e334b8d205eaf9, type: 3}
@@ -129,10 +129,10 @@ MonoBehaviour:
   breakEffectOffset: {x: 0, y: 0, z: 0}
   waitBeforeCharge_min: 3
   waitBeforeCharge_max: 5
-  scorePenaltyOnCharge: 50
+  scorePenaltyOnCharge: 100
   shakeDuration: 0.3
   shakeMagnitude: 0.1
-  prepareDuration: 2
+  prepareDuration: 1
   prepareSound: {fileID: 8300000, guid: 2fb6c817b459802409c91d2768af65fc, type: 3}
   cancelEffectPrefab: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
   cancelSound: {fileID: 8300000, guid: 4b33172db13274443bbe13ab905e2874, type: 3}

@@ -40,6 +40,10 @@ public class LastBoss : MonoBehaviour
     [Tooltip("ホワイトアウト完了時にスカイボックスを切り替えるか")]
     [SerializeField] private bool changeSkyboxOnWhiteoutComplete = true;
 
+    [Header("イベント")]
+    [Tooltip("ホワイトアウトが開始した時に呼び出されます。")]
+    public UnityEvent onWhiteoutStart;
+
     // --- ここから追加 ---
     [Header("イベント")]
     [Tooltip("ホワイトアウトが完了した時に呼び出されます。")]
@@ -95,6 +99,10 @@ public class LastBoss : MonoBehaviour
         {
             StopCoroutine(currentEffectCoroutine);
         }
+
+        Debug.Log("ホワイトアウト開始イベントを実行します。");
+        onWhiteoutStart.Invoke();
+        
         currentEffectCoroutine = StartCoroutine(DoFade(1f, true)); // ターゲットアルファを1に
     }
 
@@ -187,6 +195,29 @@ public class LastBoss : MonoBehaviour
             }
 
             yield return new WaitForSeconds(10f);
+
+            while (battery_sender.battery_send_state != 4)
+        {
+            Debug.Log(battery_sender.battery_send_state);
+            yield return null;
+        }
+
+        //スコア送信が全部終わるまで待ち
+        while (ScoreManager.patch_state.Count(x => x != 0) != player_manager.player_count)
+        {
+            yield return null;
+        }
+
+        if (ScoreManager.patch_state.Sum() == player_manager.player_count)
+        {
+            Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
+            SceneManager.LoadScene("title_scene");
+        }
+        else
+        {
+            Debug.Log("スコア送信に失敗しました。");
+            error_dialog.SetActive(true);
+        }
 
             Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
             SceneManager.LoadScene("title_scene");

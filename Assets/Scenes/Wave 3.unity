@@ -3778,7 +3778,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 43ab8f72451895d45b02fea27ab8c1c1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4515,6 +4515,33 @@ MonoBehaviour:
   noiseFader: {fileID: 1248872343}
   skyboxAfterBossDefeated: {fileID: 2100000, guid: 3e5399bd195de7649b874f58c1b9f8a3, type: 2}
   changeSkyboxOnWhiteoutComplete: 1
+  onWhiteoutStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1284006143}
+        m_TargetAssemblyTypeName: EnemySpawnManager, Assembly-CSharp
+        m_MethodName: StopAllCoroutines
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1284006143}
+        m_TargetAssemblyTypeName: EnemySpawnManager, Assembly-CSharp
+        m_MethodName: DestroyAllEnemies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onWhiteoutComplete:
     m_PersistentCalls:
       m_Calls:
@@ -4627,7 +4654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimitsInSeconds:
-  - 1
+  - 105
   delaysBetweenTimers:
   - 3
   - 3
@@ -5294,7 +5321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2580364ddeed26d49812ebefebc287b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInvulnerable: 1
+  isInvulnerable: 0
   invulnerableHitSound: {fileID: 0}
   blinkCancelSound: {fileID: 8300000, guid: 4b33172db13274443bbe13ab905e2874, type: 3}
   normalDamageSound: {fileID: 8300000, guid: 30fd221d91ddc594f9e334b8d205eaf9, type: 3}

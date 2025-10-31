@@ -184,8 +184,6 @@ public class GameTimer : MonoBehaviour
         // 2. 10秒間待機する
         yield return new WaitForSeconds(10f);
 
-        yield return new WaitForSeconds(1000f);
-
         while (battery_sender.battery_send_state != 4)
         {
             Debug.Log(battery_sender.battery_send_state);

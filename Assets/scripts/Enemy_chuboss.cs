@@ -230,6 +230,9 @@ public class Enemy_chuboss : MonoBehaviour
 
         OnDeath?.Invoke(); // 死亡イベントを呼び出す
 
+        // ホワイトアウトを開始
+        LastBoss.Instance?.FadeToWhite();
+
         float waitTime = 0f; // 待機時間
 
         if (explodeSound != null)

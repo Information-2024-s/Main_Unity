@@ -126,8 +126,8 @@ MonoBehaviour:
   breakEffect: {fileID: 2876240211998377775, guid: 8e6971e9f997dda49b2a5e0edff9f17e, type: 3}
   breakEffectOffset: {x: 0, y: 0, z: 0}
   waitBeforeCharge_min: 5
-  waitBeforeCharge_max: 8
-  scorePenaltyOnCharge: 10
+  waitBeforeCharge_max: 5
+  scorePenaltyOnCharge: 50
   shakeDuration: 0.3
   shakeMagnitude: 0.1
   prepareDuration: 2
