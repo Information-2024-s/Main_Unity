@@ -11,6 +11,10 @@ public class player_manager : MonoBehaviour
     void Start()
     {
         player_count = 0;
+        foreach (int i in players_id){
+            UnityEngine.Debug.Log(i);
+        }
+        
     }
 
     void Update()
