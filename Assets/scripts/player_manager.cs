@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using TMPro; 
 using System.Linq;
+using System.Diagnostics;
 public class player_manager : MonoBehaviour
 {
     public static int[] players_id = new int[4];
@@ -10,6 +11,11 @@ public class player_manager : MonoBehaviour
     void Awake()
     {
         player_count = 0;
+
+        foreach (int i in players_id){
+            UnityEngine.Debug.Log(i);
+        }
+        
         for (int i = 0; i < 4; i++)
         {
             players_id[i] = 0;
