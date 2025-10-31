@@ -24,7 +24,6 @@ public class player_manager : MonoBehaviour
                 player_state[i].text = "";
             }
         }
-        Debug.Log("player_managerがAwake()でリセットされました。");
     }
 
     void Update()
