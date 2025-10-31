@@ -199,32 +199,35 @@ public class LastBoss : MonoBehaviour
             }
 
             yield return new WaitForSeconds(10f);
+            Debug.Log("ここまではおわってるよー");
 
             while (battery_sender.battery_send_state != 4)
-        {
-            Debug.Log(battery_sender.battery_send_state);
-            yield return null;
-        }
+            {
+                Debug.Log(battery_sender.battery_send_state);
+                Debug.Log("バッテリー送られてるよー");
+                yield return null;
+            }
 
-        //スコア送信が全部終わるまで待ち
-        while (ScoreManager.patch_state.Count(x => x != 0) != player_manager.player_count)
-        {
-            yield return null;
-        }
+            //スコア送信が全部終わるまで待ち
+            while (ScoreManager.patch_state.Count(x => x != 0) != player_manager.player_count)
+            {
+                Debug.Log("ちょっと待ってねー");
+                yield return null;
+            }
 
-        if (ScoreManager.patch_state.Sum() == player_manager.player_count)
-        {
-            Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
-            SceneManager.LoadScene("title_scene");
-        }
-        else
-        {
-            Debug.Log("スコア送信に失敗しました。");
-            error_dialog.SetActive(true);
-        }
+            if (ScoreManager.patch_state.Sum() == player_manager.player_count)
+            {
+                Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
+                SceneManager.LoadScene("title_scene");
+            }
+            else
+            {
+                Debug.Log("スコア送信に失敗しました。");
+                error_dialog.SetActive(true);
+            }
 
-            Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
-            SceneManager.LoadScene("title_scene");
+                Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
+                SceneManager.LoadScene("title_scene");
         }
         else
         {
