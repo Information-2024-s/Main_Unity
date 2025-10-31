@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.Events; // UnityEventを使うために必要
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,9 @@ public class LastBoss : MonoBehaviour
 
     [Tooltip("表示するリザルト画面のResultスクリプト")]
     [SerializeField] private Result resultScreen;
+
+    [Tooltip("スコア送信失敗時に表示するエラーダイアログ")]
+    [SerializeField] private GameObject error_dialog; 
 
     [Header("UI設定")]
     [Tooltip("ホワイトアウトに使用するUIのCanvasGroup")]

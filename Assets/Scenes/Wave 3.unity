@@ -4508,6 +4508,7 @@ MonoBehaviour:
   - {fileID: 1284006143}
   - {fileID: 1284006146}
   resultScreen: {fileID: 277951716}
+  error_dialog: {fileID: 108490367}
   whiteoutCanvasGroup: {fileID: 1248872340}
   textCanvasGroup: {fileID: 1397680777}
   fadeDuration: 3

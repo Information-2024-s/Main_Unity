@@ -2720,6 +2720,7 @@ MonoBehaviour:
   scriptsToPause:
   - {fileID: 478750636}
   resultScreen: {fileID: 1102728578}
+  error_dialog: {fileID: 1396071383}
   whiteoutCanvasGroup: {fileID: 1537266733}
   textCanvasGroup: {fileID: 139366002}
   fadeDuration: 0.5
