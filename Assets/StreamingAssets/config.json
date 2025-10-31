@@ -1,6 +1,6 @@
 {
     "stage":2,
-    "camera_num":0,
+    "camera_num":1,
     "local_server_URL":"http://10.22.240.165:5000/",
     "DB_URL":"https://koyofes.nittc-i24.tech",
     "api_key":"l7U2eA0/Y629WhjgJt2SC2McxMChN/f/EwBh/7G6cTM=",

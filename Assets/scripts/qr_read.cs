@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.Diagnostics;
 
 public class QRCodeReader : MonoBehaviour
 {
@@ -40,12 +41,12 @@ public class QRCodeReader : MonoBehaviour
         }
         else
         {
-            Debug.LogError("カメラがありません！");
+            UnityEngine.Debug.LogError("カメラがありません！");
             return;
         }
         if (rawImage == null)
         {
-            Debug.LogError("rawImage がセットされていません！");
+            UnityEngine.Debug.LogError("rawImage がセットされていません！");
             return;
         }
         rawImage.texture = webcamTexture;
@@ -88,7 +89,7 @@ public class QRCodeReader : MonoBehaviour
                 if (result != null)
                 {
                     isCooldown = true;
-                    Debug.Log("QRコード認識成功: " + result.Text);
+                    UnityEngine.Debug.Log("QRコード認識成功: " + result.Text);
                     
                     
                     
@@ -99,7 +100,7 @@ public class QRCodeReader : MonoBehaviour
                     // (プレイヤー追加ロジック ... 既存のコードのまま)
                     if (int.TryParse(result.Text, out int player_id))
                     {
-                        Debug.Log("正常な値を読み取りました");
+                        UnityEngine.Debug.Log("正常な値を読み取りました");
                         if (!Array.Exists(player_manager.players_id, x => x == player_id))
                         {
                             ShowNextImage(); // 次の画像を表示する
@@ -108,7 +109,7 @@ public class QRCodeReader : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogWarning("QRコードの内容が数字ではありません: " + result.Text);
+                        UnityEngine.Debug.LogWarning("QRコードの内容が数字ではありません: " + result.Text);
                     }
                 }
 
@@ -130,7 +131,7 @@ public class QRCodeReader : MonoBehaviour
         // 表示する画像のリストが設定されているか確認
         if (imagesToActivate == null || imagesToActivate.Count == 0)
         {
-            Debug.LogWarning("imagesToActivateリストが空です。");
+            UnityEngine.Debug.LogWarning("imagesToActivateリストが空です。");
             return;
         }
 
@@ -143,11 +144,11 @@ public class QRCodeReader : MonoBehaviour
             {
                 // ★★★ ここが変更点: Instantiate の代わりに SetActive(true) ★★★
                 imageToShow.SetActive(true);
-                Debug.Log($"画像 '{imageToShow.name}' を表示しました。");
+                UnityEngine.Debug.Log($"画像 '{imageToShow.name}' を表示しました。");
             }
             else
             {
-                Debug.LogWarning($"imagesToActivateのElement {currentImageIndex} にNullが設定されています。");
+                UnityEngine.Debug.LogWarning($"imagesToActivateのElement {currentImageIndex} にNullが設定されています。");
             }
             
             // 次の画像表示インデックスに進める
@@ -156,7 +157,7 @@ public class QRCodeReader : MonoBehaviour
         else
         {
             // 全ての画像を表示し終わった場合の処理
-            Debug.Log("全ての画像を表示し終わりました。");
+            UnityEngine.Debug.Log("全ての画像を表示し終わりました。");
             // (特に何もしない)
         }
     }
@@ -170,13 +171,16 @@ public class QRCodeReader : MonoBehaviour
         isCooldown = false;
         // (画像を非表示に戻す処理は、リクエストになかったためここにはありません)
     }
-    
+
     public void stop_webcam()
     {
-        if (webcamTexture != null && webcamTexture.isPlaying)
-        {
-            webcamTexture.Stop();
-            webcamTexture = null;
-        }
+        UnityEngine.Debug.Log("web cam stop");
+        webcamTexture.Stop();
+        webcamTexture = null;
+
+    }
+    private void OnApplicationQuit()
+    {
+        stop_webcam();
     }
 }
