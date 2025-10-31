@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using TMPro; 
 using System.Linq;
+using System.Diagnostics;
 public class player_manager : MonoBehaviour
 {
     public static int[] players_id = new int[4];
