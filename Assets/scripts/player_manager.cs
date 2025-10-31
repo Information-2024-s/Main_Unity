@@ -7,15 +7,18 @@ public class player_manager : MonoBehaviour
     public static int[] players_id = new int[4];
     public static int player_count = 0;
     public TextMeshProUGUI [] player_state = new TextMeshProUGUI [4];
-    void Start()
+    void Awake()
     {
         player_count = 0;
         for (int i = 0; i < 4; i++)
         {
             players_id[i] = 0;
-            player_state[i].text = "";
+            if (player_state[i] != null) // (念のためNullチェック)
+            {
+                player_state[i].text = "";
+            }
         }
-        Debug.Log("リセットしたよーーー");
+        Debug.Log("player_managerがAwake()でリセットされました。");
     }
 
     void Update()
