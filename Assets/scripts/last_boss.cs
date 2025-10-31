@@ -198,12 +198,17 @@ public class LastBoss : MonoBehaviour
                 resultScreen.StartFadeIn();
             }
 
+            battery_sender.send_battery_level();
+
+            GetComponent<ScoreManager>().send_score();
+
             yield return new WaitForSeconds(10f);
             Debug.Log("ここまではおわってるよー");
+            Debug.Log("battery_send_state"+battery_sender.battery_send_state);
 
             while (battery_sender.battery_send_state != 4)
             {
-                Debug.Log(battery_sender.battery_send_state);
+                Debug.Log("battery_send_state"+battery_sender.battery_send_state);
                 Debug.Log("バッテリー送られてるよー");
                 yield return null;
             }
@@ -225,9 +230,6 @@ public class LastBoss : MonoBehaviour
                 Debug.Log("スコア送信に失敗しました。");
                 error_dialog.SetActive(true);
             }
-
-                Debug.Log("スコア表示終了。タイトルシーンへ戻ります。");
-                SceneManager.LoadScene("title_scene");
         }
         else
         {
