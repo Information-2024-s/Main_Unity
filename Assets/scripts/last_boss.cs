@@ -206,7 +206,7 @@ public class LastBoss : MonoBehaviour
             Debug.Log("ここまではおわってるよー");
             Debug.Log("battery_send_state"+battery_sender.battery_send_state);
 
-            while (battery_sender.battery_send_state != 4)
+            while (battery_sender.battery_send_state < 4)
             {
                 Debug.Log("battery_send_state"+battery_sender.battery_send_state);
                 Debug.Log("バッテリー送られてるよー");

@@ -185,7 +185,7 @@ public class GameTimer : MonoBehaviour
         yield return new WaitForSeconds(10f);
         Debug.Log("battery_send_state"+battery_sender.battery_send_state);
 
-        while (battery_sender.battery_send_state != 4)
+        while (battery_sender.battery_send_state < 4)
         {
             Debug.Log("battery_send_state"+battery_sender.battery_send_state);
             yield return null;

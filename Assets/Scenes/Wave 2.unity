@@ -914,6 +914,7 @@ GameObject:
   - component: {fileID: 478750636}
   - component: {fileID: 478750637}
   - component: {fileID: 478750638}
+  - component: {fileID: 478750639}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2830,6 +2831,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &478750639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478750632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a49a529cfec5b443911cc4457750b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::battery_sender
 --- !u!1 &655814257
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,9 +12,12 @@ public class DetectKeyboard : MonoBehaviour
         {
             Debug.LogWarning("TitleVideoController がアタッチされていません");
         }
-        
+
         // プレイヤー情報をタイトルで初期化　まったく関係ない処理でごめんなさい
         ScoreManager.InitializePatchState();
+        // バッテリー情報もリセット
+        battery_sender.battery_send_state = 0;
+        Debug.Log("初期化したよーーーーーーー19018191719813");
     }
     void Update()
     {
